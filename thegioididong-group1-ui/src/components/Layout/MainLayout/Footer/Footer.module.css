@@ -1,6 +1,143 @@
 .footer {
-   clear: both;
-   border-top: 1px solid #e2e2e2;
-   margin-top: 35px;
-   background: #fff;
+    clear: both;
+    border-top: 1px solid #e2e2e2;
+    margin-top: 35px;
+    background: #fff;
+}
+
+.clearfix:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+.footer__top {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 15px 0 5px;
+}
+
+.footer__col {
+    float: left;
+    width: 24%;
+}
+
+.footer__col:nth-child(3) {
+    width: 23%;
+}
+
+.footer__col:nth-child(4) {
+    width: 29%;
+}
+
+.footer__list li {
+    margin-bottom: 10px;
+}
+
+.footer__list li a {
+    color: #333;
+    line-height: 21px;
+}
+.footer__list .arrow {
+    position: relative;
+}
+
+.footer__list .arrow::before {
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #333;
+    content: '';
+    position: absolute;
+    top: 7px;
+    right: -15px;
+}
+
+.hidden {
+    display: none;
+}
+
+.footer__list .display__item {
+    display: list-item;
+}
+
+.footer__social {
+    margin-bottom: 20px;
+}
+
+.footer__social .f__link__social {
+    margin-right: 15px;
+}
+
+.footer__social .f__link__social .f__social__icon {
+    margin-right: 5px;
+    height: 18px;
+    width: 18px;
+}
+
+.f__social__icon.youtube__icon {
+    border-radius: 50%;
+    color: red;
+}
+
+.f__certify {
+    margin-bottom: 20px;
+}
+
+.f__certify .f__certify__link {
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.icon__congthuong {
+    height: 24px;
+    width: 79px;
+}
+
+.icon__khieunai {
+    width: 25px;
+    height: 25px;
+}
+
+.icon__dmcaprotected {
+    height: 24px;
+    width: 122px;
+}
+
+.icon__tinnhiem {
+    width: 85px;
+}
+
+.f__website {
+}
+
+.website__logo {
+    background-color: #fff;
+}
+
+.website__text {
+    color: #222;
+    font-size: 14px;
+    line-height: 21px;
+}
+
+.website__list {
+    font-size: 0;
+    margin-top: 15px;
+}
+
+.weblist__item {
+    float: left;
+    width: 80px;
+    margin: 0 7px 8px 0;
+}
+
+.webitem__link {
+    display: block;
+}
+
+.webitem__img {
+    width: 80px;
+    height: 24px;
 }
