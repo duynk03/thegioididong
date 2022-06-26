@@ -1,7 +1,9 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './product.scss';
-
+import sliderImg from "../../assets/slider.png"
+import sliderImgTop from "../../assets/top.png"
+import sliderImgBot from "../../assets/bot.png"
 import React from "react";
 import Slider from "react-slick";
 
@@ -14,28 +16,50 @@ export default function Product() {
     slidesToScroll: 1
   };
   return (
-    <div className="product-slider">
-        <div  className="left-slider">
-            <Slider className="Abc" {...settings}>
-                <div className="container">
-                    <a href="#" className="slide-product-1">
-                    </a>
+    <div>
+        <div className="product-slider">
+            <div  className="left-slider">
+                <Slider className="left-content" {...settings}>
+                    <div className="container-img">
+                        <img src={sliderImg} />
+                        {/* <div> Image 1 </div> */}
+                    </div>
+                    <div className="container-img">
+                        <img src={sliderImg} />
+                        {/* <div> Image 2 </div> */}
+                    </div>
+                    <div className="container-img">
+                        <img src={sliderImg} />
+                        {/* <div> Image 3 </div> */}
+                    </div>
+                    <div className="container-img">
+                        <img src={sliderImg} />
+                        {/* <div> Image 4 </div> */}
+                    </div>
+                    <div className="container-img">
+                        <img src={sliderImg} />
+                        {/* <div> Image 5 </div> */}
+                    </div>
+                </Slider>
+            </div>
+            <div className="right-slider">
+                <div className="suggest-item-top">
+                    <img className="img-top" src={sliderImgTop} />
                 </div>
-                <div className="container">
-                    <a href="#" className="slide-product-2">
-                    </a>
+                <div className="suggest-item-bot">
+                <img className="img-bot" src={sliderImgBot} />
                 </div>
-                <div className="container">
-                    <a href="#" className="slide-product-3">
-                    </a>
-                </div>
-            </Slider>
+            </div>
         </div>
-        <div className="right-slider">
-            <div className="suggest-item-top">
-            </div>
-            <div className="suggest-item-bot">
-            </div>
+        <div className="session-filter">
+            <h1>
+                This is session filter products
+            </h1>
+        </div>
+        <div className="session-category">
+            <h1>
+                This is session category products
+            </h1>
         </div>
     </div>
   );
