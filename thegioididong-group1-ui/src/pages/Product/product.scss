@@ -1,7 +1,5 @@
-
-.main__container{
-    background-color: lightblue;
-    .product-slider{
+.main__container {
+    .product-slider {
         top: 0;
         left: 0;
         right: 0;
@@ -11,13 +9,11 @@
         display: flex;
         //cursor: pointer;
 
-        .left-slider{
+        .left-slider {
             width: 60%;
             height: 100%;
             margin: 15px 0 15px 5%;
 
-                    
-        
             .slick-slide img {
                 margin: auto;
                 width: 100%;
@@ -25,7 +21,7 @@
                 cursor: pointer;
             }
 
-            .slick-prev{
+            .slick-prev {
                 border: 1px solid #d6d6d6 !important;
                 // position: relative !important;
                 left: 7px !important;
@@ -35,18 +31,19 @@
                 border-radius: 3px !important;
                 background: #e2e2e2 !important; //#d7d7d7
 
-                &:hover{
+                &:hover {
                     background: #fff !important;
                 }
             }
 
-            .slick-prev:before, .slick-next:before {
+            .slick-prev:before,
+            .slick-next:before {
                 //content: "<" !important;
                 color: green;
                 transform: rotate(-135deg);
             }
 
-            .slick-next{
+            .slick-next {
                 border: 1px solid #e2e2e2 !important;
                 right: 7px !important;
                 width: 30px !important;
@@ -54,12 +51,12 @@
                 border-radius: 3px !important;
                 background: #d6d6d6 !important;
 
-                &:hover{
+                &:hover {
                     background: #fff !important;
                 }
             }
 
-            .slick-dots{
+            .slick-dots {
                 top: 210px !important;
             }
 
@@ -71,31 +68,31 @@
                 color: white;
             }
 
-            .container-img{
+            .container-img {
                 height: 240px;
                 border: 1px solid blue;
             }
         }
-    
-        .right-slider{
+
+        .right-slider {
             width: 40%;
             height: 100%;
             margin: 15px 5% 0 10px;
             display: table;
             cursor: pointer;
-                
-            .suggest-item-top{
+
+            .suggest-item-top {
                 height: 126px;
 
-                .img-top{
+                .img-top {
                     height: 90%;
                     width: 100%;
                 }
             }
-            .suggest-item-bot{
+            .suggest-item-bot {
                 height: 126px;
 
-                .img-bot{
+                .img-bot {
                     height: 90%;
                     width: 100%;
                 }
@@ -103,17 +100,25 @@
         }
     }
 
-    .session-filter{
+    .session-filter {
         height: 110px;
         margin: 0 5%;
         background-color: lightgreen;
 
-        .filter-item{
+        .filter-item {
             display: flex;
 
-
-            .filter, .manufacturer, .price, .type-of-products, .performance-battery, .ram,
-            .internal-memory, .camera, .special-features, .design, .screen{
+            .filter,
+            .manufacturer,
+            .price,
+            .type-of-products,
+            .performance-battery,
+            .ram,
+            .internal-memory,
+            .camera,
+            .special-features,
+            .design,
+            .screen {
                 width: fit-content;
                 height: fit-content;
                 padding: 10px;
@@ -126,12 +131,19 @@
             }
         }
 
-        .quick-access-brand{
+        .quick-access-brand {
             margin-top: 15px;
             display: flex;
-            
-            .logo-iphone, .logo-samsung, .logo-oppo, .logo-xiaomi, .logo-vivo, 
-            .logo-realme, .logo-nokia, .logo-itel, .logo-masstel{
+
+            .logo-iphone,
+            .logo-samsung,
+            .logo-oppo,
+            .logo-xiaomi,
+            .logo-vivo,
+            .logo-realme,
+            .logo-nokia,
+            .logo-itel,
+            .logo-masstel {
                 display: flex;
                 border-radius: 30px;
                 align-items: center;
@@ -139,37 +151,49 @@
                 background-color: #fff;
                 border: 1px solid yellow;
                 width: fit-content;
-                height: fit-content;  
-                margin-right: 10px;    
+                height: fit-content;
+                margin-right: 10px;
             }
-            .iPhone, .samsung, .oppo, .xiaomi, .vivo, .realme, .nokia, .itel, .masstel{
+            .iPhone,
+            .samsung,
+            .oppo,
+            .xiaomi,
+            .vivo,
+            .realme,
+            .nokia,
+            .itel,
+            .masstel {
                 padding: 3px 17px;
 
-                img{
+                img {
                     width: 85px;
                     height: 25px;
                 }
-            } 
+            }
         }
     }
 
-    .session-category{
+    .session-category {
         height: 500px;
         margin: 0 5%;
         background-color: orange;
         // display: flex;
-        
-        .sort-container{
+
+        .sort-container {
             background-color: green;
             display: flex;
             width: 100%;
             height: 50px;
             align-items: baseline;
 
-            .checkbox-sort{
+            .checkbox-sort {
                 display: flex;
-                
-                .box-fast-delivery, .box-discount, .box-installment, .box-unique, .box-new{
+
+                .box-fast-delivery,
+                .box-discount,
+                .box-installment,
+                .box-unique,
+                .box-new {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -179,28 +203,31 @@
                     background-color: #fff;
                     border-radius: 5px;
 
-                    input{
+                    input {
                         width: 15px;
                         height: 15px;
                     }
-                    i{
+                    i {
                         font-size: 17px;
                     }
 
-                    .fast-delivery, .discount, .installment, .unique, .new{
+                    .fast-delivery,
+                    .discount,
+                    .installment,
+                    .unique,
+                    .new {
                         padding: 5px;
                     }
                 }
             }
 
-            .select-sort{
+            .select-sort {
                 display: flex;
                 background-color: #fff;
                 padding: 5px;
                 border-radius: 5px;
                 position: absolute;
                 right: 8%;
-
             }
         }
     }
