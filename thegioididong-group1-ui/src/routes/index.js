@@ -1,8 +1,11 @@
 import { CartLayout } from '~/components/Layout';
 import Home from '~/pages/Home';
 import NotFound404 from '~/pages/NotFound404';
-import Phone from '~/pages/Phone';
-import Product from '~/pages/Product';
+import Phone from '~/pages/Products/Phone';
+import ProductLayout from '~/components/Layout/ProductLayout';
+import Smartwatch from '~/pages/Products/Smartwatch';
+import Tablet from '~/pages/Products/Tablet';
+import Laptop from '~/pages/Products/Laptop';
 
 const publicRoutes = [
     {
@@ -18,8 +21,20 @@ const publicRoutes = [
         component: Phone,
     },
     {
-        path: '/product',
-        component: Product,
+        path: '/laptop',
+        component: Laptop,
+    },
+    {
+        path: '/tablet',
+        component: Tablet,
+    },
+    {
+        path: '/smartwatch',
+        component: Smartwatch,
+    },
+    {
+        path: '/test',
+        component: ProductLayout,
     },
     {
         path: '/cart',
