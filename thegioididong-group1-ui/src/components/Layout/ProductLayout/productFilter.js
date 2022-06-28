@@ -1,101 +1,33 @@
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import './product.scss';
-import iPhoneLogo from "../../assets/iphone.png"
-import samsungLogo from "../../assets/samsung.png"
-import oppoLogo from "../../assets/oppo.jpg"
-import xiaomiLogo from "../../assets/xiaomi.png"
-import vivoLogo from "../../assets/vivo.png"
-import realmeLogo from "../../assets/realme.png"
-import nokiaLogo from "../../assets/nokia.jpg"
-import itelLogo from "../../assets//itel.jpg"
-import masstelLogo from "../../assets/masstel.png"
-import sliderImg from "../../assets/slider.png"
-import sliderImgTop from "../../assets/top.png"
-import sliderImgBot from "../../assets/bot.png"
+import iPhoneLogo from "../../../assets/iphone.png";
+import samsungLogo from "../../../assets/samsung.png";
+import oppoLogo from "../../../assets/oppo.jpg";
+import xiaomiLogo from "../../../assets/xiaomi.png";
+import vivoLogo from "../../../assets/vivo.png";
+import realmeLogo from "../../../assets/realme.png";
+import nokiaLogo from "../../../assets/nokia.jpg";
+import itelLogo from "../../../assets//itel.jpg";
+import masstelLogo from "../../../assets/masstel.png";
 import React from "react";
-import Slider from "react-slick";
+import "./productFilter.scss";
 
-export default function Product() {
-  let settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1
-  };
-  return (
-    <div>
 
-        {/* 
-            product slider include 2 parts:
-                + left is slide and right.
-                + right is suggestion brands.
-        */}
+export default function Filter(){
 
-        <div className="product-slider">
-            <div  className="left-slider">
-                <Slider className="left-content" {...settings}>
-                    <div className="container-img">
-                        <a href="#">
-                            <img src={sliderImg} />
-                        </a>
-                        {/* <div> Image 1 </div> */}
-                    </div>
-                    <div className="container-img">
-                        <a href="#">
-                            <img src={sliderImg} />
-                        </a>
-                        {/* <div> Image 2 </div> */}
-                    </div>
-                    <div className="container-img">
-                        <a href="#">
-                            <img src={sliderImg} />
-                        </a>
-                        {/* <div> Image 3 </div> */}
-                    </div>
-                    <div className="container-img">
-                        <a href="#">
-                            <img src={sliderImg} />
-                        </a>
-                        {/* <div> Image 4 </div> */}
-                    </div>
-                    <div className="container-img">
-                        <a href="#">
-                            <img src={sliderImg} />
-                        </a>
-                        {/* <div> Image 5 </div> */}
-                    </div>
-                </Slider>
-            </div>
-            <div className="right-slider">
-                <div className="suggest-item-top">
-                    <a href="#">
-                        <img className="img-top" src={sliderImgTop} />
-                    </a>
-                </div>
-                <div className="suggest-item-bot">
-                    <a href="#">
-                        <img className="img-bot" src={sliderImgBot} />
-                    </a>
-                </div>
-            </div>
-        </div>
+    {/* 
+        filter about the products 
+            + filter by brand
+            + filter by price
+            + filter by type of phone
+            + filter by performance and battery
+            + filter by RAM
+            + filter by ROM (Internal memory)
+            + filter by Camera
+            + filter by special features
+            + filter by design
+            + filter by screen
+    */}
 
-        {/* 
-            filter about the products 
-                + filter by brand
-                + filter by price
-                + filter by type of phone
-                + filter by performance and battery
-                + filter by RAM
-                + filter by ROM (Internal memory)
-                + filter by Camera
-                + filter by special features
-                + filter by design
-                + filter by screen
-        */}
-
+    return(
         <div className="session-filter">
             <div className="scroll-container">
                 <div className="filter-total">
@@ -151,6 +83,7 @@ export default function Product() {
                                 <img 
                                     // className="iPhone"
                                     src={iPhoneLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -159,6 +92,7 @@ export default function Product() {
                                 <img 
                                     // className="samsung"
                                     src={samsungLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -167,6 +101,7 @@ export default function Product() {
                                 <img 
                                     // className="oppo"
                                     src={oppoLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -175,6 +110,7 @@ export default function Product() {
                                 <img 
                                     // className="xiaomi"
                                     src={xiaomiLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -183,6 +119,7 @@ export default function Product() {
                                 <img 
                                     // className="vivo"
                                     src={vivoLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -191,6 +128,7 @@ export default function Product() {
                                 <img 
                                     // className="realme"
                                     src={realmeLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -199,6 +137,7 @@ export default function Product() {
                                 <img 
                                     // className="nokia"
                                     src={nokiaLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -207,6 +146,7 @@ export default function Product() {
                                 <img 
                                     // className="itel"
                                     src={itelLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -215,6 +155,7 @@ export default function Product() {
                                 <img 
                                     // className="masstel"
                                     src={masstelLogo}
+                                    alt=""
                                 />                                    
                             </a>
                         </div>
@@ -222,68 +163,5 @@ export default function Product() {
                 </div>
             </div>
         </div>
-
-        {/* category of products */}
-
-        <div className="session-category">
-            <div className="sort-container">
-                <div className="box-sort">
-                    <p className="sort-total">
-                        <b>
-                            90
-                            <span>
-                                &nbsp;Điện thoại
-                            </span>
-                        </b>
-                    </p>
-                </div>
-                <div className="checkbox-sort">
-                    <div className="box-fast-delivery">
-                        <a className="fast-delivery" href="#">
-                            <input type="checkbox" /> &nbsp;
-                            <i className="fa fa-bolt"></i>
-                            <span>&nbsp;GIAO NHANH</span>
-                        </a>
-                    </div>
-                    <div className="box-discount">
-                        <a className="discount" href="#">
-                            <input type="checkbox" />
-                            <span>&nbsp;Giảm giá</span>
-                        </a>
-                    </div>
-                    <div className="box-installment">
-                        <a className="installment" href="#">
-                            <input type="checkbox" />
-                            <span>&nbsp;Góp 0%</span>
-                        </a>
-                    </div>
-                    <div className="box-unique">
-                        <a className="unique" href="#">
-                            <input type="checkbox" />
-                            <span>&nbsp;Độc quyền</span>
-                        </a>
-                    </div>
-                    <div className="box-new">
-                        <a className="new" href="#">
-                            <input type="checkbox" />
-                            <span>&nbsp;Mới</span>
-                        </a>
-                    </div>
-                </div>
-                <div className="select-sort">
-                    <p className="sort-content">Xếp theo:&nbsp;</p>
-                    <div className="sort-select-active">
-                        <span>Nổi bật&nbsp;</span>
-                        <i className="fa fa-caret-down"></i>
-                    </div>
-                </div>
-            </div>
-            <div className="show-all-products">
-                <h1>
-                    There are all products
-                </h1>
-            </div>
-        </div>
-    </div>
-  );
+    );
 }

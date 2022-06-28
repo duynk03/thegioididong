@@ -1,0 +1,47 @@
+.session-filter{
+    height: 110px;
+    margin: 0 5%;
+    // background-color: lightgreen;
+    cursor: pointer;
+
+    .filter-item{
+        display: flex;
+
+
+        .filter, .manufacturer, .price, .type-of-products, .performance-battery, .ram,
+        .internal-memory, .camera, .special-features, .design, .screen{
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            margin-right: 10px;
+        }
+    }
+
+    .quick-access-brand{
+        margin-top: 15px;
+        display: flex;
+        
+        .logo-iphone, .logo-samsung, .logo-oppo, .logo-xiaomi, .logo-vivo, 
+        .logo-realme, .logo-nokia, .logo-itel, .logo-masstel{
+            display: flex;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border: 2px solid #e0e0e0;
+            margin-right: 10px;    
+        }
+        .iPhone, .samsung, .oppo, .xiaomi, .vivo, .realme, .nokia, .itel, .masstel{
+            padding: 3px 17px;
+
+            img{
+                width: 85px;
+                height: 20px;
+            }
+        } 
+    }
+}
