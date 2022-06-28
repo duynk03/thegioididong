@@ -107,6 +107,7 @@
         height: 110px;
         margin: 0 5%;
         background-color: lightgreen;
+        cursor: pointer;
 
         .filter-item{
             display: flex;
@@ -114,8 +115,6 @@
 
             .filter, .manufacturer, .price, .type-of-products, .performance-battery, .ram,
             .internal-memory, .camera, .special-features, .design, .screen{
-                width: fit-content;
-                height: fit-content;
                 padding: 10px;
                 border-radius: 5px;
                 display: flex;
@@ -138,8 +137,6 @@
                 justify-content: center;
                 background-color: #fff;
                 border: 1px solid yellow;
-                width: fit-content;
-                height: fit-content;  
                 margin-right: 10px;    
             }
             .iPhone, .samsung, .oppo, .xiaomi, .vivo, .realme, .nokia, .itel, .masstel{
@@ -154,7 +151,7 @@
     }
 
     .session-category{
-        height: 500px;
+        height: fit-content; // or 1500px
         margin: 0 5%;
         background-color: orange;
         // display: flex;
@@ -173,8 +170,6 @@
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    width: fit-content;
-                    height: fit-content;
                     margin-left: 20px;
                     background-color: #fff;
                     border-radius: 5px;
@@ -201,6 +196,149 @@
                 position: absolute;
                 right: 8%;
 
+            }
+        }
+
+        .show-all-products{
+            background-color: gray;
+            display: flex;
+
+            .list-product{
+                width: 100%;
+                display: grid;
+                grid-auto-rows: minmax(min-content,max-content);
+                grid-template-columns: repeat(5,minmax(0, 1fr));
+                border-left: 1px solid blue; //#f1f1f1
+                border-top: 1px solid blue;
+
+                li{
+                    height: 450px;
+                    border-bottom: 1px solid yellow !important; //#f3f3f3
+                    border-right: 1px solid yellow !important;
+                    padding: 5px;
+                }
+
+                .list-item{
+
+                    .item-container{
+
+                        .item-label{
+                            
+                            .label-content{
+                                background-color: #fff;
+                                border-radius: 3px;
+                                font-size: 11px;
+                                display: flex;
+                                align-items: center;
+                                padding: 2px;
+                                width: fit-content;
+                            }
+                        }
+
+                        .item-content{
+                            height: 225px;
+                            position: relative;
+                            margin: 10px 0;
+                            display: block;
+
+                            .item-element{
+                                height: 100%;
+                                // position: relative;
+                                // margin: 10px 0;
+                                // display: block;
+                                // overflow: hidden;
+                            }
+                            
+                            img{
+                                transition: all 300ms ease-in-out;
+                            }
+                        }
+
+                        h3{
+                            display: -webkit-box;
+                            color:#fff;
+                            line-height: 20px;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            margin-bottom: 5px;
+                            -webkit-box-orient: vertical;
+                            -webkit-line-clamp: 2;
+                        }
+                        
+                        .product-group{
+
+                            .product-memory{
+
+                                .memory-item{
+                                    width: auto; //fit content
+                                    height: auto; //fit content
+                                    padding: 5px 8px !important;
+                                    border: 1px solid #e0e0e0 !important;
+                                    border-radius: 2px;
+                                    color: white; //#333
+                                    display: inline-flex !important;
+                                    font-size: 12px;
+                                    line-height: 16px;
+                                    margin-bottom: 5px;
+                                    margin-right: 4px;
+                                }
+                            }
+                        }
+
+                        .box-old-price{
+
+                            .old-price{
+                                color: white; //#666
+                                display: inline-block;
+                                line-height: 17px;
+                                text-decoration-line: line-through;
+                            }
+
+                            .discount-percent{
+                                color: white; //#333
+                                display: inline-block;
+                                line-height: 17px;
+                            }
+                        }
+
+                        .new-price{
+                            color: white; //#222
+                            display: block;
+                            font-size: 16px;
+                            line-height: 18px;
+                            margin: 5px auto;
+                        }
+
+                        .rating{
+                            margin-bottom: 5px;
+                            display: flex;
+                            background-color: darkgray;
+
+                            .star-rating{
+                                font-size: 16px;
+                                display: flex;
+                                
+                                .star{
+                                    color: yellow;
+                                    background-position: -205px -60px; 
+                                }
+
+                                .star-dark{
+                                    background-position: -225px -60px; 
+                                }
+                            }
+
+                            .total-rating{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                color: white; //#333
+                                font-size: 12px;
+                                
+                            }
+                        }
+                    }
+                }
             }
         }
     }
