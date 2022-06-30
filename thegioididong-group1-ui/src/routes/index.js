@@ -3,7 +3,7 @@ import Home from '~/pages/Home';
 import NotFound404 from '~/pages/NotFound404';
 import Phone from '~/pages/Phone';
 import Product from '~/pages/Product';
-
+import Cart from '~/pages/Cart';
 const publicRoutes = [
     {
         path: '/',
@@ -23,7 +23,7 @@ const publicRoutes = [
     },
     {
         path: '/cart',
-        component: Phone,
+        component: Cart,
         layout: CartLayout,
     },
 ];
