@@ -1,5 +1,5 @@
 import React from "react";
-import productImg from "../../../assets/image1.jpg";
+import productImg from "~/assets/image1.jpg";
 import "./productShowAll.scss";
 export default function ShowAll (){
 

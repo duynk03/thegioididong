@@ -1,18 +1,22 @@
 import React from "react";
-import Filter from '../../../components/Layout/ProductLayout/productFilter';
-import ShowAll from '../../../components/Layout/ProductLayout/productShowAll';
-import Sliders from '../../../components/Layout/ProductLayout/productSlider';
-import Sort from '../../../components/Layout/ProductLayout/productSort';
+import FilterLaptop from '~/components/Layout/ProductLayout/laptopFilter';
+// import ShowAll from '~/components/Layout/ProductLayout/productShowAll';
+import Sliders from '~/components/Layout/ProductLayout/productSlider';
+import MenuLaptop from '~/components/Layout/ProductLayout/laptopMenu';
+import ShockDeal from "~/components/Layout/ProductLayout/productShockDeal";
+// import Sort from '~/components/Layout/ProductLayout/productSort';
 
 export default function Laptop(){
     return(
         <div>
             <Sliders />
-            <Filter />
-            <div className="session-category">
-                <Sort />
-                <ShowAll />
-            </div>
+            <FilterLaptop />
+            <MenuLaptop />
+            <ShockDeal />
+            {/* <div className="session-category"> */}
+                {/* <Sort /> */}
+                {/* <ShowAll /> */}
+            {/* </div> */}
         </div>
     );
 }

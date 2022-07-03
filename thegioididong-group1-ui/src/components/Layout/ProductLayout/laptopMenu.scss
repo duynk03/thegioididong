@@ -1,0 +1,45 @@
+.menu-laptop{
+    left: 0;
+    // position: fixed;
+    top: 0;
+    // z-index: 1;
+    right: 0;
+    // background-color: #222;
+    margin: 0 5%;
+    height: 100px;
+
+    .menu-container{
+        display: grid;
+        grid-auto-rows: minmax(min-content,max-content);
+        grid-template-columns: repeat(8,minmax(0,1fr));
+        width: 92%;
+        margin: auto;
+
+        .nav-item{
+            width: auto;
+            text-align: center;
+            // border: 1px solid yellow;
+            i{
+                font-size: 40px;
+            }
+            span{
+                color: #000;
+            }
+
+            .hot-deal, .gaming, .macbook, .study-office, 
+            .graphics-engineer, .thin-light, .luxury, .software{
+                background-color: green;   //#fff;
+                width: 60px;
+                height: 60px;
+                border-radius: 50%;
+                color: black !important;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin: 0 auto;
+                margin-bottom: 5px;
+            }
+
+        }
+    }
+}

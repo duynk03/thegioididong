@@ -1,0 +1,89 @@
+.deal-container{
+    background-color: black;
+    height: 100vh;
+
+    .deal-shock{
+        width: 90%;
+        height: 90px;
+        background-color: #ffa400 !important;
+        margin: 0 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('../../../assets/deal-image.png') center center no-repeat;
+    
+        .deal-link{
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: 600;
+            position: relative;
+            
+
+            .first-deal-content{
+                margin-right: 5px;
+                color: #ff0020;
+            }
+            .second-deal-content{
+                color: #fff;
+            }
+        }
+    }
+    
+    .deal-show{
+        display: block;
+        margin: 0 5%;
+
+        .show-dealing{
+            background-color: #ffa400;
+            width: 100%;
+            padding: 0 10px;
+
+            .slick-slide img {
+                margin: auto;
+                width: 100%;
+                height: 100%;
+                cursor: pointer;
+            }
+
+            .slick-prev{
+                border: 1px solid #d6d6d6 !important;
+                left: 0 !important;
+                z-index: 1000 !important;
+                width: 30px !important;
+                height: 65px !important;
+                border-radius: 3px !important;
+                background: #e2e2e2 !important; 
+    
+                &:hover{
+                    background: #fff !important;
+                }
+            }
+    
+            .slick-prev:before, .slick-next:before {
+                color: green;
+                transform: rotate(-135deg);
+            }
+    
+            .slick-next{
+                border: 1px solid #e2e2e2 !important;
+                right: 0 !important;
+                width: 30px !important;
+                height: 65px !important;
+                border-radius: 3px !important;
+                background: #d6d6d6 !important;
+    
+                &:hover{
+                    background: #fff !important;
+                }
+            }
+
+            .deal-img{
+                padding: 0 5px;
+            }
+        }
+    }
+}
