@@ -1,5 +1,5 @@
 import React from "react";
-import Filter from './productFilter';
+import Filter from './phoneFilter';
 import ShowAll from './productShowAll';
 import Sliders from './productSlider';
 import Sort from './productSort';

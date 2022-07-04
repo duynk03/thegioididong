@@ -1,9 +1,9 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./productSlider.scss";
-import sliderImg from "../../../assets/slider.png";
-import sliderImgTop from "../../../assets/top.png";
-import sliderImgBot from "../../../assets/bot.png";
+import sliderImg from "~/assets/slider.png";
+import sliderImgTop from "~/assets/top.png";
+import sliderImgBot from "~/assets/bot.png";
 import React from "react";
 import Slider from "react-slick";
 
@@ -18,10 +18,6 @@ export default function Sliders (){
     };
 
     return (
-
-        // product slider include 2 parts:
-        //     + left is slide and right.
-        //     + right is suggestion brands.
         
         <div className="product-slider">
             <div  className="left-slider">

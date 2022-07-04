@@ -22,7 +22,7 @@ export default function Sort (){
                 <div className="box-fast-delivery">
                     <a className="fast-delivery" href="#">
                         <input type="checkbox" /> &nbsp;
-                        <i className="fa fa-bolt"></i>
+                        <i className="fas fa-bolt"></i>
                         <span><b>&nbsp;GIAO NHANH</b></span>
                     </a>
                 </div>
