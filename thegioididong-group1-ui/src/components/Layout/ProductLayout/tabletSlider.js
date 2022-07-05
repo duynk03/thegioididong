@@ -4,7 +4,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import styles from './Product.module.scss';
 import './productSlider.scss';
-export default function Sliders (){
+export default function TabletSlider (){
 
     let settings = {
         dots: true,
@@ -21,17 +21,16 @@ export default function Sliders (){
 
     
     const sliderImg = [
-        'https://cdn.tgdd.vn/2022/06/banner/18-aseri-800-200-800x200.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-175.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-185.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-172.png',
-        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-29.png',
-        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-4.png',
-        'https://cdn.tgdd.vn/2022/06/banner/18-realme-800-200-800x200.png',
-        'https://cdn.tgdd.vn/2022/07/banner/18-s22-800-200-800x200.png'
+        'https://cdn.tgdd.vn/2022/07/banner/18-tab-800-200-800x200-1.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-135.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-173.png',
+        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-5.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-174.png',
+        'https://cdn.tgdd.vn/2022/07/banner/18-mastel-800-200-800x200.png',
+        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-3.png'
     ];
-    const topImg = 'https://cdn.tgdd.vn/2022/06/banner/Sticky-390x97-1.png';
-    const botImg = 'https://cdn.tgdd.vn/2022/05/banner/sticky-a95-390-97-390x97.png';
+    const topImg = 'https://cdn.tgdd.vn/2022/07/banner/sticky-huaweit10-390-97-390x97.png';
+    const botImg = 'https://cdn.tgdd.vn/2022/06/banner/sticky-tab-8-390-97-copy-5-390x97.png';
 
     return (
         

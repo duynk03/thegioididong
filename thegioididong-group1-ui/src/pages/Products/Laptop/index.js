@@ -1,22 +1,33 @@
 import React from "react";
-import FilterLaptop from '~/components/Layout/ProductLayout/laptopFilter';
-// import ShowAll from '~/components/Layout/ProductLayout/productShowAll';
-import Sliders from '~/components/Layout/ProductLayout/productSlider';
-import MenuLaptop from '~/components/Layout/ProductLayout/laptopMenu';
-import ShockDeal from "~/components/Layout/ProductLayout/productShockDeal";
-// import Sort from '~/components/Layout/ProductLayout/productSort';
+import LaptopSlider from "~/pages/Products/Laptop/laptopSlider";
+import FilterLaptop from '~/pages/Products/Laptop/laptopFilter';
+import MenuLaptop from '~/pages/Products/Laptop/laptopMenu';
+import LaptopDeal from "~/pages/Products/Laptop/laptopDeal";
+import BannerGaming from "~/pages/Products/Laptop/bannerGaming";
+import BannerMacbook from "~/pages/Products/Laptop/bannerMacbook";
+import BannerOffice from "~/pages/Products/Laptop/bannerOffice";
+import BannerEnginneer from "~/pages/Products/Laptop/bannerEngineer";
+import BannerThin from "~/pages/Products/Laptop/bannerThin";
+import BannerLuxury from "~/pages/Products/Laptop/bannerLuxury";
+import BannerSoftware from "~/pages/Products/Laptop/bannerSoftware";
+import BannerSpecial from "~/pages/Products/Laptop/bannerSpecial";
 
 export default function Laptop(){
+    
     return(
         <div>
-            <Sliders />
+            <LaptopSlider />
             <FilterLaptop />
             <MenuLaptop />
-            <ShockDeal />
-            {/* <div className="session-category"> */}
-                {/* <Sort /> */}
-                {/* <ShowAll /> */}
-            {/* </div> */}
+            <LaptopDeal />
+            <BannerGaming />
+            <BannerMacbook />
+            <BannerOffice />
+            <BannerEnginneer />
+            <BannerThin />
+            <BannerLuxury />
+            <BannerSoftware />
+            <BannerSpecial />
         </div>
     );
 }

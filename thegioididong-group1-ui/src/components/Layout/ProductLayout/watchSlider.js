@@ -4,7 +4,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import styles from './Product.module.scss';
 import './productSlider.scss';
-export default function Sliders (){
+export default function WatchSlider (){
 
     let settings = {
         dots: true,

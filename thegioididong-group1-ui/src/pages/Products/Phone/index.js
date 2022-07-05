@@ -1,14 +1,14 @@
 import React from "react";
-import Sort from '~/components/Layout/ProductLayout/productSort';
-import FilterPhone from '~/components/Layout/ProductLayout/phoneFilter';
-import ShowAll from '~/components/Layout/ProductLayout/productShowAll';
-import Sliders from '~/components/Layout/ProductLayout/productSlider';
+import Sort from '~/pages/Products/Phone/phoneSort';
+import FilterPhone from '~/pages/Products/Phone/phoneFilter';
+import ShowAll from '~/pages/Products/Phone/phoneShow';
+import PhoneSlider from "~/pages/Products/Phone/phoneSlider";
 
 
 export default function Phone(){
     return(
         <div>
-            <Sliders />
+            <PhoneSlider />
             <FilterPhone />
             <div className="session-category">
                 <Sort />

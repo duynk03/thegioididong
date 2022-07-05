@@ -1,8 +1,8 @@
 import React from "react";
-import Filter from './phoneFilter';
-import ShowAll from './productShowAll';
+import Filter from '../../../pages/Products/Phone/phoneFilter';
+import ShowAll from '../../../pages/Products/Phone/phoneShow';
 import Sliders from './productSlider';
-import Sort from './productSort';
+import Sort from '../../../pages/Products/Phone/phoneSort';
 
 export default function ProductLayout(){
     return(

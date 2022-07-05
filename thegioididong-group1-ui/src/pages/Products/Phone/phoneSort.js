@@ -1,10 +1,6 @@
 import React from "react";
-import "./productSort.scss";
+import "./phoneSort.scss";
 export default function Sort (){
-
-    {/*
-        sort products
-    */}
 
     return(
         <div className="sort-container">

@@ -1,0 +1,47 @@
+.deal-container{
+    background-color: yellow;
+    height: 100vh;
+    margin: 0 5%;
+    border-radius: 15px;
+
+    .deal-shock{
+        width: 100%;
+        height: 100px;
+        background-color: #ffa400 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: url('../../../assets/deal-image.png') center center no-repeat;
+    
+        .deal-link{
+            align-items: center;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            font-size: 45px;
+            font-weight: 600;
+            position: relative;
+            
+
+            .first-deal-content{
+                margin-right: 5px;
+                color: #ff0020;
+            }
+            .second-deal-content{
+                color: #fff;
+            }
+        }
+    }
+    
+    .deal-show{
+        display: block;
+        margin: 0 5%;
+
+        .show-dealing{
+            background-color: #ffa400;
+            width: 100%;
+            padding: 0 10px;
+        }
+    }
+}
