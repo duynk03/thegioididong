@@ -6,6 +6,14 @@ import ProductLayout from '~/components/Layout/ProductLayout';
 import Smartwatch from '~/pages/Products/Smartwatch';
 import Tablet from '~/pages/Products/Tablet';
 import Laptop from '~/pages/Products/Laptop';
+import AdminLayout from '~/components/Layout/AdminLayout';
+import Dashboard from '~/pages/Admin';
+import Orders from '~/pages/Admin/Orders/Orders';
+import Products from '~/pages/Admin/Products/Products';
+import PhoneForm from '~/pages/Admin/ProductForm/PhoneForm';
+import LaptopForm from '~/pages/Admin/ProductForm/LaptopForm';
+import TabletForm from '~/pages/Admin/ProductForm/TabletForm';
+import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
 
 const publicRoutes = [
     {
@@ -40,6 +48,42 @@ const publicRoutes = [
         path: '/cart',
         component: Phone,
         layout: CartLayout,
+    },
+    {
+        path: '/admin',
+        component: Dashboard,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/products',
+        component: Products,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/orders',
+        component: Orders,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/phoneForm',
+        component: PhoneForm,
+        layout: AdminLayout,
+    },
+
+    {
+        path: '/admin/laptopForm',
+        component: LaptopForm,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/tabletForm',
+        component: TabletForm,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/smartwatchForm',
+        component: SmartwatchForm,
+        layout: AdminLayout,
     },
 ];
 

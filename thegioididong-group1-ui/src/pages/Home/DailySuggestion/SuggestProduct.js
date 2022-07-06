@@ -1,11 +1,12 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Link } from 'react-router-dom';
 import styles from '../Home.module.scss';
 
 function SuggestProduct() {
     return (
         <li className={styles.suggest__product}>
-            <a href="/dtdd/iphone-13-pro-max-256gb" className={styles.main__contain}>
+            <Link to="/dtdd/iphone-13-pro-max-256gb" className={styles.main__contain}>
                 <div className={styles.item__label}></div>
                 <div className={styles.item__img}>
                     <img
@@ -29,7 +30,7 @@ function SuggestProduct() {
                     />
                     (100)
                 </p>
-            </a>
+            </Link>
         </li>
     );
 }
