@@ -1,18 +1,16 @@
 import React from "react";
-import Filter from '../../../components/Layout/ProductLayout/productFilter';
-import ShowAll from '../../../components/Layout/ProductLayout/productShowAll';
-import Sliders from '../../../components/Layout/ProductLayout/productSlider';
-import Sort from '../../../components/Layout/ProductLayout/productSort';
+import TabletSlider from "./tabletSlider";
+import FilterTablet from "./tabletFilter";
+import TabletSort from "./tabletSort";
+import TabletShowAll from "./tabletShow";
 
 export default function Tablet(){
     return(
         <div>
-            <Sliders />
-            <Filter />
-            <div className="session-category">
-                <Sort />
-                <ShowAll />
-            </div>
+            <TabletSlider />
+            <FilterTablet />
+            <TabletSort />
+            <TabletShowAll />
         </div>
     );
 }

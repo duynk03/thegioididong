@@ -2,16 +2,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
 import Slider from 'react-slick';
-import styles from './Product.module.scss';
-import './productSlider.scss';
-export default function Sliders (){
+import styles from '~/components/Layout/ProductLayout/Product.module.scss';
+import '~/components/Layout/ProductLayout/productSlider.scss';
+export default function LaptopSlider (){
 
     let settings = {
         dots: true,
         infinite: true,
         speed: 500,
         autoplay: true,
-        speed: 500,
         autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -21,17 +20,20 @@ export default function Sliders (){
 
     
     const sliderImg = [
-        'https://cdn.tgdd.vn/2022/06/banner/18-aseri-800-200-800x200.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-175.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-185.png',
-        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-172.png',
-        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-29.png',
-        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-4.png',
-        'https://cdn.tgdd.vn/2022/06/banner/18-realme-800-200-800x200.png',
-        'https://cdn.tgdd.vn/2022/07/banner/18-s22-800-200-800x200.png'
+        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-19.png',
+        'https://cdn.tgdd.vn/2022/06/banner/mac-m2-800-200-800x200.png',
+        'https://cdn.tgdd.vn/2022/07/banner/18-intel-800-200-800x200.png',
+        'https://cdn.tgdd.vn/2022/06/banner/18-imac-800-200-800x200.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-176.png',
+        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-22.png',
+        'https://cdn.tgdd.vn/2022/06/banner/18-asus-800-200-800x200.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-177.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-178.png',
+        'https://cdn.tgdd.vn/2022/07/banner/800-200-800x200-18.png',
+        'https://cdn.tgdd.vn/2022/06/banner/800-200-800x200-103.png'
     ];
-    const topImg = 'https://cdn.tgdd.vn/2022/06/banner/Sticky-390x97-1.png';
-    const botImg = 'https://cdn.tgdd.vn/2022/05/banner/sticky-a95-390-97-390x97.png';
+    const topImg = 'https://cdn.tgdd.vn/2022/05/banner/sticky-intel-390-97-390x97.png';
+    const botImg = 'https://cdn.tgdd.vn/2022/06/banner/Xa-hang-Laptop-2-390x97-1.png';
 
     return (
         

@@ -1,19 +1,17 @@
 import React from "react";
-import Sort from '../../../components/Layout/ProductLayout/productSort';
-import Filter from '../../../components/Layout/ProductLayout/productFilter';
-import ShowAll from '../../../components/Layout/ProductLayout/productShowAll';
-import Sliders from '../../../components/Layout/ProductLayout/productSlider';
+import PhoneSort from '~/pages/Products/Phone/phoneSort';
+import FilterPhone from '~/pages/Products/Phone/phoneFilter';
+import PhoneShowAll from '~/pages/Products/Phone/phoneShow';
+import PhoneSlider from "~/pages/Products/Phone/phoneSlider";
 
 
 export default function Phone(){
     return(
         <div>
-            <Sliders />
-            <Filter />
-            <div className="session-category">
-                <Sort />
-                <ShowAll />
-            </div>
+            <PhoneSlider />
+            <FilterPhone />
+            <PhoneSort />
+            <PhoneShowAll />
         </div>
     );
 }

@@ -2,16 +2,15 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import React from 'react';
 import Slider from 'react-slick';
-import styles from './Product.module.scss';
-import './productSlider.scss';
-export default function Sliders (){
+import styles from './Phone.module.scss';
+import '~/components/Layout/ProductLayout/productSlider.scss';
+export default function PhoneSlider (){
 
     let settings = {
         dots: true,
         infinite: true,
         speed: 500,
         autoplay: true,
-        speed: 500,
         autoplaySpeed: 4000,
         slidesToShow: 1,
         slidesToScroll: 1,

@@ -1,18 +1,28 @@
 import React from "react";
-import Filter from '../../../components/Layout/ProductLayout/productFilter';
-import ShowAll from '../../../components/Layout/ProductLayout/productShowAll';
-import Sliders from '../../../components/Layout/ProductLayout/productSlider';
-import Sort from '../../../components/Layout/ProductLayout/productSort';
+import BannerTop from "./bannerTop";
+import QuickAccess from "./quickAccess";
+import MenuBar from "./menuBar";
+import ShockDeal from "./bannerDeal";
+import DealSilde from "./bannerDealSlide";
+import BannerFashion from "./bannerFashion";
+import BannerUtility from "./bannerUtility";
+import BannerSport from "./bannerSport";
+import BannerChildren from "./bannerChildren";
+import BannerAccessory from "./bannerAccessory";
 
 export default function Smartwatch(){
     return(
         <div>
-            <Sliders />
-            <Filter />
-            <div className="session-category">
-                <Sort />
-                <ShowAll />
-            </div>
+            <BannerTop />
+            <QuickAccess />
+            <MenuBar />
+            <ShockDeal />
+            <DealSilde />
+            <BannerFashion />
+            <BannerUtility />
+            <BannerSport />
+            <BannerChildren />
+            <BannerAccessory />
         </div>
     );
 }

@@ -1,0 +1,253 @@
+.session__filter{
+    margin: 0 5%;
+    cursor: pointer;
+
+    .filter__item{
+        display: flex;
+
+        .total__filter, .title__item{
+            border: 1px solid #e0e0e0;
+            padding: 10px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            margin-right: 10px;
+        }
+    }
+
+    .quick__filter{
+        margin-top: 15px;
+        display: grid;
+        grid-auto-rows: minmax(min-content,max-content);
+        grid-template-columns: repeat(9,minmax(0, 1fr));
+        row-gap: 8px;
+        
+        .logo__tablet{
+            display: flex;
+            border-radius: 30px;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff;
+            border: 2px solid #e0e0e0;
+            margin-right: 10px;    
+        }
+        .logo__tablet__manu{
+            padding: 3px 17px;
+
+            img{
+                width: 85px;
+                height: 20px;
+            }
+        } 
+    }
+}
+
+
+.sort__container{
+    margin: 0 5%;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+
+    .checkbox__sort{
+        width: 50%;
+        margin-left: 30px;
+        align-items: baseline;
+        display: flex;
+        
+        .box__fast__delivery{
+            background-color: #d7e4dc;
+            display: flex;
+            align-items: center;
+            margin-left: 20px;
+            border-radius: 5px;
+            padding: 0 5px;
+
+
+            .fast__delivery{
+                display: flex;
+                justify-items: center;
+                color: green;
+                padding: 5px;
+                font-style: italic !important;
+
+                .icon__thunder{
+                    font-size: 15px !important;
+                    font-style: italic !important;
+                }
+                .input__box{
+                    width: 16px;
+                    height: 16px;
+                }
+                .title__form{
+                    font-style: italic !important;
+                    text-transform: uppercase !important;
+                }
+            }
+
+        }
+        
+        .box__sort{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-left: 20px;
+            border-radius: 5px;
+
+            .sort__element{
+                display: flex;
+                align-items: center;
+                padding: 5px;
+                color: black !important;
+                
+                .input__element{
+                    width: 16px;
+                    height: 16px;
+                }
+            }
+        }
+    }
+
+    .select__sort{
+        display: flex;
+        border: 1px solid #e2e2e2;
+        padding: 5px 10px;
+        border-radius: 5px;
+        position: absolute;
+        right: 8%;
+        cursor: pointer;
+    }
+}
+
+
+.show__all__tablet{
+    padding-bottom: 80px;
+
+    .block__banner{
+        margin: 0 5%;
+        margin-bottom: 5px;
+
+        .banner__link{
+
+            .banner__img{
+
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+
+    .list__item__block{
+        margin: 0 5%;
+        width: 90%;
+
+        .list__show{
+            column-gap: 8px;
+            display: grid;
+            grid-auto-rows: minmax(min-content,max-content);
+            grid-template-columns: repeat(5,minmax(0,1fr));
+            row-gap: 8px;
+
+            .show__item{
+                background-color: #fff;
+                padding: 10px;
+
+                .show__container{
+
+                    .show__content{
+
+
+                        .show__element{
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .brand__discount{
+                        width: fit-content;
+                        height: fit-content;
+                        background: linear-gradient(to right,#e91f63,#db2663);
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color: #fff;
+                        text-transform: uppercase;
+                        font-size: 10px;
+                        padding-right: 5px;
+                        border-radius: 15px;
+                        margin-top: 15px;
+
+                        .brand__deal{
+                            width: 19px;
+                            height: 19px;
+                        }
+                    }
+
+                    .show__name{
+                        margin-top: 15px;
+                    }
+
+                    .show__group{
+                        margin-top: 5px;
+
+                        .show__memory{
+                            column-gap: 2px;
+                            display: grid;
+                            grid-auto-rows: minmax(min-content,max-content);
+                            grid-template-columns: repeat(3,minmax(0,1fr));
+                            row-gap: 2px;
+                            color: #222;
+
+
+                            .memory__deal{
+                                text-align: center;
+                                padding: 3px;
+                                border: 1px solid #d6d6d6;
+                            }
+                        }
+                    }
+
+                    .deal__old__price{
+                        display:  flex;
+                        margin-top: 5px;
+                        color: #333;
+                        
+                        .deal__price{
+                            text-decoration: line-through;
+                        }
+                    }
+
+                    .new__deal__price{
+                        margin-top: 5px;
+                        color: #222;
+                        font-size: 16px;
+                    }
+
+
+                    .deal__rating{
+                        margin-top: 5px;
+                        display: flex;
+
+                        .deal__star__rating{
+                            display: flex;
+
+                            .star__deal{
+                                color: orangered;
+                            }
+                            .star__deal__dark{
+                                color: grey;
+                            }
+                        }
+
+                        .total__rating{
+                            font-size: 12px;
+                            color: #333;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
