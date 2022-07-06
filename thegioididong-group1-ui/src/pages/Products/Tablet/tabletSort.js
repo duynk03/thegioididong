@@ -1,13 +1,12 @@
 import React from 'react';
-import styles from './Phone.module.scss';
+import styles from './Tablet.module.scss';
 import clsx from 'clsx';
 
-export default function PhoneSort (){
+export default function TabletSort (){
 
     const selectSort = [
         'Giảm giá',
         'Góp 0%',
-        'Độc quyền',
         'Mới'
     ];
 
@@ -15,7 +14,7 @@ export default function PhoneSort (){
         <div className={styles.sort__container}>
             <p className={styles.sort__total}>
                 <b className={styles.sort__total__item}>
-                    90&nbsp;Điện thoại
+                    39&nbsp;Máy tính bảng
                 </b>
             </p>
             <div className={styles.checkbox__sort}>

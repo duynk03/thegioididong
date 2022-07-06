@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Phone.module.scss';
 import clsx from 'clsx';
 
-export default function ShowAll (){
+export default function PhoneShowAll (){
     
     const showImg = ['https://cdn.tgdd.vn/Products/Images/42/248293/Xiaomi-11T-White-1-2-3-600x600.jpg'];
     

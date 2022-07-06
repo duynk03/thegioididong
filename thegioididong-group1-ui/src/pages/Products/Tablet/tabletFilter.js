@@ -1,32 +1,26 @@
-import styles from './Phone.module.scss';
+import styles from './Tablet.module.scss';
 
 
-export default function FilterPhone() {
+export default function FilterTablet() {
 
-    const logoPhone = [
-        'https://cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png',
-        'https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png',
-        'https://cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg',
-        'https://cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png',
-        'https://cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png',
-        'https://cdn.tgdd.vn/Brand/1/Realme42-b_37.png',
-        'https://cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg',
-        'https://cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg',
-        'https://cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg',
-        'https://cdn.tgdd.vn/Brand/1/Masstel42-b_0.png'
+    const logoTablet = [
+        'https://cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg',
+        'https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png',
+        'https://cdn.tgdd.vn/Brand/1/Tablet-xiaomi-220x48-1.png',
+        'https://cdn.tgdd.vn/Brand/1/Lenovo522-b_6.jpg',
+        'https://cdn.tgdd.vn/Brand/1/Masstel522-b_7.png',
+        'https://cdn.tgdd.vn/Brand/1/logonokia-220x48-1.jpg',
+        'https://cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg',
+        'https://cdn.tgdd.vn/Brand/1/logoalcatel-220x48-1.png'
     ];
 
     const titleFilter = [
         'Hãng',
         'Giá',
-        'Loại điện thoại',
-        'Pin & Sạc',
+        'Màn hình',
         'RAM',
         'Bộ nhớ trong',
-        'Camera',
-        'Tính năng đặc biệt',
-        'Thiết kế',
-        'Màn hình'
+        'Tính năng đặc biệt'
     ];
 
     const downIcon = 'fas fa-caret-down';
@@ -51,9 +45,9 @@ export default function FilterPhone() {
             </div>
 
             <div className={styles.quick__filter}>
-                {logoPhone.map((item) => (
-                    <div className={styles.logo__phone}>
-                        <a href='#' className={styles.logo__phone__manu}>
+                {logoTablet.map((item) => (
+                    <div className={styles.logo__tablet}>
+                        <a href='#' className={styles.logo__tablet__manu}>
                             <img 
                                 src={item}
                                 alt=''

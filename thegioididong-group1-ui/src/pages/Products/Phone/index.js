@@ -1,7 +1,7 @@
 import React from "react";
-import Sort from '~/pages/Products/Phone/phoneSort';
+import PhoneSort from '~/pages/Products/Phone/phoneSort';
 import FilterPhone from '~/pages/Products/Phone/phoneFilter';
-import ShowAll from '~/pages/Products/Phone/phoneShow';
+import PhoneShowAll from '~/pages/Products/Phone/phoneShow';
 import PhoneSlider from "~/pages/Products/Phone/phoneSlider";
 
 
@@ -10,10 +10,8 @@ export default function Phone(){
         <div>
             <PhoneSlider />
             <FilterPhone />
-            <div className="session-category">
-                <Sort />
-                <ShowAll />
-            </div>
+            <PhoneSort />
+            <PhoneShowAll />
         </div>
     );
 }

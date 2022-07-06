@@ -2,7 +2,6 @@ import { CartLayout } from '~/components/Layout';
 import Home from '~/pages/Home';
 import NotFound404 from '~/pages/NotFound404';
 import Phone from '~/pages/Products/Phone';
-import ProductLayout from '~/components/Layout/ProductLayout';
 import Smartwatch from '~/pages/Products/Smartwatch';
 import Tablet from '~/pages/Products/Tablet';
 import Laptop from '~/pages/Products/Laptop';
@@ -31,10 +30,6 @@ const publicRoutes = [
     {
         path: '/smartwatch',
         component: Smartwatch,
-    },
-    {
-        path: '/test',
-        component: ProductLayout,
     },
     {
         path: '/cart',

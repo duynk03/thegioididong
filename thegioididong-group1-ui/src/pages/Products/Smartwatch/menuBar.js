@@ -1,31 +1,27 @@
 import React from 'react';
-import styles from './Laptop.module.scss';
+import styles from './Smartwatch.module.scss';
 
-export default function MenuLaptop (){
+export default function MenuBar (){
 
     const menuIcon = [
         'fab fa-hotjar',
-        'fas fa-gamepad',
-        'fab fa-apple',
-        'fas fa-book-reader',
-        'fas fa-bezier-curve',
-        'fas fa-feather-alt',
-        'fas fa-gem',
-        'fab fa-windows'
+        'fas fa-clock',
+        'fas fa-heartbeat',
+        'fas fa-running',
+        'fas fa-child',
+        'fas fa-headset'
     ];
     const menuContent = [
         'Deal sốc',
-        'Gaming',
-        'Macbook',
-        'Học tập, Văn phòng',
-        'Đồ họa, Kỹ thuật',
-        'Mỏng nhẹ',
-        'Cao cấp, sang trọng',
-        'Phần mềm'
+        'Thời trang',
+        'Tiện ích',
+        'Thể thao',
+        'Trẻ em',
+        'Phụ kiện'
     ];
 
     return(
-        <div className={styles.menu__laptop}>
+        <div className={styles.menu__nav}>
             <div className={styles.menu__container}>
                 {menuIcon.map((icon) => (
                     <a href='#' className={styles.nav__item}>
