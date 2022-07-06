@@ -1,16 +1,24 @@
 import '../history.scss';
 function UserInfo() {
-    return (
-        <div className='parent'>
-            <Left />
-            <Right />
-        </div>
-    );
+    
+        return (
+            <div className='parent'>
+                <Left />
+                <Right />
+            </div>
+        );
+}
+function showList(){
+    const select= document.getElementsByClassName('select');
+        if(select.style.display==='none'){
+            select.style.display='block';
+        }
+        else select.style.display='none'
 }
 const Left = () => (
     <div className="left">
         <a href="/lich-su-mua-hang" className="">Danh sách đơn hàng đã mua</a>
-        <a href="/thong-tin-ca-nhan" className="active">Thông tin cá nhân và sổ địa chỉ</a>
+        <a href="/lich-su-mua-hang/thong-tin-ca-nhan" className="active">Thông tin cá nhân và sổ địa chỉ</a>
     </div>
 )
 const Right = () => (
@@ -34,7 +42,8 @@ const Right = () => (
             <form id="frmAddress" className="address">
                 <div id="ddlProvince" className="province inline">
                     <span data-value="0">Tỉnh/ Thành phố</span>
-                    <div className="select" style={{display: 'none'}}>
+                    <div className="select" style={{display: 'none'}} 
+                    onClick={()=>document.getElementsByClassName('select').style.display='block'}>
                         <div className="o-search">
                             <input type="text" name="key" placeholder="Nhập tỉnh, thành để tìm nhanh" />
                             <button></button>
@@ -131,5 +140,6 @@ const Right = () => (
             <input type="hidden" name="hdAddressId" value="-3" />
         </div>
     </div>
+    
 );
 export default UserInfo;

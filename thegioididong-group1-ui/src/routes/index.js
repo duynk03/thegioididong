@@ -4,8 +4,9 @@ import NotFound404 from '~/pages/NotFound404';
 import Phone from '~/pages/Phone';
 import Product from '~/pages/Product';
 import Cart from '~/pages/Cart';
-import History from '~/pages/History';
+import History from '~/pages/History/History';
 import UserInfo from '~/pages/History/UserInfo';
+import Login from '~/pages/History/Login';
 const publicRoutes = [
     {
         path: '/',
@@ -33,8 +34,12 @@ const publicRoutes = [
         component: History,
     },
     {
-        path: 'thong-tin-ca-nhan',
+        path: '/lich-su-mua-hang/thong-tin-ca-nhan',
         component: UserInfo,
+    },
+    {
+        path: '/lich-su-mua-hang/dang-nhap',
+        component: Login,
     }
 ];
 
