@@ -36,7 +36,8 @@ export default function DealSilde() {
                 <Slider {...settings}>
                         {dealSlideImg.map((itemImg) => (
                             <li className={styles.show__slide__item}>
-                                <a className={styles.show__slide__container} href='#'>
+                                {/* eslint-disable-next-line */}
+                                <a className={styles.show__slide__container} href='javascript:void(0)'>
                                     <div className={styles.show__slide__content}>
                                         <img className={styles.show__slide__element} src={itemImg} alt=''/>
                                     </div>

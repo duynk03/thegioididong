@@ -16,7 +16,8 @@ export default function PhoneShowAll (){
             <ul className={styles.list__product}>
                 {showItems.map(() => (
                     <li className={styles.list__item}>
-                        <a className={styles.item__container} href='#'>
+                        {/* eslint-disable-next-line */}
+                        <a className={styles.item__container} href='javascript:void(0)'>
                             <div className={styles.item__label}>
                                 <span className={styles.label__content}>Trả góp 0%</span>
                             </div>

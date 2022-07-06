@@ -21,7 +21,8 @@ export default function BannerAccessory() {
     return(
         <div className={styles.banner__accessory}>
             <div className={styles.block__banner}>
-                <a href='#' className={styles.banner__link}>
+                {/* eslint-disable-next-line */}
+                <a href='javascript:void(0)' className={styles.banner__link}>
                     <img className={styles.banner__img} src={bannerAccessoryLogo} alt='' />
                 </a>
             </div>
@@ -29,7 +30,8 @@ export default function BannerAccessory() {
             <div className={styles.sort__by}>
                 {sortBy.map((itemSort) => (
                     <div className={styles.sort__by__item}>
-                        <a>
+                        {/* eslint-disable-next-line */}
+                        <a href='javascript:void(0)' >
                             <p>{itemSort}</p>
                         </a>
                     </div>
@@ -40,11 +42,13 @@ export default function BannerAccessory() {
                 <ul className={styles.list__show}>
                     {bannerSize.map(() => (
                         <li className={styles.show__item}>
-                            <a className={styles.show__container} href='#'>
+                            {/* eslint-disable-next-line */}
+                            <a className={styles.show__container} href='javascript:void(0)'>
                                 <div className={styles.show__content}>
                                     <img className={styles.show__element} src={bannerAccessoryImg} alt=''/>
                                 </div>
-                                <a href='#'>
+                                {/* eslint-disable-next-line */}
+                                <a href='javascript:void(0)'>
                                     <h3 className={styles.show__name}>Dây da tổng hợp M06-04-22</h3>
                                 </a>
                                 <div className={styles.deal__old__price}>

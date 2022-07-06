@@ -53,7 +53,8 @@ export default function FilterPhone() {
             <div className={styles.quick__filter}>
                 {logoPhone.map((item) => (
                     <div className={styles.logo__phone}>
-                        <a href='#' className={styles.logo__phone__manu}>
+                        {/* eslint-disable-next-line */}
+                        <a href='javascript:void(0)' className={styles.logo__phone__manu}>
                             <img 
                                 src={item}
                                 alt=''

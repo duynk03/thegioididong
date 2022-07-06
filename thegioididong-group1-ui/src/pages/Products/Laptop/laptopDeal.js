@@ -25,7 +25,8 @@ export default function LaptopDeal() {
     return(
         <div className={styles.deal__container}>
             <div className={styles.deal__title}>
-                <a href='#' className={styles.deal__link}>
+                {/* eslint-disable-next-line */}
+                <a href='javascript:void(0)' className={styles.deal__link}>
                     <span className={styles.first__content}>DEAL SỐC</span>
                     <span className={styles.second__content}>GIẢM TỚI 10.000.000₫</span>
                 </a>
@@ -35,7 +36,8 @@ export default function LaptopDeal() {
                     <Slider {...settings}>
                             {dealItem.map(() => (
                                 <li className={styles.show__item}>
-                                    <a className={styles.show__container} href='#'>
+                                    {/* eslint-disable-next-line */}
+                                    <a className={styles.show__container} href='javascript:void(0)'>
                                         <div className={styles.show__content}>
                                             <img className={styles.show__element} src={dealImg} alt=''/>
                                         </div>
@@ -46,7 +48,8 @@ export default function LaptopDeal() {
                                             />
                                             <span className={styles.brand__title}>Sinh nhật giảm sốc</span>
                                         </p>
-                                        <a href='#'>
+                                        {/* eslint-disable-next-line */}
+                                        <a href='javascript:void(0)'>
                                             <h3 className={styles.show__name}>Laptop Acer Nitro 5 Gaming AN515 45 R6EV R5 5600H...</h3>
                                         </a>
                                         <div className={styles.show__group}>

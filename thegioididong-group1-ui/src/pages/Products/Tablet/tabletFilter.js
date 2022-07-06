@@ -47,7 +47,8 @@ export default function FilterTablet() {
             <div className={styles.quick__filter}>
                 {logoTablet.map((item) => (
                     <div className={styles.logo__tablet}>
-                        <a href='#' className={styles.logo__tablet__manu}>
+                        {/* eslint-disable-next-line */}
+                        <a href='javascript:void(0)' className={styles.logo__tablet__manu}>
                             <img 
                                 src={item}
                                 alt=''

@@ -14,7 +14,8 @@ export default function BannerLuxury() {
     return(
         <div className={styles.banner__macbook}>
             <div className={styles.block__banner}>
-                <a href='#' className={styles.banner__link}>
+                {/* eslint-disable-next-line */}
+                <a href='javascript:void(0)' className={styles.banner__link}>
                     <img className={styles.banner__img} src={bannerLuxuryLogo} alt='' />
                 </a>
             </div>
@@ -22,7 +23,8 @@ export default function BannerLuxury() {
                 <ul className={styles.list__show}>
                     {bannerSize.map(() => (
                         <li className={styles.show__item}>
-                            <a className={styles.show__container} href='#'>
+                            {/* eslint-disable-next-line */}
+                            <a className={styles.show__container} href='javascript:void(0)'>
                                 <div className={styles.show__content}>
                                     <img className={styles.show__element} src={bannerLuxuryImg} alt=''/>
                                 </div>
@@ -33,7 +35,8 @@ export default function BannerLuxury() {
                                     />
                                     <span className={styles.brand__title}>Sinh nhật giảm sốc</span>
                                 </p>
-                                <a href='#'>
+                                {/* eslint-disable-next-line */}
+                                <a href='javascript:void(0)'>
                                     <h3 className={styles.show__name}>LG Gram 16 2021 i7 1165G7 (16Z90P-G.AH73A5)</h3>
                                 </a>
                                 <div className={styles.show__group}>

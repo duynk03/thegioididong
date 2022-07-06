@@ -6,7 +6,8 @@ export default function BannerTop() {
 
     return(
         <div className={styles.banner__top}>
-            <a className={styles.banner__top__link} href='#'>
+            {/* eslint-disable-next-line */}
+            <a className={styles.banner__top__link} href='javascript:void(0)'>
                 <img src={bannerTopImg} className={styles.banner__top__img} />
             </a>
         </div>

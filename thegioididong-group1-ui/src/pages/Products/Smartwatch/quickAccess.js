@@ -17,7 +17,8 @@ export default function QuickAccess(){
         <div className={styles.quick__access}>
             {accessItem.map((item) => (
                 <div className={styles.access__element}>
-                    <a href='#' className={styles.access__item}>
+                    {/* eslint-disable-next-line */}
+                    <a href='javascript:void(0)' className={styles.access__item}>
                         <img 
                             src={item}
                             alt=''
