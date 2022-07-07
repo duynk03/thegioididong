@@ -4,7 +4,7 @@ function AdminLayout({ children }) {
     return (
         <div className="admin__layout">
             <Navigation />
-            <div className="main__container">{children}</div>
+            <div className="admin__container">{children}</div>
         </div>
     );
 }
