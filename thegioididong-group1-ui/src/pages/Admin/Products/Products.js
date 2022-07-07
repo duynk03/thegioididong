@@ -154,7 +154,7 @@ function Products() {
     }, [updateData]);
 
     return (
-        <div className="product__list">
+        <div className="product-list">
             <h1 className="title__head">All of products</h1>
             <Table
                 columns={columns}
