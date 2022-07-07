@@ -19,7 +19,8 @@ export default function TabletSort (){
             </p>
             <div className={styles.checkbox__sort}>
                 <div className={styles.box__fast__delivery}>
-                    <a className={styles.fast__delivery} href='#'>
+                    {/* eslint-disable-next-line */}
+                    <a className={styles.fast__delivery} href='javascript:void(0)'>
                         <input className={styles.input__box} type='checkbox' /> &nbsp;
                         <i className={clsx('fas fa-bolt', styles.icon__thunder)}></i>
                         <b className={styles.title__form}>&nbsp;Giao nhanh</b>
@@ -27,7 +28,8 @@ export default function TabletSort (){
                 </div>
             {selectSort.map((item) => (
                 <div className={styles.box__sort}>
-                    <a className={styles.sort__element} href='#'>
+                    {/* eslint-disable-next-line */}
+                    <a className={styles.sort__element} href='javascript:void(0)'>
                         <input className={styles.input__element} type='checkbox' />
                         <span>&nbsp;{item}</span>
                     </a>

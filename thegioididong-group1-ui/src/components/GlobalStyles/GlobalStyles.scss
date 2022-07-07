@@ -87,9 +87,18 @@ h6 a {
     display: flex;
     flex-direction: row;
 }
+<<<<<<< HEAD
 .admin__container {
     margin-left: 230px;
+=======
+.main__container {
+    // margin-left: 280px;
+>>>>>>> bf7ae75e155170ab9e59f9c754eaf4a7d99ffb84
     flex-basis: 87%;
     width: 100%;
-    padding: 30px;
+    // padding: 30px;
+}
+
+.product__list{
+    margin-left: 280px;
 }

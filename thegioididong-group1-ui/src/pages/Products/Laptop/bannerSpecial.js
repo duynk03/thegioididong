@@ -15,11 +15,14 @@ export default function BannerSpecial() {
                 <strong className={styles.brands__title}>Chuyên trang thương hiệu</strong>
                 <div className={styles.brands__show}>
                     {bannerSpecialImg.map((item) => (
-                        <a className={styles.brands__container} href='#'>
-                            <div className={styles.brands__content}>
-                                <img className={styles.brands__element} src={item} alt=''/>
-                            </div>
-                        </a>
+                        <>
+                            {/* eslint-disable-next-line */}
+                            <a className={styles.brands__container} href='javascript:void(0)'>
+                                <div className={styles.brands__content}>
+                                    <img className={styles.brands__element} src={item} alt=''/>
+                                </div>
+                            </a>
+                        </>
                     ))}
                 </div>  
             </div>

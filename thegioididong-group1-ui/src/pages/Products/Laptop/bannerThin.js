@@ -14,7 +14,8 @@ export default function BannerThin() {
     return(
         <div className={styles.banner__thin}>
             <div className={styles.block__banner}>
-                <a href='#' className={styles.banner__link}>
+                {/* eslint-disable-next-line */}
+                <a href='javascript:void(0)' className={styles.banner__link}>
                     <img className={styles.banner__img} src={bannerThinLogo} alt='' />
                 </a>
             </div>
@@ -22,7 +23,8 @@ export default function BannerThin() {
                 <ul className={styles.list__show}>
                     {bannerSize.map(() => (
                         <li className={styles.show__item}>
-                            <a className={styles.show__container} href='#'>
+                            {/* eslint-disable-next-line */}
+                            <a className={styles.show__container} href='javascript:void(0)'>
                                 <div className={styles.show__content}>
                                     <img className={styles.show__element} src={bannerThinImg} alt=''/>
                                 </div>
@@ -33,7 +35,8 @@ export default function BannerThin() {
                                     />
                                     <span className={styles.brand__title}>Sinh nhật giảm sốc</span>
                                 </p>
-                                <a href='#'>
+                                {/* eslint-disable-next-line */}
+                                <a href='javascript:void(0)'>
                                     <h3 className={styles.show__name}>Laptop Lenovo ThinkBook 14s G2 ITL i5 1135G7/8GB/512GB/Win10 (20VA000NVN)</h3>
                                 </a>
                                 <div className={styles.show__group}>

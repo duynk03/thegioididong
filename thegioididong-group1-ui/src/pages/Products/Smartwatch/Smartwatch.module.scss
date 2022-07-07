@@ -292,6 +292,14 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        a{
+            p{
+                margin-bottom: 0 !important;
+                color: #000;
+                font-size: 15px;
+                font-weight: 600;
+            }
+        }
 
         .sort__by__item{
             background-color: lightgreen;
@@ -299,7 +307,15 @@
             border-radius: 20px;
             margin: 20px 10px;
             font-size: 16px;
-            cursor: pointer;
+            cursor: pointer; 
+            a{
+                p{
+                    margin-bottom: 0 !important;
+                    color: #000;
+                    font-size: 15px;
+                    font-weight: 600;
+                }
+            }
         }
     }
 
@@ -378,6 +394,10 @@
                         display:  flex;
                         margin-top: 5px;
                         color: #333;
+                        
+                        p{
+                            margin-bottom: 0 !important;
+                        }
                         
                         .deal__price{
                             text-decoration: line-through;

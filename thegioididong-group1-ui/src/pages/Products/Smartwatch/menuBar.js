@@ -24,11 +24,14 @@ export default function MenuBar (){
         <div className={styles.menu__nav}>
             <div className={styles.menu__container}>
                 {menuIcon.map((icon) => (
-                    <a href='#' className={styles.nav__item}>
-                        <div className={styles.nav__icon}>
-                            <i className={icon}></i>
-                        </div>
-                    </a>
+                    <>
+                        {/* eslint-disable-next-line */}
+                        <a href='javascript:void(0)' className={styles.nav__item}>
+                            <div className={styles.nav__icon}>
+                                <i className={icon}></i>
+                            </div>
+                        </a>
+                    </>
                 ))}
 
                 {menuContent.map((content) => (

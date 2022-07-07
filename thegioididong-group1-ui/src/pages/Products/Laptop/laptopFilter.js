@@ -23,7 +23,8 @@ export default function FilterLaptop (){
             <div className={styles.manufacturer__content}>
                 {itemLogo.map((logo) => (
                     <div className={styles.logo__brand}>
-                        <a href='#' className={styles.logo__item}>
+                        {/* eslint-disable-next-line */}
+                        <a href='javascript:void(0)' className={styles.logo__item}>
                             <img 
                                 src={logo}
                                 alt=''

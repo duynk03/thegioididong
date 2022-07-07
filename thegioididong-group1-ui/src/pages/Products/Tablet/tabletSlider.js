@@ -39,7 +39,8 @@ export default function TabletSlider (){
                 <Slider {...settings}>
                     {sliderImg.map((item) => (
                         <div className={styles.container__img}>
-                            <a href='#'>
+                            {/* eslint-disable-next-line */}
+                            <a href='javascript:void(0)'>
                                 <img src={item} alt='' />
                             </a>
                         </div>
@@ -48,12 +49,14 @@ export default function TabletSlider (){
             </div>
             <div className={styles.right__slider}>
                 <div className={styles.suggest__item__top}>
-                    <a href='#'>
+                    {/* eslint-disable-next-line */}
+                    <a href='javascript:void(0)'>
                         <img className={styles.img__top} src={topImg} alt='' />
                     </a>
                 </div>
                 <div className={styles.suggest__item__bot}>
-                    <a href='#'>
+                    {/* eslint-disable-next-line */}
+                    <a href='javascript:void(0)'>
                         <img className={styles.img__bot} src={botImg} alt='' />
                     </a>
                 </div>

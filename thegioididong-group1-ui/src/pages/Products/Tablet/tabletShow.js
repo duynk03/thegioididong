@@ -19,7 +19,8 @@ export default function TabletShowAll (){
                 <ul className={styles.list__show}>
                     {tabletSize.map(() => (
                         <li className={styles.show__item}>
-                            <a className={styles.show__container} href='#'>
+                            {/* eslint-disable-next-line */}
+                            <a className={styles.show__container} href='javascript:void(0)'>
                                 <div className={styles.show__content}>
                                     <img className={styles.show__element} src={tabletImg} alt=''/>
                                 </div>
@@ -30,7 +31,8 @@ export default function TabletShowAll (){
                                     />
                                     <span className={styles.brand__title}>Sinh nhật giảm sốc</span>
                                 </p>
-                                <a href='#'>
+                                {/* eslint-disable-next-line */}
+                                <a href='javascript:void(0)'>
                                     <h3 className={styles.show__name}>iPad Pro M1 12.9 inch 5G</h3>
                                 </a>
                                 <div className={styles.show__group}>
