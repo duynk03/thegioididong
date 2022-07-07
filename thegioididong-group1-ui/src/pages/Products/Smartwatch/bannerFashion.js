@@ -32,12 +32,12 @@ export default function BannerFashion() {
 
             <div className={styles.sort__by}>
                 {sortBy.map((itemSort) => (
-                    <div className={styles.sort__by__item}>
+                    <>
                         {/* eslint-disable-next-line */}
-                        <a href='javascript:void(0)'>
+                        <a href='javascript:void(0)' className={styles.sort__by__item}>
                             <p>{itemSort}</p>
                         </a>
-                    </div>
+                    </>
                 ))}
             </div>
 
