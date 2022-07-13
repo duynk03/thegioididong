@@ -24,12 +24,14 @@ const items = [
             </div>
         </span>,
     ),
-    getItem(<Link to={`/admin/products`}>Products</Link>, '2', <LaptopOutlined />),
-    getItem(<Link to={`/admin/phoneForm`}>Add new phone</Link>, '3', <PlusCircleOutlined />),
-    getItem(<Link to={`/admin/laptopForm`}>Add new laptop</Link>, '4', <PlusCircleOutlined />),
-    getItem(<Link to={`/admin/tabletForm`}>Add new tablet</Link>, '5', <PlusCircleOutlined />),
-    getItem(<Link to={`/admin/smartwatchForm`}>Add new smartwatch</Link>, '6', <PlusCircleOutlined />),
-    getItem(<Link to={`/admin/orders`}>Orders</Link>, '7', <ShoppingOutlined />),
+    getItem(<Link to={`/admin/products`}>Danh sách sản phẩm</Link>, '2', <LaptopOutlined />),
+    getItem('Thêm sản phẩm', 'sub1', <PlusCircleOutlined />, [
+        getItem(<Link to={`/admin/phoneForm`}>Điện thoại</Link>, '3'),
+        getItem(<Link to={`/admin/laptopForm`}>Laptop</Link>, '4'),
+        getItem(<Link to={`/admin/tabletForm`}>Tablet</Link>, '5'),
+        getItem(<Link to={`/admin/smartwatchForm`}>Smartwatch</Link>, '6'),
+    ]),
+    getItem(<Link to={`/admin/orders`}>Đơn hàng</Link>, '7', <ShoppingOutlined />),
 ];
 
 const Navigation = () => {

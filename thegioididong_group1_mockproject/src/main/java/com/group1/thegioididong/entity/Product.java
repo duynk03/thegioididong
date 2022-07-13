@@ -36,7 +36,6 @@ public class Product {
     private String color;
     @Lob
     private String description;
-    private int quantity;
 
     @OneToMany(
             mappedBy = "product",
@@ -86,7 +85,7 @@ public class Product {
     )
 //    @ToString.Exclude
     private Smartwatch smartwatch;
-    private boolean stillInBusiness;
+    private String state;
     private int saleOff;
     private Date created_at;
     private Date modified_at;

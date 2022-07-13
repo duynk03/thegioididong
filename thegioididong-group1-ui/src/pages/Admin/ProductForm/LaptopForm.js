@@ -1,9 +1,10 @@
-import { Button, Form, Input, InputNumber, Select, Upload, notification } from 'antd';
+import { Button, Form, Input, InputNumber, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ProductForm.scss';
 import { formItemLayout, tailFormItemLayout } from './FormConstant.js';
+import { openSuccessNotification, openErrorNotification } from './Notification';
 
 const API_URL = 'http://localhost:8084/tgdd/api/v1/products';
 
@@ -15,12 +16,6 @@ const LaptopForm = () => {
         product = values;
 
         uploadImage(values.images);
-    };
-
-    const openSuccessNotification = () => {
-        notification['success']({
-            message: 'Laptop was added successfully',
-        });
     };
 
     const addProduct = async (newProduct) => {
@@ -48,60 +43,64 @@ const LaptopForm = () => {
                 });
         });
 
-        axios
-            .all(uploaders)
-            .then((res) => {
-                addProduct({
-                    name: product.name,
-                    category: product.category,
-                    price: product.price,
-                    manufacturer: product.manufacturer,
-                    os: product.os,
-                    color: product.color,
-                    tablet: null,
-                    phone: null,
-                    smartwatch: null,
-                    stillInBusiness: product.stillInBusiness === 'true' ? true : false,
-                    saleOff: product.saleOff,
-                    created_at: new Date(),
-                    modified_at: null,
-                    description: product.description,
-                    quantity: product.quantity,
-                    images: images.reduce((a, value) => {
-                        return [...a, { source: value }];
-                    }, []),
-                    laptop: {
-                        cpu: product.cpu,
-                        core: product.core,
-                        thread: product.thread,
-                        cpuSpeed: product.cpuSpeed,
-                        cpuMaxSpeed: product.cpuMaxSpeed,
-                        ram: product.ram,
-                        ramType: product.ramType,
-                        ramSpeed: product.ramSpeed,
-                        ramUpdate: product.ramUpdate,
-                        rom: product.rom,
-                        screen: product.screen,
-                        graphicCard: product.graphicCard,
-                        connector: product.connector,
-                        especially: product.especially,
-                        design: product.design,
-                        size: product.size,
-                        released: product.released,
-                        createdAt: new Date(),
-                        modifiedAt: null,
-                    },
+        axios.all(uploaders).then((res) => {
+            addProduct({
+                name: product.name,
+                category: product.category,
+                price: product.price,
+                manufacturer: product.manufacturer,
+                os: product.os,
+                color: product.color,
+                tablet: null,
+                phone: null,
+                smartwatch: null,
+                state: product.state,
+                saleOff: product.saleOff,
+                created_at: new Date(),
+                modified_at: null,
+                description: product.description,
+                images: images.reduce((a, value) => {
+                    return [...a, { source: value }];
+                }, []),
+                laptop: {
+                    cpu: product.cpu,
+                    core: product.core,
+                    thread: product.thread,
+                    cpuSpeed: product.cpuSpeed,
+                    cpuMaxSpeed: product.cpuMaxSpeed,
+                    ram: product.ram,
+                    ramType: product.ramType,
+                    ramSpeed: product.ramSpeed,
+                    ramUpdate: product.ramUpdate,
+                    rom: product.rom,
+                    screen: product.screen,
+                    graphicCard: product.graphicCard,
+                    connector: product.connector,
+                    especially: product.especially,
+                    design: product.design,
+                    size: product.size,
+                    released: product.released,
+                    createdAt: new Date(),
+                    modifiedAt: null,
+                },
+            })
+                .then(() => {
+                    openSuccessNotification('success', 'Laptop added successfully');
+                })
+                .then(() => {
+                    setImages([]);
+                })
+                .then(() => {
+                    form.resetFields();
+                })
+                .catch((err) => {
+                    if (axios.isAxiosError(err)) {
+                        openErrorNotification('error', 'Laptop added failed');
+                        form.setFieldsValue({ images: null });
+                        setImages([]);
+                    }
                 });
-            })
-            .then(() => {
-                setImages([]);
-            })
-            .then(() => {
-                openSuccessNotification();
-            })
-            .then(() => {
-                form.resetFields();
-            });
+        });
     }
 
     const normFile = (e) => {
@@ -116,58 +115,58 @@ const LaptopForm = () => {
 
     return (
         <>
-            <h1 className="title__head">ADD NEW LAPTOP</h1>
+            <h1 className="title__head">Thêm laptop mới</h1>
             <Form
                 {...formItemLayout}
                 form={form}
                 name="register"
                 onFinish={onFinish}
                 initialValues={{
+                    category: 'laptop',
                     saleOff: 0,
-                    stillInBusiness: 'true',
+                    price: 4900000,
+                    state: 'Còn hàng',
+                    os: 'Window 10',
+                    manufacturer: 'Apple',
+                    ram: 'Đang cập nhật',
+                    rom: 'Đang cập nhật',
+                    cpu: 'Đang cập nhật',
+                    screen: 'Đang cập nhật',
+                    especially: 'Đang cập nhật',
+                    color: 'Đen',
+                    images: null,
                 }}
                 scrollToFirstError
             >
                 <Form.Item
                     name="name"
-                    label="Laptop Name"
+                    label="Tên laptop"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input product name',
+                            message: 'Vui lòng nhập tên sản phẩm',
                         },
                     ]}
-                    hasFeedback
                 >
                     <Input />
                 </Form.Item>
 
-                <Form.Item
-                    name="category"
-                    label="Category"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product category!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input placeholder="Example: điện thoại,..." />
+                <Form.Item name="category" label="Loại sản phẩm" hidden>
+                    <Input />
                 </Form.Item>
 
                 <Form.Item
                     name="price"
-                    label="Price"
+                    label="Giá tiền"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input product price',
+                            message: 'Vui lòng nhập giá sản phẩm',
                         },
                     ]}
                 >
                     <InputNumber
-                        min="0"
+                        min="4900000"
                         addonAfter={<Form.Item noStyle>VND</Form.Item>}
                         style={{
                             width: '100%',
@@ -175,409 +174,159 @@ const LaptopForm = () => {
                     />
                 </Form.Item>
 
-                <Form.Item
-                    name="manufacturer"
-                    label="Manufacturer"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product manufacturer!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="manufacturer" label="Hãng sản xuất">
+                    <Select>
+                        <Select.Option value="Apple">MacBook</Select.Option>
+                        <Select.Option value="Asus">Asus</Select.Option>
+                        <Select.Option value="Hp">Hp</Select.Option>
+                        <Select.Option value="Lenovo">Lenovo</Select.Option>
+                        <Select.Option value="Acer">Acer</Select.Option>
+                        <Select.Option value="Dell">Dell</Select.Option>
+                        <Select.Option value="Msi">Msi</Select.Option>
+                        <Select.Option value="Surface">Surface</Select.Option>
+                        <Select.Option value="LG">LG</Select.Option>
+                        <Select.Option value="GIGABYTE">GIGABYTE</Select.Option>
+                        <Select.Option value="Intel">Intel</Select.Option>
+                        <Select.Option value="Chuwi">Chuwi</Select.Option>
+                        <Select.Option value="Itel">itel</Select.Option>
+                    </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="os"
-                    label="Os"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product os!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="os" label="Hệ điều hành">
+                    <Select>
+                        <Select.Option value="Window 10">Windows 10</Select.Option>
+                        <Select.Option value="Window 8">Windows 8</Select.Option>
+                        <Select.Option value="Window 7">Windows 7</Select.Option>
+                        <Select.Option value="MacOS">MacOS</Select.Option>
+                        <Select.Option value="Ubuntu">Ubuntu</Select.Option>
+                        <Select.Option value="Linux">Linux</Select.Option>
+                    </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="color"
-                    label="Color"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product color!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="color" label="Màu sắc">
+                    <Select>
+                        <Select.Option value="Đen">Đen</Select.Option>
+                        <Select.Option value="Tím">Tím</Select.Option>
+                        <Select.Option value="Vàng">Vàng</Select.Option>
+                        <Select.Option value="Vàng đồng">Vàng đồng</Select.Option>
+                        <Select.Option value="Trắng">Trắng</Select.Option>
+                        <Select.Option value="Đỏ">Đỏ</Select.Option>
+                        <Select.Option value="Bạc">Bạc</Select.Option>
+                        <Select.Option value="Xám">Xám</Select.Option>
+                        <Select.Option value="Hồng">Hồng</Select.Option>
+                        <Select.Option value="Xanh lá">Xanh lá</Select.Option>
+                        <Select.Option value="Xanh Dương">Xanh Dương</Select.Option>
+                        <Select.Option value="Xanh Dương Nhạt">Xanh Dương Nhạt</Select.Option>
+                        <Select.Option value="Xanh Dương Đậm">Xanh Dương Đậm</Select.Option>
+                        <Select.Option value="Xanh Hồng">Xanh Hồng</Select.Option>
+                        <Select.Option value="Xanh Tím">Xanh Tím</Select.Option>
+                        <Select.Option value="Xanh Đen">Xanh Đen</Select.Option>
+                        <Select.Option value="Xanh Trắng">Xanh Trắng</Select.Option>
+                    </Select>
                 </Form.Item>
 
                 <Form.Item
                     name="description"
-                    label="Description"
+                    label="Mô tả"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input description',
+                            message: 'Vui lòng nhập mô tả',
                         },
                     ]}
                 >
                     <Input.TextArea showCount />
                 </Form.Item>
 
-                <Form.Item
-                    name="quantity"
-                    label="Quantity"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product quantity',
-                        },
-                    ]}
-                >
-                    <InputNumber min="0" />
-                </Form.Item>
-
-                <Form.Item
-                    name="screen"
-                    label="Screen"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product screen!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="cpu"
-                    label="CPU"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product CPU!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="core"
-                    label="Core"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product Core!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="thread"
-                    label="Thread"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product thread!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="cpuSpeed"
-                    label="Cpu speed"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input cpu speed!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="cpuMaxSpeed"
-                    label="Cpu max speed"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input cpu max speed!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="frontCamera"
-                    label="Front Camera"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product front camera!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="rearCamera"
-                    label="Rear camera"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product rear camera!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chip"
-                    label="Chip"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chipSpeed"
-                    label="Chip speed"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip speed!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chipGraphics"
-                    label="Chip graphics"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip graphics!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="ram"
-                    label="Ram"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input ram!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="ramType"
-                    label="Ram type"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input ram type!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="ramSpeed"
-                    label="Ram speed"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input ram speed!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="ramUpdate"
-                    label="Ram update"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input ram update!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="rom"
-                    label="Rom"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input rom!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="graphicCard"
-                    label="Graphic card"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input graphic card!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="connector"
-                    label="Connector"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input connector!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="especially"
-                    label="Especially"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input especially!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="design"
-                    label="Design"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input design!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="size"
-                    label="Size"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input size!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="released"
-                    label="Released"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input released!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="stillInBusiness"
-                    label="Still In Business"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Business state is required!',
-                        },
-                    ]}
-                    hasFeedback
-                >
+                <Form.Item name="ram" label="Ram">
                     <Select>
-                        <Select.Option value="true">Yes</Select.Option>
-                        <Select.Option value="false">No</Select.Option>
+                        <Select.Option value="Đang cập nhật">Đang cập nhật</Select.Option>
+                        <Select.Option value="4 GB">4 GB</Select.Option>
+                        <Select.Option value="8 GB">8 GB</Select.Option>
+                        <Select.Option value="16 GB">16 GB</Select.Option>
+                        <Select.Option value="32 GB">32 GB</Select.Option>
                     </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="saleOff"
-                    label="Sale Off"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input sale off!',
-                        },
-                    ]}
-                >
+                <Form.Item name="rom" label="Dung lượng ổ cứng">
+                    <Select>
+                        <Select.Option value="Đang cập nhật">Đang cập nhật</Select.Option>
+                        <Select.Option value="SSD 128 GB">128 GB</Select.Option>
+                        <Select.Option value="SSD 256 GB">256 GB</Select.Option>
+                        <Select.Option value="SSD 512 GB">512 GB</Select.Option>
+                        <Select.Option value="SSD 1 TB">1 TB</Select.Option>
+                        <Select.Option value="SSD 2 TB">2 TB</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="cpu" label="CPU">
+                    <Select>
+                        <Select.Option value="Đang cập nhật">Đang cập nhật</Select.Option>
+                        <Select.Option value="Intel Core i7">Intel Core i7</Select.Option>
+                        <Select.Option value="Intel Core i5">Intel Core i5</Select.Option>
+                        <Select.Option value="Intel Core i3">Intel Core i3</Select.Option>
+                        <Select.Option value="Intel Celeron/Petium">Intel Celeron/Petium</Select.Option>
+                        <Select.Option value="AMD Ryzen 7">AMD Ryzen 7</Select.Option>
+                        <Select.Option value="AMD Ryzen 5">AMD Ryzen 5</Select.Option>
+                        <Select.Option value="AMD Ryzen 3">AMD Ryzen 3</Select.Option>
+                        <Select.Option value="Apple M1">Apple M1</Select.Option>
+                        <Select.Option value="Apple M2">Apple M2</Select.Option>
+                        <Select.Option value="Apple M1 Pro">Apple M1 Pro</Select.Option>
+                        <Select.Option value="Apple M1 Max">Apple M1 Max</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="screen" label="Màn hình">
+                    <Select>
+                        <Select.Option value="Đang cập nhật">Đang cập nhật</Select.Option>
+                        <Select.Option value="11.6 inch">11.6 inch</Select.Option>
+                        <Select.Option value="12.3 inch">12.3 inch</Select.Option>
+                        <Select.Option value="12.4 inch">12.4 inch</Select.Option>
+                        <Select.Option value="13 inch">13 inch</Select.Option>
+                        <Select.Option value="13.3 inch">13.3 inch</Select.Option>
+                        <Select.Option value="13.4 inch">13.4 inch</Select.Option>
+                        <Select.Option value="13.6 inch">13.6 inch</Select.Option>
+                        <Select.Option value="14 inch">14 inch</Select.Option>
+                        <Select.Option value="15.6 inch">15.6 inch</Select.Option>
+                        <Select.Option value="16 inch">16 inch</Select.Option>
+                        <Select.Option value="16.1 inch">15.6 inch</Select.Option>
+                        <Select.Option value="16.2 inch">15.6 inch</Select.Option>
+                        <Select.Option value="17 inch">17 inch</Select.Option>
+                        <Select.Option value="7.3 inch">7.3 inch</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="especially" label="Đặc biệt">
+                    <Select>
+                        <Select.Option value="Đang cập nhật">Đang cập nhật</Select.Option>
+                        <Select.Option value="Tiêu chuẩn Intel Evo (Mới)">Tiêu chuẩn Intel Evo (Mới)</Select.Option>
+                        <Select.Option value="CPU Intel thế hệ 12 (Mới)">CPU Intel thế hệ 12 (Mới)</Select.Option>
+                        <Select.Option value="CPU Intel thế hệ 11">CPU Intel thế hệ 11</Select.Option>
+                        <Select.Option value="Bộ nhớ Intel Optane">Bộ nhớ Intel Optane</Select.Option>
+                        <Select.Option value="Card đồ họa rời">Card đồ họa rời</Select.Option>
+                        <Select.Option value="Màn hình chống chói Anti Glare">
+                            Màn hình chống chói Anti Glare
+                        </Select.Option>
+                        <Select.Option value="Wifi 6 nhanh 4 lần Wifi 5">Wifi 6 nhanh 4 lần Wifi 5</Select.Option>
+                        <Select.Option value="Màn hình gập 360 độ">1</Select.Option>
+                        <Select.Option value="Màn hình cảm ứng">Màn hình cảm ứng</Select.Option>
+                        <Select.Option value="Màn hình 100% sRGB">Màn hình 100% sRGB</Select.Option>
+                        <Select.Option value="Màn hình OLED">Màn hình OLED</Select.Option>
+                        <Select.Option value="Có bảo mật vân tay">Có bảo mật vân tay</Select.Option>
+                        <Select.Option value="Có bàn phím số">Có bàn phím số</Select.Option>
+                        <Select.Option value="Có đèn bàn phím">Có đèn bàn phím</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="state" label="Trạng thái sản phẩm">
+                    <Select disabled>
+                        <Select.Option value="Còn hàng">Còn hàng</Select.Option>
+                        <Select.Option value="Hết hàng">Hết hàng</Select.Option>
+                        <Select.Option value="Ngừng kinh doanh">Ngừng kinh doanh</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="saleOff" label="Giảm giá">
                     <InputNumber min={0} max={100} />
                 </Form.Item>
 
@@ -586,11 +335,11 @@ const LaptopForm = () => {
                     label="Upload"
                     valuePropName="fileList"
                     getValueFromEvent={normFile}
-                    extra="Select image on your PC to upload"
+                    extra="Chọn hình ảnh từ máy tính để tải lên"
                     rules={[
                         {
                             required: true,
-                            message: 'Please select at least one image',
+                            message: 'Vui lòng chọn ít nhất 1 ảnh',
                         },
                     ]}
                 >
@@ -599,14 +348,82 @@ const LaptopForm = () => {
                             icon={<UploadOutlined style={{ width: 30 }} />}
                             style={{ height: 40, paddingBottom: 5 }}
                         >
-                            Click to upload
+                            Bấm vào để tải ảnh
                         </Button>
                     </Upload>
                 </Form.Item>
 
+                <Form.Item name="core" label="Nhân (Core)">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="thread" label="Luồng (Thread)">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="cpuSpeed" label="Tốc độ CPU">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="cpuMaxSpeed" label="Tốc độ tối đa CPU">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="frontCamera" label="Camera trước">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="rearCamera" label="Camera sau">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chip" label="Chip">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chipSpeed" label="Tốc độ chip">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chipGraphics" label="Đồ họa chip">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="ramType" label="Thể loại RAM">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="ramSpeed" label="Tốc độ RAM">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="ramUpdate" label="Khả năng update của RAM">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="graphicCard" label="Card đồ họa">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="connector" label="Kết nối">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="design" label="Thiết kế">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="size" label="Kích thước">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="released" label="Ngày ra mắt">
+                    <Input />
+                </Form.Item>
+
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
-                        Add new
+                        Thêm sản phẩm
                     </Button>
                 </Form.Item>
             </Form>

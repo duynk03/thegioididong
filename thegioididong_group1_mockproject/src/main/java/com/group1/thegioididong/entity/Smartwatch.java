@@ -29,7 +29,8 @@ public class Smartwatch {
     private String screen;
     private String resolution;
     private String materialFrame;
-    private String materialTrap;
+    private String wireMaterial;
+    private String sim;
     private String size;
     private String pinTime;
     private String charge;

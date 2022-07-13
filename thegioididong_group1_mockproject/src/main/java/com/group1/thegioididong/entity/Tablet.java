@@ -24,7 +24,6 @@ public class Tablet {
             generator = "tablet_sequence"
     )
     private Long id;
-    private String screen;
     private String screenTechnology;
     private String resolution;
     private String wideScreen;
@@ -42,5 +41,5 @@ public class Tablet {
     private String released;
     private Date createdAt;
     private Date modifiedAt;
-    
+
 }

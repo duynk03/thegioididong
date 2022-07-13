@@ -1,9 +1,10 @@
-import { Button, Form, Input, InputNumber, Select, Upload, notification } from 'antd';
+import { Button, Form, Input, InputNumber, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import axios from 'axios';
 import './ProductForm.scss';
 import { formItemLayout, tailFormItemLayout } from './FormConstant.js';
+import { openSuccessNotification, openErrorNotification } from './Notification';
 
 const API_URL = 'http://localhost:8084/tgdd/api/v1/products';
 
@@ -14,12 +15,6 @@ const TabletForm = () => {
     const onFinish = (values) => {
         uploadImage(values.images);
         product = values;
-    };
-
-    const openSuccessNotification = () => {
-        notification['success']({
-            message: 'Tablet was added successfully',
-        });
     };
 
     const postProduct = async (newProduct) => {
@@ -47,59 +42,63 @@ const TabletForm = () => {
                 });
         });
 
-        axios
-            .all(uploaders)
-            .then((res) => {
-                postProduct({
-                    name: product.name,
-                    category: product.category,
-                    price: product.price,
-                    manufacturer: product.manufacturer,
-                    os: product.os,
-                    color: product.color,
-                    laptop: null,
-                    phone: null,
-                    smartwatch: null,
-                    stillInBusiness: product.stillInBusiness === 'true' ? true : false,
-                    saleOff: product.saleOff,
-                    created_at: new Date(),
-                    modified_at: null,
-                    description: product.description,
-                    quantity: product.quantity,
-                    images: images.reduce((a, value) => {
-                        return [...a, { source: value }];
-                    }, []),
-                    tablet: {
-                        screen: product.screen,
-                        screenTechnology: product.screenTechnology,
-                        resolution: product.resolution,
-                        wideScreen: product.wideScreen,
-                        frontCamera: product.frontCamera,
-                        rearCamera: product.rearCamera,
-                        chip: product.chip,
-                        chipSpeed: product.chipSpeed,
-                        chipGraphics: product.chipGraphics,
-                        ram: product.ram,
-                        rom: product.rom,
-                        sim: product.sim,
-                        pin: product.pin,
-                        material: product.material,
-                        size: product.size,
-                        released: product.released,
-                        createdAt: new Date(),
-                        modifiedAt: null,
-                    },
+        axios.all(uploaders).then((res) => {
+            postProduct({
+                name: product.name,
+                category: product.category,
+                price: product.price,
+                manufacturer: product.manufacturer,
+                os: product.os,
+                color: product.color,
+                laptop: null,
+                phone: null,
+                smartwatch: null,
+                state: product.state,
+                saleOff: product.saleOff,
+                created_at: new Date(),
+                modified_at: null,
+                description: product.description,
+                quantity: product.quantity,
+                images: images.reduce((a, value) => {
+                    return [...a, { source: value }];
+                }, []),
+                tablet: {
+                    screenTechnology: product.screenTechnology,
+                    resolution: product.resolution,
+                    wideScreen: product.wideScreen,
+                    frontCamera: product.frontCamera,
+                    rearCamera: product.rearCamera,
+                    chip: product.chip,
+                    chipSpeed: product.chipSpeed,
+                    chipGraphics: product.chipGraphics,
+                    ram: product.ram,
+                    rom: product.rom,
+                    sim: product.sim,
+                    pin: product.pin,
+                    material: product.material,
+                    size: product.size,
+                    released: product.released,
+                    createdAt: new Date(),
+                    modifiedAt: null,
+                },
+            })
+                .then(() => {
+                    openSuccessNotification('success', 'Tablet added successfully');
+                })
+                .then(() => {
+                    setImages([]);
+                })
+                .then(() => {
+                    form.resetFields();
+                })
+                .catch((err) => {
+                    if (axios.isAxiosError(err)) {
+                        openErrorNotification('error', 'Tablet added failed');
+                        form.setFieldsValue({ images: null });
+                        setImages([]);
+                    }
                 });
-            })
-            .then(() => {
-                setImages([]);
-            })
-            .then(() => {
-                openSuccessNotification();
-            })
-            .then(() => {
-                form.resetFields();
-            });
+        });
     }
 
     const normFile = (e) => {
@@ -114,58 +113,58 @@ const TabletForm = () => {
 
     return (
         <>
-            <h1 className="title__head">ADD NEW TABLET</h1>
+            <h1 className="title__head">Thêm tablet mới</h1>
             <Form
                 {...formItemLayout}
                 form={form}
                 name="register"
                 onFinish={onFinish}
                 initialValues={{
+                    category: 'tablet',
                     saleOff: 0,
-                    stillInBusiness: 'true',
+                    price: 2400000,
+                    state: 'Còn hàng',
+                    os: 'Android',
+                    manufacturer: 'Apple',
+                    ram: '2 GB',
+                    rom: '32 GB',
+                    cpu: 'Đang cập nhật',
+                    screen: 'Đang cập nhật',
+                    especially: 'Đang cập nhật',
+                    color: 'Đen',
+                    images: null,
                 }}
                 scrollToFirstError
             >
                 <Form.Item
                     name="name"
-                    label="Tablet Name"
+                    label="Tên laptop"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input product name',
+                            message: 'Vui lòng nhập tên sản phẩm',
                         },
                     ]}
-                    hasFeedback
                 >
                     <Input />
                 </Form.Item>
 
-                <Form.Item
-                    name="category"
-                    label="Category"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product category!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input placeholder="Example: điện thoại,..." />
+                <Form.Item name="category" label="Loại sản phẩm" hidden>
+                    <Input />
                 </Form.Item>
 
                 <Form.Item
                     name="price"
-                    label="Price"
+                    label="Giá tiền"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input product price',
+                            message: 'Vui lòng nhập giá sản phẩm',
                         },
                     ]}
                 >
                     <InputNumber
-                        min="0"
+                        min="2400000"
                         addonAfter={<Form.Item noStyle>VND</Form.Item>}
                         style={{
                             width: '100%',
@@ -173,325 +172,97 @@ const TabletForm = () => {
                     />
                 </Form.Item>
 
-                <Form.Item
-                    name="manufacturer"
-                    label="Manufacturer"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product manufacturer!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="manufacturer" label="Hãng sản xuất">
+                    <Select>
+                        <Select.Option value="Apple">Apple iPad</Select.Option>
+                        <Select.Option value="Samsung">Samsung</Select.Option>
+                        <Select.Option value="Xiaomi">Xiaomi</Select.Option>
+                        <Select.Option value="Lenovo">Lenovo</Select.Option>
+                        <Select.Option value="Masstel">Masstel</Select.Option>
+                        <Select.Option value="Nokia">Nokia</Select.Option>
+                        <Select.Option value="Huawei">Huawei</Select.Option>
+                        <Select.Option value="Alcatel">Alcatel</Select.Option>
+                    </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="os"
-                    label="Os"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product os!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="os" label="Hệ điều hành">
+                    <Select>
+                        <Select.Option value="Android">Android</Select.Option>
+                        <Select.Option value="iPadOS">iPadOS</Select.Option>
+                    </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="color"
-                    label="Color"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product color!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
+                <Form.Item name="color" label="Màu sắc">
+                    <Select>
+                        <Select.Option value="Đen">Đen</Select.Option>
+                        <Select.Option value="Tím">Tím</Select.Option>
+                        <Select.Option value="Vàng">Vàng</Select.Option>
+                        <Select.Option value="Vàng đồng">Vàng đồng</Select.Option>
+                        <Select.Option value="Trắng">Trắng</Select.Option>
+                        <Select.Option value="Đỏ">Đỏ</Select.Option>
+                        <Select.Option value="Bạc">Bạc</Select.Option>
+                        <Select.Option value="Xám">Xám</Select.Option>
+                        <Select.Option value="Hồng">Hồng</Select.Option>
+                        <Select.Option value="Xanh lá">Xanh lá</Select.Option>
+                        <Select.Option value="Xanh Dương">Xanh Dương</Select.Option>
+                        <Select.Option value="Xanh Dương Nhạt">Xanh Dương Nhạt</Select.Option>
+                        <Select.Option value="Xanh Dương Đậm">Xanh Dương Đậm</Select.Option>
+                        <Select.Option value="Xanh Hồng">Xanh Hồng</Select.Option>
+                        <Select.Option value="Xanh Tím">Xanh Tím</Select.Option>
+                        <Select.Option value="Xanh Đen">Xanh Đen</Select.Option>
+                        <Select.Option value="Xanh Trắng">Xanh Trắng</Select.Option>
+                    </Select>
                 </Form.Item>
 
                 <Form.Item
                     name="description"
-                    label="Description"
+                    label="Mô tả"
                     rules={[
                         {
                             required: true,
-                            message: 'Please input description',
+                            message: 'Vui lòng nhập mô tả',
                         },
                     ]}
                 >
                     <Input.TextArea showCount />
                 </Form.Item>
 
-                <Form.Item
-                    name="quantity"
-                    label="Quantity"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product quantity',
-                        },
-                    ]}
-                >
-                    <InputNumber min="0" />
-                </Form.Item>
-
-                <Form.Item
-                    name="screen"
-                    label="Screen"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product screen!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="screenTechnology"
-                    label="Screen Technology"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product screen technology!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="resolution"
-                    label="Resolution"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product resolution!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="wideScreen"
-                    label="Wide screen"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product wide screen!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="frontCamera"
-                    label="Front Camera"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input front camera!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="rearCamera"
-                    label="Rear camera"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input product rear camera!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chip"
-                    label="Chip"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chipSpeed"
-                    label="Chip speed"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip speed!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="chipGraphics"
-                    label="Chip graphics"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input chip graphics!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="ram"
-                    label="Ram"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input ram!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="rom"
-                    label="Rom"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input rom!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="sim"
-                    label="Sim"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input sim!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="pin"
-                    label="Pin"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input pin!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="material"
-                    label="Material"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input material!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="size"
-                    label="Size"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input size!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="released"
-                    label="Released"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input released!',
-                        },
-                    ]}
-                    hasFeedback
-                >
-                    <Input />
-                </Form.Item>
-
-                <Form.Item
-                    name="stillInBusiness"
-                    label="Still In Business"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Business state is required!',
-                        },
-                    ]}
-                    hasFeedback
-                >
+                <Form.Item name="ram" label="RAM">
                     <Select>
-                        <Select.Option value="true">Yes</Select.Option>
-                        <Select.Option value="false">No</Select.Option>
+                        <Select.Option value="2 GB">2 GB</Select.Option>
+                        <Select.Option value="3 GB">3 GB</Select.Option>
+                        <Select.Option value="4 GB">4 GB</Select.Option>
+                        <Select.Option value="6 GB">6 GB</Select.Option>
+                        <Select.Option value="8 GB">8 GB</Select.Option>
+                        <Select.Option value="12 GB">12 GB</Select.Option>
                     </Select>
                 </Form.Item>
 
-                <Form.Item
-                    name="saleOff"
-                    label="Sale Off"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Please input sale off!',
-                        },
-                    ]}
-                >
+                <Form.Item name="rom" label="Bộ nhớ trong">
+                    <Select>
+                        <Select.Option value="32 GB">32 GB</Select.Option>
+                        <Select.Option value="64 GB">64 GB</Select.Option>
+                        <Select.Option value="128 GB">128 GB</Select.Option>
+                        <Select.Option value="256 GB">256 GB</Select.Option>
+                        <Select.Option value="512 GB">512 GB</Select.Option>
+                        <Select.Option value="1 TB">1 TB</Select.Option>
+                        <Select.Option value="2 TB">2 TB</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="pin" label="Dung lượng pin">
+                    <InputNumber min="0" addonAfter={<Form.Item noStyle>mAh</Form.Item>} />
+                </Form.Item>
+
+                <Form.Item name="state" label="Trạng thái sản phẩm">
+                    <Select disabled>
+                        <Select.Option value="Còn hàng">Còn hàng</Select.Option>
+                        <Select.Option value="Hết hàng">Hết hàng</Select.Option>
+                        <Select.Option value="Ngừng kinh doanh">Ngừng kinh doanh</Select.Option>
+                    </Select>
+                </Form.Item>
+
+                <Form.Item name="saleOff" label="Giảm giá">
                     <InputNumber min={0} max={100} />
                 </Form.Item>
 
@@ -500,11 +271,11 @@ const TabletForm = () => {
                     label="Upload"
                     valuePropName="fileList"
                     getValueFromEvent={normFile}
-                    extra="Select image on your PC to upload"
+                    extra="Chọn hình ảnh từ máy tính để tải lên"
                     rules={[
                         {
                             required: true,
-                            message: 'Please select at least one image',
+                            message: 'Vui lòng chọn ít nhất 1 ảnh',
                         },
                     ]}
                 >
@@ -513,9 +284,57 @@ const TabletForm = () => {
                             icon={<UploadOutlined style={{ width: 30 }} />}
                             style={{ height: 40, paddingBottom: 5 }}
                         >
-                            Click to upload
+                            Bấm vào để tải ảnh
                         </Button>
                     </Upload>
+                </Form.Item>
+
+                <Form.Item name="screenTechnology" label="Công nghệ màn hình">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="resolution" label="Độ phân giải">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="wideScreen" label="Màn hình rộng">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="frontCamera" label="Camera trước">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="rearCamera" label="Camera sau">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chip" label="Chip xử lý (CPU)">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chipSpeed" label="Tốc độ CPU">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="chipGraphics" label="Chip đồ hoạ (GPU)">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="sim" label="SIM">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="material" label="Chất liệu">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="size" label="Kích thước">
+                    <Input />
+                </Form.Item>
+
+                <Form.Item name="released" label="Ngày ra mắt">
+                    <Input />
                 </Form.Item>
 
                 <Form.Item {...tailFormItemLayout}>

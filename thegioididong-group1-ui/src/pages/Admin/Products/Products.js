@@ -1,8 +1,9 @@
 import './Product.scss';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
-import { Table, Button, Popconfirm, notification } from 'antd';
+import { Table, Button, Popconfirm } from 'antd';
 import React, { useEffect, useState } from 'react';
+import { openSuccessNotification, openErrorNotification } from '~/pages/Admin/ProductForm/Notification';
 
 const PRODUCTS_REST_API_URL = 'http://localhost:8084/tgdd/api/v1/products';
 const cloudName = 'dlefvc2xe';
@@ -14,27 +15,20 @@ function Products() {
 
     const columns = [
         {
-            title: 'Product Name',
+            title: 'Tên sản phẩm',
             width: 150,
             dataIndex: 'name',
             key: '100',
             fixed: 'left',
         },
         {
-            title: 'Quantity',
-            width: 100,
-            dataIndex: 'quantity',
-            key: '10',
-            fixed: 'left',
-        },
-        {
-            title: 'Price',
+            title: 'Giá',
             dataIndex: 'price',
             key: '99',
             width: 100,
         },
         {
-            title: 'Images',
+            title: 'Hình ảnh',
             dataIndex: 'images',
             key: 'images',
             width: 100,
@@ -50,79 +44,82 @@ function Products() {
             },
         },
         {
-            title: 'Description',
+            title: 'Mô tả',
             dataIndex: 'description',
             key: '1',
             width: 150,
         },
         {
-            title: 'Category',
+            title: 'Loại sản phẩm',
             dataIndex: 'category',
             key: '2',
-            width: 150,
+            width: 100,
         },
         {
-            title: 'Manufacturer',
+            title: 'Nhà sản xuất',
             dataIndex: 'manufacturer',
             key: '3',
-            width: 150,
+            width: 100,
         },
         {
-            title: 'Os',
+            title: 'Hệ điều hành',
             dataIndex: 'os',
             key: '4',
             width: 150,
         },
         {
-            title: 'Color',
+            title: 'Màu sắc',
             dataIndex: 'color',
             key: '5',
             width: 150,
         },
         {
-            title: 'Business State',
-            dataIndex: 'stillInBusiness',
+            title: 'Trạng thái',
+            dataIndex: 'state',
+            width: 100,
             key: '7',
         },
         {
             title: 'Sale off',
             dataIndex: 'saleOff',
+            width: 100,
             key: '8',
         },
         {
             title: 'Action',
-            key: 'operation',
+            key: 'action',
             fixed: 'right',
             width: 100,
             render: (_, record) => {
-                const confirm = () => {
-                    return axios.delete(PRODUCTS_REST_API_URL + '/' + record.id).then(() => {
-                        setUpdateData(!updateData);
-                        openSuccessNotification();
-                    });
+                const confirm = async () => {
+                    return axios
+                        .delete(PRODUCTS_REST_API_URL + '/' + record.id)
+                        .then(() => {
+                            setUpdateData(!updateData);
+                            openSuccessNotification('success', 'Xóa sản phẩm thành công!');
+                        })
+                        .catch((err) => {
+                            if (axios.isAxiosError(err)) {
+                                openErrorNotification('error', 'Xóa sản phẩm không thành công!');
+                            }
+                        });
                 };
                 return (
                     <>
                         {/* eslint-disable-next-line */}
-                        <Button type="primary">Edit</Button>
+                        <Button type="primary">Sửa</Button>
                         <Popconfirm
-                            title={'Are you sure you want to delete this product ' + record.name + '?'}
+                            title={'Bạn muốn xóa sản phẩm ' + record.name + ' chứ?'}
                             onConfirm={confirm}
                             onVisibleChange={() => console.log('visible change')}
                         >
-                            <Button type="danger">Delete</Button>
+                            <Button type="danger">Xóa</Button>
                         </Popconfirm>
                     </>
                 );
             },
         },
     ];
-
-    const openSuccessNotification = () => {
-        notification['success']({
-            message: 'Delete product successfully',
-        });
-    };
 
     useEffect(() => {
         let dataList = [];
@@ -136,7 +133,6 @@ function Products() {
                     displayData.push({
                         id: item.id,
                         name: item.name,
-                        quantity: item.quantity,
                         price: item.price,
                         images: item.images,
                         description: item.description,
@@ -144,7 +140,7 @@ function Products() {
                         manufacturer: item.manufacturer,
                         color: item.color,
                         os: item.os,
-                        stillInBusiness: item.stillInBusiness === true ? 'Yes' : 'No',
+                        state: item.state,
                         saleOff: item.saleOff,
                     });
                     setList(displayData);
@@ -155,17 +151,20 @@ function Products() {
 
     return (
         <div className="product-list">
-            <h1 className="title__head">All of products</h1>
-            <Table
-                columns={columns}
-                dataSource={list}
-                bordered
-                rowKey="id"
-                scroll={{
-                    x: 1500,
-                    y: 700,
-                }}
-            />
+            <h1 className="title__head">Danh sách tất cả sản phẩm</h1>
+            <div className="product__data">
+                <Table
+                    columns={columns}
+                    dataSource={list}
+                    bordered
+                    rowKey="id"
+                    scroll={{
+                        x: 1600,
+                        y: 700,
+                        scrollToFirstRowOnChange: true,
+                    }}
+                />
+            </div>
         </div>
     );
 }
