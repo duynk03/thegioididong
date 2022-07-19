@@ -1,15 +1,15 @@
 package com.group1.thegioididong;
 
-import com.group1.thegioididong.entity.Image;
-import com.group1.thegioididong.entity.Product;
-import com.group1.thegioididong.service.IProductService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.boot.CommandLineRunner;
-import org.springframework.context.annotation.Bean;
+// import com.group1.thegioididong.entity.Image;
+// import com.group1.thegioididong.entity.Product;
+// import com.group1.thegioididong.service.IProductService;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+// import org.springframework.boot.CommandLineRunner;
+// import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.List;
+// import java.util.List;
 
 
 @Configuration

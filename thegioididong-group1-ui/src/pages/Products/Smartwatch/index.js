@@ -12,7 +12,7 @@ import BannerAccessory from "./bannerAccessory";
 
 export default function Smartwatch(){
     return(
-        <div>
+        <>
             <BannerTop />
             <QuickAccess />
             <MenuBar />
@@ -23,6 +23,6 @@ export default function Smartwatch(){
             <BannerSport />
             <BannerChildren />
             <BannerAccessory />
-        </div>
+        </>
     );
 }

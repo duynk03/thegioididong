@@ -15,7 +15,7 @@ import BannerSpecial from "~/pages/Products/Laptop/bannerSpecial";
 export default function Laptop(){
     
     return(
-        <div>
+        <>
             <LaptopSlider />
             <FilterLaptop />
             <MenuLaptop />
@@ -28,6 +28,6 @@ export default function Laptop(){
             <BannerLuxury />
             <BannerSoftware />
             <BannerSpecial />
-        </div>
+        </>
     );
 }
