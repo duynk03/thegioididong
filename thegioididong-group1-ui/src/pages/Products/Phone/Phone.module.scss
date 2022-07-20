@@ -1121,11 +1121,6 @@
     }
 
     .select__sort{
-        // display: flex;
-        // border: 1px solid #e2e2e2;
-        // padding: 5px 10px;
-        // border-radius: 5px;
-        // position: absolute;
         right: -27.5%;
         cursor: pointer;
         position: relative;
@@ -1158,7 +1153,6 @@
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
-            display: none;
             position: absolute;
             padding: 0 7px;
             top: 30px;
@@ -1189,6 +1183,14 @@
                     }
                 }
             }
+        }
+
+        .sort__visible{
+            display: block;
+        }
+
+        .sort__hidden{
+            display: none;
         }
     }
 }

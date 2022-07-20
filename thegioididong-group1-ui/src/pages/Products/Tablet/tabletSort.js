@@ -36,11 +36,42 @@ export default function TabletSort (){
                 </div>
             ))}
             </div>
-            <div className={styles.select__sort}>
-                <p className={styles.sort__content}>Xếp theo:&nbsp;</p>
-                <div className={styles.sort__select__active}>
-                    <span>Nổi bật&nbsp;</span>
-                    <i className='fa fa-caret-down'></i>
+            
+            <div className={styles.select__sort} id='sort'>
+                <p className={styles.sort__content}>Xếp theo:&nbsp;
+                    <span className={styles.sort__show}>
+                        Nổi bật
+                    </span>
+                </p>
+                <div className={styles.sort__select__main}>
+                    <p>
+                        {/* eslint-disable-next-line */}
+                        <a className={styles.check__sort} href='javascript:void(0)'>
+                            <i></i>
+                            Nổi bật
+                        </a>
+                    </p>
+                    <p>
+                        {/* eslint-disable-next-line */}
+                        <a className='' href='javascript:void(0)'>
+                            <i></i>
+                            % Giảm
+                        </a>
+                    </p>
+                    <p>
+                        {/* eslint-disable-next-line */}
+                        <a className='' href='javascript:void(0)'>
+                            <i></i>
+                            Giá từ cao đến thấp
+                        </a>
+                    </p>
+                    <p>
+                        {/* eslint-disable-next-line */}
+                        <a className='' href='javascript:void(0)'>
+                            <i></i>
+                            Giá từ thấp đến cao
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>

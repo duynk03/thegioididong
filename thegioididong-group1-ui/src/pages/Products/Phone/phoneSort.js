@@ -3,13 +3,14 @@ import styles from './Phone.module.scss';
 import clsx from 'clsx';
 
 export default function PhoneSort (){
-
     const selectSort = [
         'Giảm giá',
         'Góp 0%',
         'Độc quyền',
         'Mới'
     ];
+
+    // const [hidden, setHidden] = useState(false);
 
     return(
         <div className={styles.sort__container}>
@@ -37,14 +38,14 @@ export default function PhoneSort (){
                 </div>
             ))}
             </div>
-
-            <div className={styles.select__sort} id='sort'>
+            {/* <button onClick={() => setHidden(!hidden)}> */}
+            <div className={styles.select__sort}>
                 <p className={styles.sort__content}>Xếp theo:&nbsp;
                     <span className={styles.sort__show}>
                         Nổi bật
                     </span>
                 </p>
-                <div className={styles.sort__select__main}>
+                <div className={clsx(styles.sort__select__main, styles.sort__hidden)}>
                     <p>
                         {/* eslint-disable-next-line */}
                         <a className={styles.check__sort} href='javascript:void(0)'>
