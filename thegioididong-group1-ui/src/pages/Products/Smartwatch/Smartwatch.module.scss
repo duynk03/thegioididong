@@ -297,7 +297,7 @@
                 margin-bottom: 0 !important;
                 color: #000;
                 font-size: 15px;
-                font-weight: 600;
+                // font-weight: 600;
             }
         }
 
@@ -306,16 +306,22 @@
             padding: 10px 15px;
             border-radius: 20px;
             margin: 20px 10px;
-            font-size: 16px;
             cursor: pointer; 
             a{
                 p{
                     margin-bottom: 0 !important;
                     color: #000;
                     font-size: 15px;
-                    font-weight: 600;
                 }
             }
+        }
+
+        p:active{
+            font-weight: 600;
+        }
+
+        .sort__by__item:active{
+            background-color: yellow;
         }
     }
 
