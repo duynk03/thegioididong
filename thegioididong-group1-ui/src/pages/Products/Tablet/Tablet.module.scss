@@ -9,6 +9,14 @@
         // font-size: 0;
         padding-top: 10px;
 
+        .filter__visible{
+            display: block;
+        }
+
+        .filter__hidden{
+            display: none;
+        }
+
         .filter__total{
             display: inline-block;
             font-size: 14px;
@@ -53,7 +61,7 @@
             }
 
             .show__total__isActive{
-                display: none;
+                // display: none;
                 background-color: #fff;
                 box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
                 border-radius: 4px;
@@ -200,17 +208,30 @@
                 }
             }
         }
+        
+        .arrow__filter::before{
+            content: "";
+            position: absolute;
+            width: 27px;
+            height: 27px;
+            background: #fff;
+            transform: rotate(45deg);
+            top: 40px;
+            left: 27px;
+            box-shadow: -2px -2px 5px -4px;
+        }
 
-        .filter__manu__show{
+
+        .filter__item__show{
             display: inline-block;
             font-size: 14px;
-            // width: 247px;
+            // width: 547px;
             line-height: 17px;
             margin-right: 8px;
             position: relative;
             padding-bottom: 10px;
-
-            .filter__manu__title{
+            
+            .filter__item__title{
                 display: flex;
                 width: max-content;
                 background-color: #fff;
@@ -235,8 +256,7 @@
                 }
             }
 
-            .filter__item__show__manu{
-                display: none;
+            .filter__item__show__element{
                 background-color: #fff;
                 border-radius: 4px;
                 max-width: 600px;
@@ -248,6 +268,21 @@
                 width: max-content;
                 z-index: 3;
                 
+                .filter__list__element{
+                    display: flex;
+                    flex-wrap: wrap;                  
+
+                    .btn__box{
+                        align-items: center;
+                        border: 1px solid #e0e0e0;
+                        border-radius: 4px;
+                        color: #333;
+                        display: flex;
+                        justify-content: center;
+                        margin: 0 5px 5px 0;
+                        padding: 8px;
+                    }
+                }
                 .filter__list__manu{
                     display: flex;
                     flex-wrap: wrap;                  
@@ -259,7 +294,7 @@
                         color: #333;
                         display: flex;
                         justify-content: center;
-                        margin: 0 8px 8px 0;
+                        margin: 0 5px 5px 0;
                         width: 99px;
                         padding: 4px;
 
@@ -271,460 +306,6 @@
                             object-fit: contain;
                             justify-content: center;
                         }
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__price__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__price__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__price{
-                display: none;
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__price__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    .btn__box{
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        margin-right: 5px;
-                        margin-bottom: 5px;
-                        padding: 8px;
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__size__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__size__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__size{
-                display: none;
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__size__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    .btn__box{
-                        margin-right: 5px;
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        padding: 8px;
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__ram__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__ram__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__ram{
-                display: none;   
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__ram__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    .btn__box{
-                        margin-right: 5px;
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        padding: 8px;
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__rom__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__rom__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__rom{
-                display: none;   
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__rom__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-
-                    .btn__box{
-                        margin-right: 5px;
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        padding: 8px;
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__battery__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__battery__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__battery{
-                display: none;   
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__battery__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-                    margin-bottom: 5px;
-
-                    .btn__box{
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        margin-bottom: 5px;
-                        margin-right: 5px;
-                        padding: 8px;
-                    }
-                }
-
-                .filter__btn{
-                    // font-size: 0;
-                    text-align: center;
-                    display: none;
-                }
-            }
-        }
-
-        .filter__special__show{
-            display: inline-block;
-            font-size: 14px;
-            // width: 547px;
-            line-height: 17px;
-            margin-right: 8px;
-            position: relative;
-            padding-bottom: 10px;
-
-            .filter__special__title{
-                display: flex;
-                width: max-content;
-                background-color: #fff;
-                border: 1px solid #e0e0e0;
-                border-radius: 4px;
-                cursor: pointer;
-                padding: 8px 10px;
-
-                span{
-                    padding-right: 12px;
-                    position: relative;
-                }
-
-                span::before{
-                    border-left: 4px solid transparent;
-                    border-right: 4px solid transparent;
-                    border-top: 4px solid #333;
-                    content: '';
-                    position: absolute;
-                    top: 6px;
-                    right: 0;
-                }
-            }
-
-            .filter__item__show__special{
-                display: none;   
-                background-color: #fff;
-                box-shadow: 0 2px 20px rgb(0 0 0 / 50%);
-                border-radius: 4px;
-                max-width: 600px;
-                min-width: 382px;
-                left: 0;
-                position: absolute;
-                padding: 10px;
-                top: 45px;
-                width: max-content;
-                white-space: normal;
-                z-index: 3;
-                
-                .show__special__list{
-                    height: fit-content;
-                    padding: 0;
-                    display: flex;
-                    flex-wrap: wrap;
-                    margin-bottom: 5px;
-
-                    .btn__box{
-                        align-items: center;
-                        border: 1px solid #e0e0e0;
-                        border-radius: 4px;
-                        color: #333;
-                        display: flex;
-                        justify-content: center;
-                        margin-right: 5px;
-                        padding: 8px;
                     }
                 }
 
@@ -839,7 +420,7 @@
     }
 
     .select__sort{
-        right: -26.5%;
+        right: -27%;
         cursor: pointer;
         position: relative;
         background-color: #fff;
@@ -871,7 +452,6 @@
             background-color: #fff;
             border-radius: 4px;
             box-shadow: 0 4px 6px rgb(0 0 0 / 20%);
-            display: none;
             position: absolute;
             padding: 0 7px;
             top: 30px;
@@ -902,6 +482,14 @@
                     }
                 }
             }
+        }
+
+        .sort__visible{
+            display: block;
+        }
+
+        .sort__hidden{
+            display: none;
         }
     }
 }

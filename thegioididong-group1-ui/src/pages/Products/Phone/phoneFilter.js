@@ -76,7 +76,7 @@ export default function FilterPhone() {
     const [displayManu, setDisplayManu] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayPrice, setDisplayPrice] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayType, setDisplayType] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
-    const [displayDemand, setDisplayDemand] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
+    const [displayOrder, setDisplayOrder] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRam, setDisplayRam] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRom, setDisplayRom] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayBattery, setDisplayBattery] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
@@ -88,7 +88,7 @@ export default function FilterPhone() {
     const [displayArrowManu, setDisplayArrowManu] = useState(clsx(null));
     const [displayArrowPrice, setDisplayArrowPrice] = useState(clsx(null));
     const [displayArrowType, setDisplayArrowType] = useState(clsx(null));
-    const [displayArrowDemand, setDisplayArrowDemand] = useState(clsx(null));
+    const [displayArrowOrder, setDisplayArrowOrder] = useState(clsx(null));
     const [displayArrowRam, setDisplayArrowRam] = useState(clsx(null));
     const [displayArrowRom, setDisplayArrowRom] = useState(clsx(null));
     const [displayArrowBattery, setDisplayArrowBattery] = useState(clsx(null));
@@ -324,19 +324,19 @@ export default function FilterPhone() {
 
                 <div className={styles.filter__item__show} onClick={ () => {
                     setHidden(!hidden)
-                    if(displayDemand.includes('hidden')){
-                        setDisplayArrowDemand(clsx(styles.arrow__filter));
-                        setDisplayDemand(clsx(styles.filter__item__show__element, styles.filter__visible));
+                    if(displayOrder.includes('hidden')){
+                        setDisplayArrowOrder(clsx(styles.arrow__filter));
+                        setDisplayOrder(clsx(styles.filter__item__show__element, styles.filter__visible));
                     }else{
-                        displayArrowDemand(clsx(null));
-                        setDisplayDemand(clsx(styles.filter__item__show__element, styles.filter__hidden));
+                        setDisplayArrowOrder(clsx(null));
+                        setDisplayOrder(clsx(styles.filter__item__show__element, styles.filter__hidden));
                     }
                 }}>
                     <div className={styles.filter__item__title}>
-                        <div className={displayArrowDemand}></div>
+                        <div className={displayArrowOrder}></div>
                         <span>Nhu cầu</span>
                     </div>
-                    <div className={displayDemand}>
+                    <div className={displayOrder}>
                         <div className={styles.filter__list__element}>
                             {demandPhone.map((item) => (
                                 <>

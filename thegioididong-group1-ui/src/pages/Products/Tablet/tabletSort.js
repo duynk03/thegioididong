@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Tablet.module.scss';
 import clsx from 'clsx';
 
@@ -9,6 +9,10 @@ export default function TabletSort (){
         'Góp 0%',
         'Mới'
     ];
+
+    const [displaySort, setDisplaySort] = useState(clsx(styles.sort__select__main, styles.sort__hidden));
+
+    const [hidden, setHidden] = useState(false);
 
     return(
         <div className={styles.sort__container}>
@@ -37,13 +41,20 @@ export default function TabletSort (){
             ))}
             </div>
             
-            <div className={styles.select__sort} id='sort'>
+            <div className={styles.select__sort} onClick={() =>{
+                setHidden(!hidden)
+                if(displaySort.includes('hidden')){
+                    setDisplaySort(clsx(styles.sort__select__main, styles.sort__visible));
+                }else{
+                    setDisplaySort(clsx(styles.sort__select__main, styles.sort__hidden));
+                }
+            }}>
                 <p className={styles.sort__content}>Xếp theo:&nbsp;
                     <span className={styles.sort__show}>
                         Nổi bật
                     </span>
                 </p>
-                <div className={styles.sort__select__main}>
+                <div className={displaySort}>
                     <p>
                         {/* eslint-disable-next-line */}
                         <a className={styles.check__sort} href='javascript:void(0)'>
