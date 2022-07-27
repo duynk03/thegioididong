@@ -6,11 +6,12 @@ import './ProductForm.scss';
 import { formItemLayout, tailFormItemLayout } from './FormConstant.js';
 import { openSuccessNotification, openErrorNotification } from './Notification';
 
-const API_URL = 'http://localhost:8084/tgdd/api/v1/products';
+const API_URL = 'http://localhost:8084/api/v1/products';
 
 const TabletForm = () => {
     const [form] = Form.useForm();
     const [images, setImages] = useState([]);
+
     let product = null;
     const onFinish = (values) => {
         uploadImage(values.images);

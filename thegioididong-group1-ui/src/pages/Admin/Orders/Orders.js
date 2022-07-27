@@ -1,36 +1,84 @@
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import { useState } from 'react';
+import { Space, Table, Tag } from 'antd';
+import React from 'react';
+const columns = [
+    {
+        title: 'Name',
+        dataIndex: 'name',
+        key: 'name',
+        render: (text) => <a>{text}</a>,
+    },
+    {
+        title: 'Age',
+        dataIndex: 'age',
+        key: 'age',
+    },
+    {
+        title: 'Address',
+        dataIndex: 'address',
+        key: 'address',
+    },
+    {
+        title: 'Tags',
+        key: 'tags',
+        dataIndex: 'tags',
+        render: (_, { tags }) => (
+            <>
+                {tags.map((tag) => {
+                    let color = tag.length > 5 ? 'geekblue' : 'green';
+
+                    if (tag === 'loser') {
+                        color = 'volcano';
+                    }
+
+                    return (
+                        <Tag color={color} key={tag}>
+                            {tag.toUpperCase()}
+                        </Tag>
+                    );
+                })}
+            </>
+        ),
+    },
+    {
+        title: 'Action',
+        key: 'action',
+        render: (_, record) => (
+            <Space size="middle">
+                <a>Invite {record.name}</a>
+                <a>Delete</a>
+            </Space>
+        ),
+    },
+];
+const data = [
+    {
+        key: '1',
+        name: 'John Brown',
+        age: 32,
+        address: 'New York No. 1 Lake Park',
+        tags: ['nice', 'developer'],
+    },
+    {
+        key: '2',
+        name: 'Jim Green',
+        age: 42,
+        address: 'London No. 1 Lake Park',
+        tags: ['loser'],
+    },
+    {
+        key: '3',
+        name: 'Joe Black',
+        age: 32,
+        address: 'Sidney No. 1 Lake Park',
+        tags: ['cool', 'teacher'],
+    },
+];
+
 function Orders() {
-    const [image, setImage] = useState('');
-
-    const uploadImage = () => {
-        const formData = new FormData();
-        formData.append('file', image);
-        console.log('file: ', image);
-        formData.append('upload_preset', 'p7t6hcdg');
-
-        axios.post('https://api.cloudinary.com/v1_1/dlefvc2xe/image/upload', formData).then((response) => {
-            console.log(response.data.public_id);
-        });
-    };
-
-    return (
-        <div>
-            <div>
-                <input
-                    type="file"
-                    onChange={(e) => {
-                        setImage(e.target.files[0]);
-                        console.log(new Date());
-                    }}
-                />
-                <button onClick={() => uploadImage()}>Upload</button>
-
-                <Image cloudName="dlefvc2xe" publicId="mbc1owzl7hmzvyevak7o" />
-            </div>
-        </div>
-    );
+    return <Table columns={columns} dataSource={data} />;
 }
 
 export default Orders;

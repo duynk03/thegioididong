@@ -1,5 +1,6 @@
 package com.group1.thegioididong.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -29,12 +30,13 @@ public class Orders {
     private String name;
     private String gender;
     private String address;
-    private int quantity;
     private double total;
+    private String state;
+    private String payments;
     private Date createdAt;
     private Date modifiedAt;
 
-    @OneToMany(mappedBy = "order", cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-            CascadeType.REFRESH})
+    @JsonManagedReference
+    @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
     private List<OrderDetail> orderDetails;
 }

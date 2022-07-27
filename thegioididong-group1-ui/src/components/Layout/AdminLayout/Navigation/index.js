@@ -1,4 +1,4 @@
-import { ShoppingOutlined, PlusCircleOutlined, LaptopOutlined } from '@ant-design/icons';
+import { ShoppingOutlined, PlusCircleOutlined, LaptopOutlined, LogoutOutlined } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
 import styles from './Navigation.module.scss';
@@ -32,6 +32,7 @@ const items = [
         getItem(<Link to={`/admin/smartwatchForm`}>Smartwatch</Link>, '6'),
     ]),
     getItem(<Link to={`/admin/orders`}>Đơn hàng</Link>, '7', <ShoppingOutlined />),
+    getItem(<Link to={`/admin/logout`}>Đăng xuất</Link>, '8', <LogoutOutlined />),
 ];
 
 const Navigation = () => {

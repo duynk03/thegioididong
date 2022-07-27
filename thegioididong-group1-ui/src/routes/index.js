@@ -13,6 +13,8 @@ import PhoneForm from '~/pages/Admin/ProductForm/PhoneForm';
 import LaptopForm from '~/pages/Admin/ProductForm/LaptopForm';
 import TabletForm from '~/pages/Admin/ProductForm/TabletForm';
 import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
+import Login from '~/pages/Admin/Login';
+import Logout from '~/pages/Admin/Logout';
 
 const publicRoutes = [
     {
@@ -47,6 +49,16 @@ const publicRoutes = [
     {
         path: '/admin',
         component: Dashboard,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/login',
+        component: Login,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/logout',
+        component: Logout,
         layout: AdminLayout,
     },
     {

@@ -29,10 +29,9 @@ public class ProductController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public ResponseEntity<Object> addProduct(@RequestBody Product product) {
-        System.out.println("ADd new");
-        productService.save(product);
-        return new ResponseEntity<>("Product is created successfully", HttpStatus.CREATED);
+    public ResponseEntity<Object> save(@RequestBody Product product) {
+        Product pro = productService.save(product);
+        return new ResponseEntity<>("Product is created successfully" + pro, HttpStatus.CREATED);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -47,7 +46,7 @@ public class ProductController {
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = "application/json")
-    public ResponseEntity<Object> updateProduct(@RequestBody Product product, @PathVariable("id") Long id) {
+    public ResponseEntity<Object> update(@RequestBody Product product, @PathVariable("id") Long id) {
 
         if (productService.findById(id) != null) {
             product.setId(id);
@@ -57,7 +56,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteProduct(@PathVariable("id") Long id) {
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         productService.deleteById(id);
         return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
     }

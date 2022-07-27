@@ -1,5 +1,6 @@
 package com.group1.thegioididong.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -24,12 +25,15 @@ public class OrderDetail {
     )
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+    private int quantity;
+
+    @JsonBackReference
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH})
     @JoinColumn(name = "order_id")
     private Orders order;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+    @ManyToOne(cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
             CascadeType.REFRESH})
     @JoinColumn(name = "product_id")
     private Product product;

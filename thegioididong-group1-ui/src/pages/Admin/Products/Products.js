@@ -5,7 +5,7 @@ import { Table, Button, Popconfirm } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { openSuccessNotification, openErrorNotification } from '~/pages/Admin/ProductForm/Notification';
 
-const PRODUCTS_REST_API_URL = 'http://localhost:8084/tgdd/api/v1/products';
+const PRODUCTS_REST_API_URL = 'http://localhost:8084/api/v1/products';
 const cloudName = 'dlefvc2xe';
 
 function Products() {
