@@ -9,10 +9,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-<<<<<<< HEAD
-=======
-// import java.util.Objects;
->>>>>>> 627953f67fd6ef7a4089f6fdf9faebe563456ace
 import java.util.Optional;
 
 @Service

@@ -16,5 +16,8 @@ public interface IOrdersService {
     Orders findLastInsert();
 
     void deleteById(Long id);
-    
+
+    List<Orders> findAllDesc();
+
+    Orders update(Orders order);
 }

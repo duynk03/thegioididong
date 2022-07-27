@@ -15,7 +15,7 @@ import TabletForm from '~/pages/Admin/ProductForm/TabletForm';
 import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
 import Login from '~/pages/Admin/Login';
 import Logout from '~/pages/Admin/Logout';
-
+import Register from '~/pages/Admin/Register';
 
 const publicRoutes = [
     {
@@ -60,6 +60,11 @@ const publicRoutes = [
     {
         path: '/admin/logout',
         component: Logout,
+        layout: AdminLayout,
+    },
+    {
+        path: 'admin/register',
+        component: Register,
         layout: AdminLayout,
     },
     {

@@ -26,7 +26,7 @@ public class OrdersController {
 
     @RequestMapping(method = RequestMethod.GET)
     public ResponseEntity<List<Orders>> getAll() {
-        return new ResponseEntity<>(ordersService.findAll(), HttpStatus.OK);
+        return new ResponseEntity<>(ordersService.findAllDesc(), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
@@ -44,5 +44,17 @@ public class OrdersController {
     public ResponseEntity<Object> saveOrder(@RequestBody Orders order) {
         ordersService.save(order);
         return new ResponseEntity<>("Order is created successfully", HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.PUT, consumes = "application/json")
+    public ResponseEntity<Object> update(@RequestBody Orders orders, @PathVariable("id") Long id) {
+        Orders updateOrder = ordersService.findById(id);
+        if (updateOrder == null) {
+            return new ResponseEntity<>("Order is not exist", HttpStatus.NOT_FOUND);
+        }
+        updateOrder.setState(orders.getState());
+        updateOrder.setModifiedAt(orders.getModifiedAt());
+        ordersService.update(updateOrder);
+        return new ResponseEntity<>("Order is updated successfully", HttpStatus.OK);
     }
 }

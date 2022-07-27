@@ -30,6 +30,11 @@ public class OrdersService implements IOrdersService {
     }
 
     @Override
+    public List<Orders> findAllDesc() {
+        return ordersRepository.findAllByOrderByIdDesc();
+    }
+
+    @Override
     public Orders findById(Long id) {
         Optional<Orders> result = ordersRepository.findById(id);
 
@@ -51,6 +56,11 @@ public class OrdersService implements IOrdersService {
         }
         order.setOrderDetails(orderDetails);
 
+        return ordersRepository.save(order);
+    }
+
+    @Override
+    public Orders update(Orders order) {
         return ordersRepository.save(order);
     }
 
