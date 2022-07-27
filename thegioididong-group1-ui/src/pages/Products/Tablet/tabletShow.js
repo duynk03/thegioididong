@@ -33,7 +33,7 @@ export default function TabletShowAll (){
                                 </p>
                                 {/* eslint-disable-next-line */}
                                 <a href='javascript:void(0)'>
-                                    <h3 className={styles.show__name}>iPad Pro M1 12.9 inch 5G</h3>
+                                    <strong className={styles.show__name} style={{color: 'black'}}>iPad Pro M1 12.9 inch 5G</strong>
                                 </a>
                                 <div className={styles.show__group}>
                                     <ul className={styles.show__memory}>

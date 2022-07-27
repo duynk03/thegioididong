@@ -14,6 +14,7 @@ import LaptopForm from '~/pages/Admin/ProductForm/LaptopForm';
 import TabletForm from '~/pages/Admin/ProductForm/TabletForm';
 import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
 
+
 const publicRoutes = [
     {
         path: '/',
