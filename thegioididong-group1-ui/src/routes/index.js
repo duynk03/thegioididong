@@ -16,6 +16,7 @@ import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
 import Login from '~/pages/Admin/Login';
 import Logout from '~/pages/Admin/Logout';
 
+
 const publicRoutes = [
     {
         path: '/',

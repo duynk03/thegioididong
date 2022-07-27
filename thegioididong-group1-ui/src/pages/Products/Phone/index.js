@@ -7,11 +7,11 @@ import PhoneSlider from "~/pages/Products/Phone/phoneSlider";
 
 export default function Phone(){
     return(
-        <div>
+        <>
             <PhoneSlider />
             <FilterPhone />
             <PhoneSort />
             <PhoneShowAll />
-        </div>
+        </>
     );
 }

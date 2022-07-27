@@ -6,11 +6,11 @@ import TabletShowAll from "./tabletShow";
 
 export default function Tablet(){
     return(
-        <div>
+        <>
             <TabletSlider />
             <FilterTablet />
             <TabletSort />
             <TabletShowAll />
-        </div>
+        </>
     );
 }

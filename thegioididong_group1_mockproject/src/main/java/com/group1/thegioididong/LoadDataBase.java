@@ -1,5 +1,6 @@
 package com.group1.thegioididong;
 
+<<<<<<< HEAD
 import com.group1.thegioididong.entity.Image;
 import com.group1.thegioididong.entity.OrderDetail;
 import com.group1.thegioididong.entity.Orders;
@@ -16,6 +17,18 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Date;
 import java.util.List;
+=======
+// import com.group1.thegioididong.entity.Image;
+// import com.group1.thegioididong.entity.Product;
+// import com.group1.thegioididong.service.IProductService;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
+// import org.springframework.boot.CommandLineRunner;
+// import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+// import java.util.List;
+>>>>>>> 627953f67fd6ef7a4089f6fdf9faebe563456ace
 
 
 @Configuration
