@@ -2,29 +2,77 @@ import { Button, Form, Input, InputNumber, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ProductForm.scss';
-import { formItemLayout, tailFormItemLayout } from './FormConstant.js';
-import { openSuccessNotification, openErrorNotification } from './Notification';
+import '../ProductForm/ProductForm.scss';
+import { formItemLayout, tailFormItemLayout } from '../ProductForm/FormConstant';
+import { openSuccessNotification, openErrorNotification } from '../ProductForm/Notification';
+import { useParams } from 'react-router-dom';
 
 const API_URL = 'http://localhost:8084/api/v1/products';
 
-const SmartwatchForm = () => {
+const SmartwatchEdit = () => {
     const [form] = Form.useForm();
     const [images, setImages] = useState([]);
 
+    let defaultValues;
     let product = null;
+    const { id } = useParams();
+
+    axios
+        .get(API_URL + '/' + id)
+        .then((response) => {
+            defaultValues = {
+                name:
+                    typeof response.data.name === 'undefined' || response.data.name === null ? '' : response.data.name,
+                category: typeof response.data.category === 'undefined' ? '' : response.data.category,
+                price: typeof response.data.price === 'undefined' ? '' : response.data.price,
+                manufacturer: typeof response.data.manufacturer === 'undefined' ? '' : response.data.manufacturer,
+                os: typeof response.data.os === 'undefined' ? '' : response.data.os,
+                color: typeof response.data.color === 'undefined' ? '' : response.data.color,
+                state: typeof response.data.state === 'undefined' ? '' : response.data.state,
+                saleOff: typeof response.data.saleOff === 'undefined' ? '' : response.data.saleOff,
+                description: typeof response.data.description === 'undefined' ? '' : response.data.description,
+                images: null,
+                screen: typeof response.data.smartwatch.screen === 'undefined' ? '' : response.data.smartwatch.screen,
+                resolution:
+                    typeof response.data.smartwatch.resolution === 'undefined'
+                        ? ''
+                        : response.data.smartwatch.resolution,
+                sim: typeof response.data.smartwatch.sim === 'undefined' ? '' : response.data.smartwatch.sim,
+                pin: typeof response.data.smartwatch.pin === 'undefined' ? '' : response.data.smartwatch.pin,
+                size: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.size,
+                released:
+                    typeof response.data.smartwatch.released === 'undefined' ? '' : response.data.smartwatch.released,
+
+                materialFrame:
+                    typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.materialFrame,
+                wireMaterial:
+                    typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.wireMaterial,
+                pinTime: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.pinTime,
+                charge: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.charge,
+                materialSurface:
+                    typeof response.data.smartwatch.size === 'undefined'
+                        ? ''
+                        : response.data.smartwatch.materialSurface,
+                feature: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.feature,
+                createdAt: response.data.created_at,
+                smartwatchId: response.data.smartwatch.id,
+            };
+        })
+        .then(() => {
+            form.setFieldsValue(defaultValues);
+        });
+
     const onFinish = (values) => {
         uploadImage(values.images);
         product = values;
     };
 
-    const addProduct = async (newProduct) => {
-        const response = await axios.post(API_URL, newProduct);
-        console.log('Response data: ', response.data);
+    const addProduct = async (updateData) => {
+        await axios.put(API_URL + '/' + id, updateData);
     };
 
     function uploadImage(files) {
-        const uploaders = files.map(async (file) => {
+        const uploaders = files?.map(async (file) => {
             const formData = new FormData();
             const newFile = file.originFileObj;
             formData.append('file', newFile);
@@ -43,60 +91,71 @@ const SmartwatchForm = () => {
                 });
         });
 
-        axios.all(uploaders).then((res) => {
-            addProduct({
-                name: product.name,
-                category: product.category,
-                price: product.price,
-                manufacturer: product.manufacturer,
-                os: product.os,
-                color: product.color,
-                laptop: null,
-                phone: null,
-                tablet: null,
-                stillInBusiness: product.stillInBusiness === 'true' ? true : false,
-                saleOff: product.saleOff,
-                created_at: new Date(),
-                modified_at: null,
-                description: product.description,
-                quantity: product.quantity,
-                images: images.reduce((a, value) => {
-                    return [...a, { source: value }];
-                }, []),
-                smartwatch: {
-                    screen: product.screen,
-                    resolution: product.resolution,
-                    materialFrame: product.materialFrame,
-                    wireMaterial: product.wireMaterial,
-                    sim: product.sim,
-                    size: product.size,
-                    pinTime: product.pinTime,
-                    charge: product.charge,
-                    pin: product.pin,
-                    materialSurface: product.materialSurface,
-                    feature: product.feature,
-                    released: product.released,
-                    createdAt: new Date(),
-                    modifiedAt: null,
-                },
-            })
-                .then(() => {
-                    openSuccessNotification('success', 'Smartwatch added successfully');
+        axios
+            .all(
+                typeof uploaders === 'undefined'
+                    ? [1].map(async () => {
+                          return new Promise((resolve) => {
+                              resolve();
+                          });
+                      })
+                    : uploaders,
+            )
+            .then((res) => {
+                addProduct({
+                    name: product.name,
+                    category: product.category,
+                    price: product.price,
+                    manufacturer: product.manufacturer,
+                    os: product.os,
+                    color: product.color,
+                    laptop: null,
+                    phone: null,
+                    tablet: null,
+                    stillInBusiness: product.stillInBusiness === 'true' ? true : false,
+                    saleOff: product.saleOff,
+                    created_at: defaultValues.createdAt,
+                    modified_at: new Date(),
+                    description: product.description,
+                    quantity: product.quantity,
+                    images: images.reduce((a, value) => {
+                        return [...a, { source: value }];
+                    }, []),
+                    smartwatch: {
+                        id: defaultValues.smartwatchId,
+                        screen: product.screen,
+                        resolution: product.resolution,
+                        materialFrame: product.materialFrame,
+                        wireMaterial: product.wireMaterial,
+                        sim: product.sim,
+                        size: product.size,
+                        pinTime: product.pinTime,
+                        charge: product.charge,
+                        pin: product.pin,
+                        materialSurface: product.materialSurface,
+                        feature: product.feature,
+                        released: product.released,
+                        createdAt: defaultValues.createdAt,
+                        modifiedAt: new Date(),
+                    },
                 })
-                .then(() => {
-                    setImages([]);
-                })
-                .then(() => {
-                    form.resetFields();
-                })
-                .catch((err) => {
-                    if (axios.isAxiosError(err)) {
-                        openErrorNotification('error', 'Smartwatch added failed');
-                        form.setFieldsValue({ images: null });
+                    .then(() => {
+                        openSuccessNotification('success', 'Cập nhật thông tin sản phẩm thành công');
+                    })
+                    .then(() => {
                         setImages([]);
-                    }
-                });
-        });
+                    })
+                    .then(() => {
+                        form.resetFields();
+                    })
+                    .catch((err) => {
+                        if (axios.isAxiosError(err)) {
+                            openErrorNotification('error', 'Cập nhật thông tin sản phẩm thất bại');
+                            form.setFieldsValue({ images: null });
+                            setImages([]);
+                        }
+                    });
+            });
     }
 
     const normFile = (e) => {
@@ -111,26 +170,13 @@ const SmartwatchForm = () => {
 
     return (
         <>
-            <h1 className="title__head">Thêm Smartwatch Mới</h1>
+            <h1 className="title__head">Cập Nhật Thông Tin Smartwatch</h1>
             <Form
                 {...formItemLayout}
                 form={form}
                 name="register"
                 onFinish={onFinish}
-                initialValues={{
-                    category: 'smartwatch',
-                    saleOff: 0,
-                    price: 300000,
-                    state: 'Còn hàng',
-                    os: null,
-                    manufacturer: 'Apple Watch',
-                    feature: 'Chống nước',
-                    color: 'Đen',
-                    pinTime: 'Dưới 2 ngày',
-                    wireMaterial: 'Da',
-                    sim: 'eSIM',
-                    images: null,
-                }}
+                initialValues={defaultValues}
                 scrollToFirstError
             >
                 <Form.Item
@@ -293,12 +339,6 @@ const SmartwatchForm = () => {
                     valuePropName="fileList"
                     getValueFromEvent={normFile}
                     extra="Chọn hình ảnh từ máy tính để tải lên"
-                    rules={[
-                        {
-                            required: true,
-                            message: 'Vui lòng chọn ít nhất 1 ảnh',
-                        },
-                    ]}
                 >
                     <Upload name="logo" beforeUpload={() => false} listType="picture">
                         <Button
@@ -340,7 +380,7 @@ const SmartwatchForm = () => {
 
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
-                        Thêm sản phẩm
+                        Cập nhật
                     </Button>
                 </Form.Item>
             </Form>
@@ -348,4 +388,4 @@ const SmartwatchForm = () => {
     );
 };
 
-export default SmartwatchForm;
+export default SmartwatchEdit;

@@ -1,0 +1,17 @@
+.notfound {
+    height: 48vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    h3 {
+        color: coral;
+        font-size: 800%;
+        line-height: 1.4;
+    }
+
+    h4 {
+        color: coral;
+        font-size: 400%;
+    }
+}

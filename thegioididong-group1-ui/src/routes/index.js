@@ -16,6 +16,10 @@ import SmartwatchForm from '~/pages/Admin/ProductForm/SmartwatchForm';
 import Login from '~/pages/Admin/Login';
 import Logout from '~/pages/Admin/Logout';
 import Register from '~/pages/Admin/Register';
+import PhoneEdit from '~/pages/Admin/EditForm/PhoneEdit';
+import LaptopEdit from '~/pages/Admin/EditForm/LaptopEdit';
+import TabletEdit from '~/pages/Admin/EditForm/TabletEdit';
+import SmartwatchEdit from '~/pages/Admin/EditForm/SmartwatchEdit';
 
 const publicRoutes = [
     {
@@ -96,6 +100,26 @@ const publicRoutes = [
     {
         path: '/admin/smartwatchForm',
         component: SmartwatchForm,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/products/phone/edit/:id',
+        component: PhoneEdit,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/products/laptop/edit/:id',
+        component: LaptopEdit,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/products/tablet/edit/:id',
+        component: TabletEdit,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/products/smartwatch/edit/:id',
+        component: SmartwatchEdit,
         layout: AdminLayout,
     },
 ];

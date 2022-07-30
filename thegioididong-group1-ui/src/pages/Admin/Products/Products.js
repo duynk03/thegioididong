@@ -4,6 +4,7 @@ import { Image } from 'cloudinary-react';
 import { Table, Button, Popconfirm } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { openSuccessNotification, openErrorNotification } from '~/pages/Admin/ProductForm/Notification';
+import { useNavigate } from 'react-router-dom';
 
 const PRODUCTS_REST_API_URL = 'http://localhost:8084/api/v1/products';
 const cloudName = 'dlefvc2xe';
@@ -12,6 +13,8 @@ function Products() {
     const [list, setList] = useState([]);
 
     const [updateData, setUpdateData] = useState(false);
+
+    const navigate = useNavigate();
 
     const columns = [
         {
@@ -33,7 +36,6 @@ function Products() {
             key: 'images',
             width: 100,
             render: (_, record) => {
-                console.log(record);
                 return (
                     <Image
                         cloudName={cloudName}
@@ -107,7 +109,23 @@ function Products() {
                 return (
                     <>
                         {/* eslint-disable-next-line */}
-                        <Button type="primary">Sửa</Button>
+                        <Button
+                            type="primary"
+                            onClick={() => {
+                                const product = record.product;
+                                if (product.laptop !== null) {
+                                    navigate('/admin/products/laptop/edit/' + product.id);
+                                } else if (product.tablet !== null) {
+                                    navigate('/admin/products/tablet/edit/' + product.id);
+                                } else if (product.phone !== null) {
+                                    navigate('/admin/products/phone/edit/' + product.id);
+                                } else {
+                                    navigate('/admin/products/smartwatch/edit/' + product.id);
+                                }
+                            }}
+                        >
+                            Sửa
+                        </Button>
                         <Popconfirm
                             title={'Bạn muốn xóa sản phẩm ' + record.name + ' chứ?'}
                             onConfirm={confirm}
@@ -142,6 +160,7 @@ function Products() {
                         os: item.os,
                         state: item.state,
                         saleOff: item.saleOff,
+                        product: item,
                     });
                     setList(displayData);
                 });
