@@ -4,6 +4,7 @@ import {
     LaptopOutlined,
     LogoutOutlined,
     UserAddOutlined,
+    HomeOutlined,
 } from '@ant-design/icons';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
@@ -40,6 +41,7 @@ const items = [
     getItem(<Link to={`/admin/orders`}>Đơn hàng</Link>, '7', <ShoppingOutlined />),
     getItem(<Link to={`/admin/register`}>Thêm tài khoản</Link>, '8', <UserAddOutlined />),
     getItem(<Link to={`/admin/logout`}>Đăng xuất</Link>, '9', <LogoutOutlined />),
+    getItem(<Link to={`/`}>Về trang chủ</Link>, '10', <HomeOutlined />),
 ];
 
 const Navigation = () => {

@@ -2,29 +2,72 @@ import { Button, Form, Input, InputNumber, Select, Upload } from 'antd';
 import { UploadOutlined } from '@ant-design/icons';
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ProductForm.scss';
-import { formItemLayout, tailFormItemLayout } from './FormConstant.js';
-import { openSuccessNotification, openErrorNotification } from './Notification';
+import '../ProductForm/ProductForm.scss';
+import { formItemLayout, tailFormItemLayout } from '../ProductForm/FormConstant';
+import { openSuccessNotification, openErrorNotification } from '../ProductForm/Notification';
+import { useParams } from 'react-router-dom';
 
 const API_URL = 'http://localhost:8084/api/v1/products';
 
-const TabletForm = () => {
+const TabletEdit = () => {
     const [form] = Form.useForm();
     const [images, setImages] = useState([]);
-
+    let defaultValues;
     let product = null;
+    const { id } = useParams();
+
+    axios
+        .get(API_URL + '/' + id)
+        .then((response) => {
+            defaultValues = {
+                name:
+                    typeof response.data.name === 'undefined' || response.data.name === null ? '' : response.data.name,
+                category: typeof response.data.category === 'undefined' ? '' : response.data.category,
+                price: typeof response.data.price === 'undefined' ? '' : response.data.price,
+                manufacturer: typeof response.data.manufacturer === 'undefined' ? '' : response.data.manufacturer,
+                os: typeof response.data.os === 'undefined' ? '' : response.data.os,
+                color: typeof response.data.color === 'undefined' ? '' : response.data.color,
+                state: typeof response.data.state === 'undefined' ? '' : response.data.state,
+                saleOff: typeof response.data.saleOff === 'undefined' ? '' : response.data.saleOff,
+                description: typeof response.data.description === 'undefined' ? '' : response.data.description,
+                images: null,
+                ram: typeof response.data.tablet.ram === 'undefined' ? '' : response.data.tablet.ram,
+                rom: typeof response.data.tablet.rom === 'undefined' ? '' : response.data.tablet.rom,
+                size: typeof response.data.tablet.size === 'undefined' ? '' : response.data.tablet.size,
+                released: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.released,
+                screenTechnology:
+                    typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.screenTechnology,
+                resolution: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.resolution,
+                wideScreen: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.wideScreen,
+                frontCamera:
+                    typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.frontCamera,
+                rearCamera: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.rearCamera,
+                chip: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.chip,
+                chipSpeed: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.chipSpeed,
+                chipGraphics:
+                    typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.chipGraphics,
+                sim: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.sim,
+                pin: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.pin,
+                material: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.material,
+                createdAt: response.data.created_at,
+                laptopId: response.data.tablet.id,
+            };
+        })
+        .then(() => {
+            form.setFieldsValue(defaultValues);
+        });
+
     const onFinish = (values) => {
         uploadImage(values.images);
         product = values;
     };
 
-    const postProduct = async (newProduct) => {
-        const response = await axios.post(API_URL, newProduct);
-        console.log('Response data: ', response.data);
+    const addProduct = async (newProduct) => {
+        await axios.put(API_URL + '/' + id, newProduct);
     };
 
     function uploadImage(files) {
-        const uploaders = files.map(async (file) => {
+        const uploaders = files?.map(async (file) => {
             const formData = new FormData();
             const newFile = file.originFileObj;
             formData.append('file', newFile);
@@ -43,68 +86,77 @@ const TabletForm = () => {
                 });
         });
 
-        axios.all(uploaders).then((res) => {
-            postProduct({
-                name: product.name,
-                category: product.category,
-                price: product.price,
-                manufacturer: product.manufacturer,
-                os: product.os,
-                color: product.color,
-                laptop: null,
-                phone: null,
-                smartwatch: null,
-                state: product.state,
-                saleOff: product.saleOff,
-                created_at: new Date(),
-                modified_at: null,
-                description: product.description,
-                quantity: product.quantity,
-                images: images.reduce((a, value) => {
-                    return [...a, { source: value }];
-                }, []),
-                tablet: {
-                    screenTechnology: product.screenTechnology,
-                    resolution: product.resolution,
-                    wideScreen: product.wideScreen,
-                    frontCamera: product.frontCamera,
-                    rearCamera: product.rearCamera,
-                    chip: product.chip,
-                    chipSpeed: product.chipSpeed,
-                    chipGraphics: product.chipGraphics,
-                    ram: product.ram,
-                    rom: product.rom,
-                    sim: product.sim,
-                    pin: product.pin,
-                    material: product.material,
-                    size: product.size,
-                    released: product.released,
-                    createdAt: new Date(),
-                    modifiedAt: null,
-                },
-            })
-                .then(() => {
-                    openSuccessNotification('success', 'Tablet added successfully');
+        axios
+            .all(
+                typeof uploaders === 'undefined'
+                    ? [1].map(async () => {
+                          return new Promise((resolve) => {
+                              resolve();
+                          });
+                      })
+                    : uploaders,
+            )
+            .then((res) => {
+                addProduct({
+                    name: product.name,
+                    category: product.category,
+                    price: product.price,
+                    manufacturer: product.manufacturer,
+                    os: product.os,
+                    color: product.color,
+                    laptop: null,
+                    phone: null,
+                    smartwatch: null,
+                    state: product.state,
+                    saleOff: product.saleOff,
+                    created_at: defaultValues.createdAt,
+                    modified_at: new Date(),
+                    description: product.description,
+                    quantity: product.quantity,
+                    images: images.reduce((a, value) => {
+                        return [...a, { source: value }];
+                    }, []),
+                    tablet: {
+                        id: defaultValues.tabletId,
+                        screenTechnology: product.screenTechnology,
+                        resolution: product.resolution,
+                        wideScreen: product.wideScreen,
+                        frontCamera: product.frontCamera,
+                        rearCamera: product.rearCamera,
+                        chip: product.chip,
+                        chipSpeed: product.chipSpeed,
+                        chipGraphics: product.chipGraphics,
+                        ram: product.ram,
+                        rom: product.rom,
+                        sim: product.sim,
+                        pin: product.pin,
+                        material: product.material,
+                        size: product.size,
+                        released: product.released,
+                        createdAt: defaultValues.createdAt,
+                        modifiedAt: new Date(),
+                    },
                 })
-                .then(() => {
-                    setImages([]);
-                })
-                .then(() => {
-                    form.resetFields();
-                })
-                .catch((err) => {
-                    if (axios.isAxiosError(err)) {
-                        openErrorNotification('error', 'Tablet added failed');
-                        form.setFieldsValue({ images: null });
+                    .then(() => {
+                        openSuccessNotification('success', 'Cập nhật thông tin sản phẩm thành công');
+                    })
+                    .then(() => {
                         setImages([]);
-                    }
-                });
-        });
+                    })
+                    .then(() => {
+                        form.resetFields();
+                    })
+                    .catch((err) => {
+                        if (axios.isAxiosError(err)) {
+                            openErrorNotification('error', 'Cập nhật thông tin sản phẩm thất bại');
+                            form.setFieldsValue({ images: null });
+                            setImages([]);
+                        }
+                    });
+            });
     }
 
     const normFile = (e) => {
-        console.log('Upload event:', e);
-
         if (Array.isArray(e)) {
             return e;
         }
@@ -114,28 +166,13 @@ const TabletForm = () => {
 
     return (
         <>
-            <h1 className="title__head">Thêm tablet mới</h1>
+            <h1 className="title__head">Cập nhật thông tin tablet</h1>
             <Form
                 {...formItemLayout}
                 form={form}
                 name="register"
                 onFinish={onFinish}
-                initialValues={{
-                    category: 'tablet',
-                    saleOff: 0,
-                    price: 2400000,
-                    state: 'Còn hàng',
-                    os: 'Android',
-                    manufacturer: 'Apple',
-                    ram: '2 GB',
-                    rom: '32 GB',
-                    cpu: 'Đang cập nhật',
-                    screen: 'Đang cập nhật',
-                    especially: 'Đang cập nhật',
-                    color: 'Đen',
-                    images: null,
-                    pin: 0,
-                }}
+                initialValues={defaultValues}
                 scrollToFirstError
             >
                 <Form.Item
@@ -266,7 +303,7 @@ const TabletForm = () => {
                 </Form.Item>
 
                 <Form.Item name="state" label="Trạng thái sản phẩm">
-                    <Select disabled>
+                    <Select>
                         <Select.Option value="Còn hàng">Còn hàng</Select.Option>
                         <Select.Option value="Hết hàng">Hết hàng</Select.Option>
                         <Select.Option value="Ngừng kinh doanh">Ngừng kinh doanh</Select.Option>
@@ -350,7 +387,7 @@ const TabletForm = () => {
 
                 <Form.Item {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">
-                        Thêm sản phẩm
+                        Cập nhật
                     </Button>
                 </Form.Item>
             </Form>
@@ -358,4 +395,4 @@ const TabletForm = () => {
     );
 };
 
-export default TabletForm;
+export default TabletEdit;
