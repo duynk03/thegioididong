@@ -17,7 +17,7 @@ function Register() {
             })
             .then(() => {
                 form.resetFields();
-                openSuccessNotification('success', 'Đăng ký tài khoản giao hàng thành công!');
+                openSuccessNotification('success', 'Đăng ký tài khoản thành công!');
             })
             .catch((err) => {
                 if (axios.isAxiosError(err)) {
