@@ -29,8 +29,7 @@ export default function FilterPhone() {
 
     const typeOfPhone = [
         'Android',
-        'iPhone(iOS)',
-        'Điện thoại phổ thông'
+        'iPhone(iOS)'
     ];
 
     const demandPhone = [
@@ -72,7 +71,6 @@ export default function FilterPhone() {
         'Bảo mật khuôn mặt'
     ];
 
-    // const [displayTotalFilter, setDisplayTotalFilter] = useState(clsx(styles.show__total__main, styles.filter__hidden));
     const [displayManu, setDisplayManu] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayPrice, setDisplayPrice] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayType, setDisplayType] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
@@ -84,7 +82,6 @@ export default function FilterPhone() {
     
     const [hidden, setHidden] = useState(false);
     
-    // const [displayArrowTotal, setDisplayArrowTotal] = useState(clsx(null));
     const [displayArrowManu, setDisplayArrowManu] = useState(clsx(null));
     const [displayArrowPrice, setDisplayArrowPrice] = useState(clsx(null));
     const [displayArrowType, setDisplayArrowType] = useState(clsx(null));
