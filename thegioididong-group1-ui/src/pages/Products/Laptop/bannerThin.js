@@ -12,7 +12,7 @@ export default function BannerThin() {
     const brandThinImg = 'https://cdn.tgdd.vn/2022/07/content/50x50-50x50-5.png'
 
     return(
-        <div className={styles.banner__thin}>
+        <div className={styles.banner__thin} id='ltthin'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

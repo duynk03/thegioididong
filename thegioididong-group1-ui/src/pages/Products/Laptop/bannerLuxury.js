@@ -12,7 +12,7 @@ export default function BannerLuxury() {
     const brandLuxuryImg = 'https://cdn.tgdd.vn/2022/07/content/50x50-50x50-5.png'
 
     return(
-        <div className={styles.banner__macbook}>
+        <div className={styles.banner__luxury} id='ltluxury'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

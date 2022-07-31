@@ -20,7 +20,7 @@ export default function BannerUtility() {
     ];
 
     return(
-        <div className={styles.banner__utility}>
+        <div className={styles.banner__utility} id='tienich'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

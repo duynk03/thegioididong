@@ -1,15 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Smartwatch.module.scss';
 
+
 export default function MenuBar (){
+    const [position, setPosition] = useState(false);
 
     const menuIcon = [
-        'fab fa-hotjar',
-        'fas fa-clock',
-        'fas fa-heartbeat',
-        'fas fa-running',
-        'fas fa-child',
-        'fas fa-headset'
+        {
+            icon: 'fab fa-hotjar',
+            href: '#dealsoc'
+        },
+        {
+            icon: 'fas fa-clock',
+            href: '#fashion'
+        },
+        {
+            icon: 'fas fa-heartbeat',
+            href: '#tienich'
+        },
+        {
+            icon: 'fas fa-running',
+            href: '#sport'
+        },
+        {
+            icon: 'fas fa-child',
+            href: '#children'
+        },
+        {
+            icon:  'fas fa-headset',
+            href: '#phukien'
+        }  
     ];
     const menuContent = [
         'Deal sốc',
@@ -21,14 +41,14 @@ export default function MenuBar (){
     ];
 
     return(
-        <div className={styles.menu__nav}>
+        <div className={styles.menu__nav}  style={{...styles, position: position? 'fixed':'none'}}>
             <div className={styles.menu__container}>
-                {menuIcon.map((icon) => (
+                {menuIcon.map((item) => (
                     <>
                         {/* eslint-disable-next-line */}
-                        <a href='javascript:void(0)' className={styles.nav__item}>
-                            <div className={styles.nav__icon}>
-                                <i className={icon}></i>
+                        <a href={item.href} className={styles.nav__item}>
+                            <div className={styles.nav__icon} onClick={() => setPosition(!position)}>
+                                <i className={item.icon}></i>
                             </div>
                         </a>
                     </>

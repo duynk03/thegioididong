@@ -19,7 +19,7 @@ export default function BannerAccessory() {
     ];
 
     return(
-        <div className={styles.banner__accessory}>
+        <div className={styles.banner__accessory} id='phukien'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

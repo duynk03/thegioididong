@@ -39,15 +39,14 @@
     }
 }
 
-
 .menu__nav{
     left: 0;
-    // position: fixed;
     top: 0;
     z-index: 9;
     right: 0;
     height: 100px;
     background-color: #0f0004;  
+    padding-top: 10px;
 
     .menu__container{
         display: grid;
@@ -74,6 +73,9 @@
                 justify-content: center;
                 margin: 0 auto;
                 margin-bottom: 5px;
+            }
+            .nav__icon:hover{
+                background-color: yellow;
             }
         }
         .menu__element__title{

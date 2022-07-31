@@ -11,9 +11,9 @@ export default function Phone(){
         <Fragment>
             <PhoneSlider />
             <MainPhone />
-            {/* <FilterPhone />
-            <PhoneSort />
-            <PhoneShowAll /> */}
+            {/* <FilterPhone /> */}
+            {/* <PhoneSort /> */}
+            {/* <PhoneShowAll />  */}
         </Fragment>
     );
 }

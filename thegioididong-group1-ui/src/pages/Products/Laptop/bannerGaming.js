@@ -12,7 +12,7 @@ export default function BannerGaming() {
     const brandGamingImg = 'https://cdn.tgdd.vn/2020/10/content/icon2-50x50.png'
 
     return(
-        <div className={styles.banner__gaming}>
+        <div className={styles.banner__gaming} id='ltgaming'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

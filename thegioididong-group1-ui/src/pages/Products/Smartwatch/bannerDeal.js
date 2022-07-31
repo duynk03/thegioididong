@@ -23,7 +23,7 @@ export default function ShockDeal() {
     let dealItem = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15];
 
     return(
-        <div className={styles.deal__container}>
+        <div className={styles.deal__container} id='dealsoc'>
             <div className={styles.deal__title}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.deal__link}>

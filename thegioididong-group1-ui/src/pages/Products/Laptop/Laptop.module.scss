@@ -407,8 +407,9 @@
     top: 0;
     z-index: 9;
     right: 0;
-    margin: 0 5%;
+    margin: 0 5% 20px 5%;
     height: 100px;
+    background-color: #000;
 
     .menu__container{
         display: grid;
@@ -416,6 +417,7 @@
         grid-template-columns: repeat(8,minmax(0,1fr));
         width: 92%;
         margin: auto;
+        padding-top: 10px;
 
         .nav__item{
             width: auto;
@@ -436,9 +438,13 @@
                 margin: 0 auto;
                 margin-bottom: 5px;
             }
+
+            .nav__icon:hover{
+                background-color: yellow;
+            }
         }
         .menu__element__title{
-            color: #000;
+            color: #fff;
             text-align: center;
         }
     }

@@ -107,19 +107,17 @@ export default function MainPhone() {
     const showImg = 'https://cdn.tgdd.vn/Products/Images/42/261888/realme-c35-thumb-new-600x600.jpg'
     const optionRom = ['8GB/128GB', '12GB/256GB', '12GB/512GB']
 
-    const [sortState, setSortState] = useState('none');
-    const sortMethods = {
-        none: {method: (a, b) => null },
-        ascending: {method: undefined },
-        descending: {method: (a, b) => (a > b? -1 : 1)}
-    };
 
+    const [data, setData] = useState([]);
+    const [sortType, setSortType] = useState('none');
+
+    
     useEffect(() => {
         const getPhone = async () =>{ 
             try {
                 const res = await axios.get(
                     // 'http://localhost:8084/api/v1/products/type?name=phone'
-                    'https://jsonplaceholder.typicode.com/photos?_limit=30'
+                    'https://jsonplaceholder.typicode.com/photos?_limit=10'
                 )
                 setShowPhone(res.data)
                 console.log(res.data)
@@ -127,8 +125,22 @@ export default function MainPhone() {
                 console.log(error.message);
             }
         }
-        getPhone()
-    }, [])
+        getPhone();
+
+        const optionSort = type => {
+            // setSortType('price');
+            setSortType('id');
+            const types = {
+                // price: 'price'
+                id: 'id'
+            };
+            const orderByProperty = types[type];
+            const orderByDesc = [...showPhone].sort((a, b) => b[orderByProperty] - a[orderByProperty]);
+            const orderByAsc = [...showPhone].sort((a, b) => a[orderByProperty] - b[orderByProperty]);
+            setData(orderByDesc);
+        };
+        setSortType(optionSort);
+    }, [data,sortType]);
 
     return(
         <Fragment>
@@ -415,7 +427,7 @@ export default function MainPhone() {
             <div className={styles.sort__container}>
                 <p className={styles.sort__total}>
                     <b className={styles.sort__total__item}>
-                        90&nbsp;Điện thoại
+                        {showPhone.length}&nbsp;Điện thoại
                     </b>
                 </p>
 
@@ -429,40 +441,33 @@ export default function MainPhone() {
                 }}>
                     <p className={styles.sort__content}>Xếp theo:&nbsp;
                         <span className={styles.sort__show}>
-                            Nổi bật&nbsp;<i className={clsx(styles.select__sort__icon,'fas fa-sort-down')}></i>
+                        Giá từ thấp đến cao&nbsp;
+                        <i className={clsx(styles.select__sort__icon,'fas fa-sort-down')}></i>
                         </span>
                     </p>
-                    <div className={displaySort} onChange={(e)=> setSortState(e.target.value)}>
+                    <div className={displaySort}>
                         <p>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.check__sort} href='javascript:void(0)' value='DEFAULT'>
-                                <i></i>
-                                Nổi bật
-                            </a>    
-                        </p>
-                        <p>
-                            {/* eslint-disable-next-line */}
-                            <a className='' href='javascript:void(0)' value='ascending'>
+                            <a className='' href='javascript:void(0)'>
                                 <i></i>
                                 Giá từ cao đến thấp
                             </a>
                         </p>
                         <p>
                             {/* eslint-disable-next-line */}
-                            <a className='' href='javascript:void(0)' value='descending'>
+                            <a className='' href='javascript:void(0)'>
                                 <i></i>
                                 Giá từ thấp đến cao
                             </a>
                         </p>
                     </div>
-                </div>
-                
+                </div>    
             </div>
 
             {/* show */}
             <div className={styles.show__all__products}>
                 <ul className={styles.list__product}>
-                    {showPhone.sort(sortMethods[sortState].method).map((phone, index) => (
+                    {data.map((phone, index) => (
                         <li key={index} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
                             <a className={styles.item__container} href='javascript:void(0)'>

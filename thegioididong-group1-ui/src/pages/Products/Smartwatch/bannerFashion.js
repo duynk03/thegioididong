@@ -22,7 +22,7 @@ export default function BannerFashion() {
     ];
 
     return(
-        <div className={styles.banner__fashion}>
+        <div className={styles.banner__fashion} id='fashion'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

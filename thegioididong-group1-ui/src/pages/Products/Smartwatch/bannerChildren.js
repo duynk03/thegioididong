@@ -10,7 +10,7 @@ export default function BannerChildren() {
     const bannerChildrenImg = 'https://cdn.tgdd.vn/Products/Images/7077/236906/kidcare-s8-den-thumb-1-1-600x600.jpg'
 
     return(
-        <div className={styles.banner__children}>
+        <div className={styles.banner__children} id='children'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

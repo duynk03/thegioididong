@@ -10,7 +10,7 @@ export default function BannerSoftware() {
     const bannerSoftwareImg = 'https://cdn.tgdd.vn/Products/Images/85/155041/windows-10-pro-32-bit-64-bit-all-languages-fqc-09-cava-600x600.jpg'
 
     return(
-        <div className={styles.banner__software}>
+        <div className={styles.banner__software} id='software'>
             <div className={styles.block__banner}>
                 {/* eslint-disable-next-line */}
                 <a href='javascript:void(0)' className={styles.banner__link}>

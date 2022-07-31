@@ -4,14 +4,38 @@ import styles from './Laptop.module.scss';
 export default function MenuLaptop (){
 
     const menuIcon = [
-        'fab fa-hotjar',
-        'fas fa-gamepad',
-        'fab fa-apple',
-        'fas fa-book-reader',
-        'fas fa-bezier-curve',
-        'fas fa-feather-alt',
-        'fas fa-gem',
-        'fab fa-windows'
+        {
+            icon: 'fab fa-hotjar',
+            href: '#dealsoc'
+        },
+        {
+            icon: 'fas fa-gamepad',
+            href: '#ltgaming'
+        },
+        {
+            icon: 'fab fa-apple',
+            href: '#ltmacbook'
+        },
+        {
+            icon: 'fas fa-book-reader',
+            href: '#ltoffice'
+        },
+        {
+            icon: 'fas fa-bezier-curve',
+            href: '#ltengineer'
+        },
+        {
+            icon: 'fas fa-feather-alt',
+            href: '#ltthin'
+        },
+        {
+            icon: 'fas fa-gem',
+            href: '#ltluxury'
+        },
+        {
+            icon: 'fab fa-windows',
+            href: '#software'
+        }
     ];
     const menuContent = [
         'Deal sốc',
@@ -27,12 +51,12 @@ export default function MenuLaptop (){
     return(
         <div className={styles.menu__laptop}>
             <div className={styles.menu__container}>
-                {menuIcon.map((icon) => (
+                {menuIcon.map((item) => (
                     <>
                         {/* eslint-disable-next-line */}
-                        <a href='javascript:void(0)' className={styles.nav__item}>
+                        <a href={item.href} className={styles.nav__item}>
                             <div className={styles.nav__icon}>
-                                <i className={icon}></i>
+                                <i className={item.icon}></i>
                             </div>
                         </a>
                     </>
