@@ -18,4 +18,7 @@ public interface IProductService {
     Product findLastInsert();
 
     void deleteById(Long id);
+
+    List<Product> findByType(String type);
+
 }

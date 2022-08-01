@@ -3,6 +3,7 @@ package com.group1.thegioididong.restcontroller;
 import com.group1.thegioididong.Exception.ProductNotFoundException;
 import com.group1.thegioididong.entity.Product;
 import com.group1.thegioididong.service.IProductService;
+import com.sun.istack.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -59,5 +60,10 @@ public class ProductController {
     public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
         productService.deleteById(id);
         return new ResponseEntity<>("Product is deleted successfully", HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/type", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> getByType(@RequestParam(value = "name", defaultValue = "") String name) {
+        return new ResponseEntity<>(productService.findByType(name), HttpStatus.OK);
     }
 }

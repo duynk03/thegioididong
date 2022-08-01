@@ -59,4 +59,15 @@ public class ProductService implements IProductService {
     public void deleteById(Long id) {
         productRepository.deleteById(id);
     }
+
+    @Override
+    public List<Product> findByType(String type) {
+        return switch (type) {
+            case "laptop" -> productRepository.findByLaptopIsNotNull();
+            case "phone" -> productRepository.findByPhoneIsNotNull();
+            case "tablet" -> productRepository.findByTabletIsNotNull();
+            case "smartwatch" -> productRepository.findBySmartwatchIsNotNull();
+            default -> null;
+        };
+    }
 }
