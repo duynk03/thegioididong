@@ -1,4 +1,4 @@
-import { useState, useEffect,Fragment, useRef } from 'react';
+import { useState, useEffect,Fragment } from 'react';
 import styles from './Phone.module.scss';
 import axios from 'axios';
 import clsx from 'clsx';
@@ -30,7 +30,8 @@ export default function MainPhone() {
 
     const typeOfPhone = [
         'Android',
-        'iPhone(iOS)'
+        'iPhone(iOS)',
+        'Điện thoại phổ thông'
     ];
 
     const demandPhone = [
@@ -109,63 +110,43 @@ export default function MainPhone() {
 
 
     const [data, setData] = useState([]);
-    // const [sortType, setSortType] = useState('none');
-
-    // const orderByAsc = useRef();
-    // const orderByDesc = useRef();
-    let orderByAsc;
-    let orderByDesc;
-
-    try {
-        axios.get(
-            // 'http://localhost:8084/api/v1/products/type?name=phone'
-            'https://jsonplaceholder.typicode.com/photos?_limit=10'
-        ).then((res) => {
-            
-            const types = {
-                // price: 'price'
-                id: 'id'
-            };
-            const orderByProperty = types['id'];
-            orderByDesc = [...res.data].sort((a, b) => b[orderByProperty] - a[orderByProperty]);
-            orderByAsc = [...res.data].sort((a, b) => a[orderByProperty] - b[orderByProperty]);
-            setData(orderByDesc);
-            console.log(orderByAsc, orderByDesc)
-        }).then(()=>{
-            console.log(data)
-        })
-    } catch (error) {
-        console.log(error.message);
-    }
-    
-    // useEffect(() => {
-        
-
-        
-
-    // //     const optionSort = type => {
-    // //         // setSortType('price');
-    // //         setSortType('id');
-            
-    // //     };
-    // //     setSortType(optionSort);
-    // }, [showPhone]);
-
-    
+    const [orderByAsc, setOrderByAsc] = useState([]);
+    const [orderByDesc, setOrderByDesc] = useState([]);
 
     const [showData, setShowData] = useState('Giá từ thấp đến cao');
     const [render, setRender] = useState(false);
 
-    useEffect(()=> {
-        if(render){
-            if(showData === 'Giá từ thấp đến cao'){
-                setData(orderByAsc)
-            }else{
-                setData(orderByDesc)
+    useEffect(() => {
+        if (render) {
+            if (showData === 'Giá từ thấp đến cao') {
+                setData(orderByAsc);
+            } else {
+                setData(orderByDesc);
             }
+        } else {
+            try {
+                axios
+                    .get(
+                        'http://localhost:8084/api/v1/products/type?name=phone'
+                        // 'https://jsonplaceholder.typicode.com/photos?_limit=10',
+                    )
+                    .then((res) => {
+                        const types = {
+                            id: 'id',
+                        };
+                        const orderByProperty = types['id'];
+                        setOrderByDesc([...res.data].sort((a, b) => b[orderByProperty] - a[orderByProperty]));
+                        setOrderByAsc([...res.data].sort((a, b) => a[orderByProperty] - b[orderByProperty]));
+                        setData(res.data);
+                        console.log(res.data);
+                    });
+            } catch (error) {
+                console.log(error.message);
+            }
+            setRender(true);
         }
-        else{setRender(true)}
-    },[showData])
+    }, [render, showData, orderByAsc, orderByDesc, setOrderByDesc]);
+
 
     return(
         <Fragment>
@@ -452,7 +433,7 @@ export default function MainPhone() {
             <div className={styles.sort__container}>
                 <p className={styles.sort__total}>
                     <b className={styles.sort__total__item}>
-                        {data.length? data.length : 'null'}&nbsp;Điện thoại
+                        {data.length? data.length : '0'}&nbsp;Điện thoại
                     </b>
                 </p>
 
@@ -471,14 +452,14 @@ export default function MainPhone() {
                         </span>
                     </p>
                     <div className={displaySort} >
-                        <p onClick={() => setShowData('Giá từ thấp đến cao')} >
+                        <p onClick={() => setShowData('Giá từ cao đến thấp')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
                                 Giá từ cao đến thấp
                             </a>
                         </p>
-                        <p onClick={() => setShowData('Giá từ cao đến thấp')} >
+                        <p onClick={() => setShowData('Giá từ thấp đến cao')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
@@ -502,7 +483,7 @@ export default function MainPhone() {
                                 <div className={styles.item__content}>
                                     <img className={styles.item__element} src={showImg} alt=''/>
                                 </div>
-                                <strong style={{color: 'black'}}>Name of phone {phone.id}</strong>
+                                <strong style={{color: 'black'}}>Name of phone</strong>
                                 <div className={styles.product__group}>
                                     <ul className={styles.product__memory}>
                                         {optionRom.map((opt) => (
@@ -514,7 +495,7 @@ export default function MainPhone() {
                                     <p className={styles.old__price}>30.990.000₫</p>
                                     <span className={styles.discount__percent}>&nbsp;9%</span>
                                 </div>
-                                <strong className={styles.new__price}>{phone.id}k $</strong>
+                                <strong className={styles.new__price}>1k $</strong>
                                 <div className={styles.rating}>
                                     <div className={styles.star__rating}>
                                         <i className={clsx('fa fa-star', styles.star)}></i>
