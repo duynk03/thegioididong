@@ -7,6 +7,7 @@ import Cart from '~/pages/Cart';
 import History from '~/pages/History/History';
 import UserInfo from '~/pages/History/UserInfo';
 import Login from '~/pages/History/Login';
+import ProductDetail from '~/pages/ProductDetail';
 const publicRoutes = [
     {
         path: '/',
@@ -40,7 +41,12 @@ const publicRoutes = [
     {
         path: '/lich-su-mua-hang/dang-nhap',
         component: Login,
+    },
+    {
+        path: '/productdetail',
+        component: ProductDetail,
     }
+
 ];
 
 const privateRoutes = [];
