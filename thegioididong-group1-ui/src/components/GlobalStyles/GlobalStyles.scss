@@ -57,3 +57,45 @@ h6 a {
     color: #333;
     outline: none;
 }
+
+.slick-prev:before {
+    color: #d3c7c7;
+    font-size: 44px;
+}
+
+.slick-next:before {
+    color: #d3c7c7;
+    font-size: 44px;
+}
+
+// .slick-slide {
+//     margin: 2 2px;
+// }
+// /* the parent */
+// .slick-list {
+//     margin: 0 -5px;
+// }
+
+.slick-slide > div {
+    margin: 0 7px;
+}
+.slick-list {
+    margin: 0 -7px;
+}
+.admin__layout {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.admin__container {
+    margin-left: 250px;
+    flex-basis: 87%;
+    width: 100%;
+    background-color: #fff;
+    min-height: 100vh;
+    // padding: 30px;
+}
+
+.product__list {
+    margin-left: 280px;
+}

@@ -1,0 +1,16 @@
+.dashboard {
+    position: relative;
+    width: 90%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 280px;
+
+    .heading {
+        position: relative;
+        margin: auto;
+        font-size: 70px;
+        line-height: 1.4;
+    }
+}

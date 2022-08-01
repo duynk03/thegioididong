@@ -110,6 +110,7 @@
 }
 
 .f__website {
+    display: block;
 }
 
 .website__logo {
@@ -140,4 +141,20 @@
 .webitem__img {
     width: 80px;
     height: 24px;
+}
+
+.copyright {
+    background-color: #f1f1f1;
+    padding: 15px 0;
+}
+
+.section_cpr {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.copyright_text {
+    color: #666;
+    font-size: 12px;
 }

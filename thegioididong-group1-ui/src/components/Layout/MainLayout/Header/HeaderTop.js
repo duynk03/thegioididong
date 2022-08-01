@@ -26,7 +26,7 @@ function HeaderTop() {
                 <Link to="/cart" className={styles.header__cart}>
                     <div className={styles.box__cart}>
                         <img src="/images/iconcart.png" alt="cart icon" className={styles.iconnewglobal__cart} />
-                        <span className={styles.cart__number}>1</span>
+                        <span className={styles.cart__number}></span>
                     </div>
                     <span>Giỏ hàng</span>
                 </Link>

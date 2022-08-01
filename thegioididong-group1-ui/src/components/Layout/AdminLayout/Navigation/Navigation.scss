@@ -1,0 +1,29 @@
+.ant-menu-inline {
+    width: calc(100% + 1px);
+}
+
+.ant-menu-title-content {
+    font-size: 20px;
+}
+
+.anticon {
+    padding-right: 24px;
+}
+
+.ant-menu.ant-menu-inline-collapsed > .ant-menu-item {
+    padding: 0 calc(50% - 16px);
+}
+
+svg {
+    width: 2em;
+    height: 2em;
+}
+@import '~antd/dist/antd.css';
+
+.logo__icon {
+    padding-right: 18px;
+}
+.logo__tgdd {
+    width: 32px;
+    height: 32px;
+}

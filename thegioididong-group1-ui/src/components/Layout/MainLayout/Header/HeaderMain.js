@@ -24,7 +24,7 @@ function HeaderMain() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/may-tinh-bang'}>
+                        <Link to={'/tablet'}>
                             <i>
                                 <img src="https://cdn.tgdd.vn//content/icon-tablet-96x96-1.png" alt="Máy tính bảng" />
                             </i>
