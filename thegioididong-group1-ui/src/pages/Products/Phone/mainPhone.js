@@ -1,4 +1,4 @@
-import { useState, useEffect,Fragment } from 'react';
+import { useState, useEffect,Fragment, useRef } from 'react';
 import styles from './Phone.module.scss';
 import axios from 'axios';
 import clsx from 'clsx';
@@ -103,44 +103,69 @@ export default function MainPhone() {
 
     const [displaySort, setDisplaySort] = useState(clsx(styles.sort__select__main, styles.sort__hidden));
 
-    const [showPhone, setShowPhone] = useState([]);
+    // const [showPhone, setShowPhone] = useState([]);
     const showImg = 'https://cdn.tgdd.vn/Products/Images/42/261888/realme-c35-thumb-new-600x600.jpg'
     const optionRom = ['8GB/128GB', '12GB/256GB', '12GB/512GB']
 
 
     const [data, setData] = useState([]);
-    const [sortType, setSortType] = useState('none');
+    // const [sortType, setSortType] = useState('none');
 
-    
-    useEffect(() => {
-        const getPhone = async () =>{ 
-            try {
-                const res = await axios.get(
-                    // 'http://localhost:8084/api/v1/products/type?name=phone'
-                    'https://jsonplaceholder.typicode.com/photos?_limit=10'
-                )
-                setShowPhone(res.data)
-                console.log(res.data)
-            } catch (error) {
-                console.log(error.message);
-            }
-        }
-        getPhone();
+    // const orderByAsc = useRef();
+    // const orderByDesc = useRef();
+    let orderByAsc;
+    let orderByDesc;
 
-        const optionSort = type => {
-            // setSortType('price');
-            setSortType('id');
+    try {
+        axios.get(
+            // 'http://localhost:8084/api/v1/products/type?name=phone'
+            'https://jsonplaceholder.typicode.com/photos?_limit=10'
+        ).then((res) => {
+            
             const types = {
                 // price: 'price'
                 id: 'id'
             };
-            const orderByProperty = types[type];
-            const orderByDesc = [...showPhone].sort((a, b) => b[orderByProperty] - a[orderByProperty]);
-            const orderByAsc = [...showPhone].sort((a, b) => a[orderByProperty] - b[orderByProperty]);
+            const orderByProperty = types['id'];
+            orderByDesc = [...res.data].sort((a, b) => b[orderByProperty] - a[orderByProperty]);
+            orderByAsc = [...res.data].sort((a, b) => a[orderByProperty] - b[orderByProperty]);
             setData(orderByDesc);
-        };
-        setSortType(optionSort);
-    }, [data,sortType]);
+            console.log(orderByAsc, orderByDesc)
+        }).then(()=>{
+            console.log(data)
+        })
+    } catch (error) {
+        console.log(error.message);
+    }
+    
+    // useEffect(() => {
+        
+
+        
+
+    // //     const optionSort = type => {
+    // //         // setSortType('price');
+    // //         setSortType('id');
+            
+    // //     };
+    // //     setSortType(optionSort);
+    // }, [showPhone]);
+
+    
+
+    const [showData, setShowData] = useState('Giá từ thấp đến cao');
+    const [render, setRender] = useState(false);
+
+    useEffect(()=> {
+        if(render){
+            if(showData === 'Giá từ thấp đến cao'){
+                setData(orderByAsc)
+            }else{
+                setData(orderByDesc)
+            }
+        }
+        else{setRender(true)}
+    },[showData])
 
     return(
         <Fragment>
@@ -427,7 +452,7 @@ export default function MainPhone() {
             <div className={styles.sort__container}>
                 <p className={styles.sort__total}>
                     <b className={styles.sort__total__item}>
-                        {showPhone.length}&nbsp;Điện thoại
+                        {data.length? data.length : 'null'}&nbsp;Điện thoại
                     </b>
                 </p>
 
@@ -441,19 +466,19 @@ export default function MainPhone() {
                 }}>
                     <p className={styles.sort__content}>Xếp theo:&nbsp;
                         <span className={styles.sort__show}>
-                        Giá từ thấp đến cao&nbsp;
+                        {showData}&nbsp;
                         <i className={clsx(styles.select__sort__icon,'fas fa-sort-down')}></i>
                         </span>
                     </p>
-                    <div className={displaySort}>
-                        <p>
+                    <div className={displaySort} >
+                        <p onClick={() => setShowData('Giá từ thấp đến cao')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
                                 Giá từ cao đến thấp
                             </a>
                         </p>
-                        <p>
+                        <p onClick={() => setShowData('Giá từ cao đến thấp')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
