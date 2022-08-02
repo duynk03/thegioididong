@@ -33,13 +33,11 @@ public class Review {
 
     @OneToOne(
             cascade = {CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-                    CascadeType.REFRESH},
-            fetch = FetchType.LAZY
+                    CascadeType.REFRESH}
     )
     @JoinColumn(
             name = "product_id",
             referencedColumnName = "id"
     )
-    @ToString.Exclude
     private Product product;
 }
