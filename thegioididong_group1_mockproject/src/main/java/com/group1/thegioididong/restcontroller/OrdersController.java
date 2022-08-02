@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -42,6 +43,7 @@ public class OrdersController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> saveOrder(@RequestBody Orders order) {
+        order.setCreatedAt(new Date());
         ordersService.save(order);
         return new ResponseEntity<>("Order is created successfully", HttpStatus.CREATED);
     }
@@ -53,7 +55,7 @@ public class OrdersController {
             return new ResponseEntity<>("Order is not exist", HttpStatus.NOT_FOUND);
         }
         updateOrder.setState(orders.getState());
-        updateOrder.setModifiedAt(orders.getModifiedAt());
+        updateOrder.setModifiedAt(new Date());
         ordersService.update(updateOrder);
         return new ResponseEntity<>("Order is updated successfully", HttpStatus.OK);
     }

@@ -16,6 +16,8 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
+
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 @RequestMapping(value = "/users", produces = MediaType.APPLICATION_JSON_VALUE)
@@ -48,7 +50,7 @@ public class UserController {
 
         final String token = jwtUtil.generateToken(userDetails);
 
-        return new JwtResponse(token);
+        return new JwtResponse(token, jwtRequest.getUsername());
     }
 
     @RequestMapping(method = RequestMethod.POST)
@@ -59,15 +61,25 @@ public class UserController {
         }
 
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setCreatedAt(new Date());
         User newUser = userService.save(user);
 
         return new ResponseEntity<>("User is created successfully", HttpStatus.CREATED);
     }
 
-    @RequestMapping(value = {"/{id}"}, method = RequestMethod.PUT)
-    public ResponseEntity<Object> changePassword(@PathVariable Long id, @RequestBody JwtRequest jwtRequest) {
+    @RequestMapping(value = {"/{username}"}, method = RequestMethod.PUT)
+    public ResponseEntity<Object> changePassword(@PathVariable String username, @RequestBody JwtRequest jwtRequest) {
         String pwd = bCryptPasswordEncoder.encode(jwtRequest.getPassword());
-        User user = userService.changePassword(id, pwd);
-        return new ResponseEntity<>("Password changed successfully", HttpStatus.CREATED);
+        User user = userService.changePassword(username, pwd);
+        return new ResponseEntity<>("Password changed successfully", HttpStatus.OK);
+    }
+
+    @RequestMapping(method = RequestMethod.GET)
+    public ResponseEntity<Object> getByUsername(@RequestParam(value = "username", defaultValue = "") String username) {
+        User user = userService.findByUsername(username);
+        if (user == null) {
+            return new ResponseEntity<>("Could not find user have username = " + username, HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 }

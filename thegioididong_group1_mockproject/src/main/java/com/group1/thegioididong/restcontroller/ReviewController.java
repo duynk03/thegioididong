@@ -12,6 +12,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -42,6 +43,7 @@ public class ReviewController {
     public ResponseEntity<Object> save(@RequestBody Review review) {
         Product product = productService.findById(review.getProduct().getId());
         review.setProduct(product);
+        review.setCreatedAt(new Date());
         Review newReview = reviewService.save(review);
         return new ResponseEntity<>("Review is created successfully: " + newReview, HttpStatus.CREATED);
     }

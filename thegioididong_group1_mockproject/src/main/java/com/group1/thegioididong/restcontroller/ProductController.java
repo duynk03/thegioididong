@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Date;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -31,6 +32,7 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> save(@RequestBody Product product) {
+        product.setCreated_at(new Date());
         Product pro = productService.save(product);
         return new ResponseEntity<>("Product is created successfully" + pro, HttpStatus.CREATED);
     }
@@ -51,6 +53,7 @@ public class ProductController {
 
         if (productService.findById(id) != null) {
             product.setId(id);
+            product.setModified_at(new Date());
         }
         productService.save(product);
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);

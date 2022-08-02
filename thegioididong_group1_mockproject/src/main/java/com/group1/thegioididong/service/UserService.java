@@ -9,6 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Optional;
 
 @Service
@@ -37,15 +38,22 @@ public class UserService implements UserDetailsService {
         return userRepository.save(user);
     }
 
-    public User changePassword(Long id, String password) {
+    public User changePassword(String username, String password) {
         User user = null;
-        Optional<User> userOptional = userRepository.findById(id);
+        Optional<User> userOptional = userRepository.findByUsername(username);
         if (userOptional.isPresent()) {
             user = userOptional.get();
         }
         System.out.println(password);
         user.setPassword(password);
-
+        user.setModifiedAt(new Date());
         return userRepository.save(user);
+    }
+
+    public User findByUsername(String username) {
+        Optional<User> user = userRepository.findByUsername(username);
+
+        return user.orElse(null);
+
     }
 }
