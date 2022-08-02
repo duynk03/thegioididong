@@ -17,6 +17,7 @@ function Login() {
             })
             .then((response) => {
                 localStorage.setItem('access_token', response.data.jwtToken);
+                localStorage.setItem('username', response.data.username);
                 navigate('/admin');
             })
             .catch((err) => {

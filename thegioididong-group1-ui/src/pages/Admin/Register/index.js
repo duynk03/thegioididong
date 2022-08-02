@@ -2,6 +2,7 @@ import { Button, Form, Input } from 'antd';
 import axios from 'axios';
 import { formItemLayout, tailFormItemLayout } from '../ProductForm/FormConstant';
 import { openErrorNotification, openSuccessNotification } from '../ProductForm/Notification';
+import '../Admin.scss';
 
 const USERS_API = 'http://localhost:8084/api/v1/users';
 function Register() {
@@ -29,7 +30,7 @@ function Register() {
         <>
             <Form {...formItemLayout} form={form} name="register" onFinish={onFinish} scrollToFirstError>
                 <Form.Item {...tailFormItemLayout}>
-                    <h1 style={{ fontSize: 34, marginTop: 30, fontWeight: 'bold' }}>Đăng ký tài khoản</h1>
+                    <h1 style={{ fontSize: '3em', marginTop: 30, fontWeight: 'bold' }}>Đăng ký tài khoản</h1>
                 </Form.Item>
 
                 <Form.Item

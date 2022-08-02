@@ -111,7 +111,7 @@ const SmartwatchForm = () => {
 
     return (
         <>
-            <h1 className="title__head">Thêm Smartwatch Mới</h1>
+            <h1 className="title__head">Thêm smartwatch mới</h1>
             <Form
                 {...formItemLayout}
                 form={form}

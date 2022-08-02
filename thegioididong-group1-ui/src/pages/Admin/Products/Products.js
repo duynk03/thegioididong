@@ -1,4 +1,6 @@
 import './Product.scss';
+import '../Admin.scss';
+import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import { Table, Button, Popconfirm } from 'antd';
@@ -91,7 +93,7 @@ function Products() {
             title: 'Action',
             key: 'action',
             fixed: 'right',
-            width: 100,
+            width: 110,
             render: (_, record) => {
                 const confirm = async () => {
                     return axios
@@ -124,14 +126,16 @@ function Products() {
                                 }
                             }}
                         >
-                            Sửa
+                            <EditOutlined />
                         </Button>
                         <Popconfirm
                             title={'Bạn muốn xóa sản phẩm ' + record.name + ' chứ?'}
                             onConfirm={confirm}
                             onVisibleChange={() => console.log('visible change')}
                         >
-                            <Button type="danger">Xóa</Button>
+                            <Button type="danger">
+                                <DeleteOutlined />
+                            </Button>
                         </Popconfirm>
                     </>
                 );
@@ -170,7 +174,7 @@ function Products() {
 
     return (
         <div className="product-list">
-            <h1 className="title__head">Danh sách tất cả sản phẩm</h1>
+            <h1 className="title__head">Danh sách sản phẩm</h1>
             <div className="product__data">
                 <Table
                     columns={columns}

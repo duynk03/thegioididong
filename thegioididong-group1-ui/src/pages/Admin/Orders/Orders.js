@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { Select, Table, Tag } from 'antd';
 import React from 'react';
 import { openErrorNotification, openSuccessNotification } from '../ProductForm/Notification';
+import '../Admin.scss';
 
 const ORDERS_REST_API_URL = 'http://localhost:8084/api/v1/orders';
 
@@ -37,10 +38,6 @@ function Orders() {
                     <>
                         <Select
                             defaultValue={state}
-                            style={{
-                                width: 120,
-                                border: 'none',
-                            }}
                             onChange={(value) => {
                                 console.log(' ', value, ' - ', record.state, ' ', value === record.state);
                                 if (value !== record.state) {
@@ -119,11 +116,11 @@ function Orders() {
                         total: item.total,
                         time:
                             'Khoảng ' +
-                            date.getHours() +
+                            (date.getHours() + 7) +
                             ' giờ - ' +
                             date.getDate() +
                             '/' +
-                            date.getMonth() +
+                            (date.getMonth() + 1) +
                             '/' +
                             date.getFullYear(),
                     });
@@ -135,7 +132,9 @@ function Orders() {
 
     return (
         <>
-            <h1 style={{ fontSize: 34, paddingTop: 30, paddingLeft: '35%' }}>Danh sách đơn hàng</h1>
+            <h1 style={{ fontSize: '3em', paddingTop: 30, paddingLeft: '35%', fontWeight: 'bold' }}>
+                Danh sách đơn hàng
+            </h1>
             <Table columns={columns} dataSource={list} style={{ width: '80%', paddingTop: '1%', paddingLeft: '10%' }} />
         </>
     );

@@ -20,6 +20,7 @@ import PhoneEdit from '~/pages/Admin/EditForm/PhoneEdit';
 import LaptopEdit from '~/pages/Admin/EditForm/LaptopEdit';
 import TabletEdit from '~/pages/Admin/EditForm/TabletEdit';
 import SmartwatchEdit from '~/pages/Admin/EditForm/SmartwatchEdit';
+import UserInformation from '~/pages/Admin/User/UserInfomation';
 
 const publicRoutes = [
     {
@@ -120,6 +121,11 @@ const publicRoutes = [
     {
         path: '/admin/products/smartwatch/edit/:id',
         component: SmartwatchEdit,
+        layout: AdminLayout,
+    },
+    {
+        path: '/admin/account',
+        component: UserInformation,
         layout: AdminLayout,
     },
 ];
