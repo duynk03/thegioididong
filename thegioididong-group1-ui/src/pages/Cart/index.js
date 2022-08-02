@@ -30,9 +30,8 @@ function Cart() {
                <li className="product-item">
                   <div className="imgsp">
                      <a href="#" target="_blank">
-                        <img  data-src={iphone13ProMaxGold}
-                              src={iphone13ProMaxGold}
-                              alt="Điện thoại iPhone 13 Pro Max 256GB" 
+                        <img  src={iphone13ProMaxGold}
+                              alt="" 
                               loading="lazy" 
                               className=" ls-is-cached lazyloaded"/>
                      </a>
