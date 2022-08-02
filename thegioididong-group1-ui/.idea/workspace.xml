@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="63b5cd3d-b4f2-454d-87de-84cf61dd9669" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/src/pages/Products/Phone/mainPhone.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Products/Phone/mainPhone.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thegioididong_group1_mockproject/.metadata/.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thegioididong_group1_mockproject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../thegioididong_group1_mockproject/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../thegioididong_group1_mockproject/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../thegioididong_group1_mockproject/src/main/resources/application.properties" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Cl5B2wXiCTHKjgJXoCEkcRXG5W" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "G:/Space/Learning/thegioididong/thegioididong_group1_mockproject",
+    "nodejs_package_manager_path": "npm"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="63b5cd3d-b4f2-454d-87de-84cf61dd9669" name="Changes" comment="" />
+      <created>1659364191585</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1659364191585</updated>
+      <workItem from="1659364193891" duration="8000" />
+    </task>
+    <servers />
+  </component>
+</project>

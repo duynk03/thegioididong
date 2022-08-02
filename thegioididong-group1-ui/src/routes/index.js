@@ -22,6 +22,8 @@ import TabletEdit from '~/pages/Admin/EditForm/TabletEdit';
 import SmartwatchEdit from '~/pages/Admin/EditForm/SmartwatchEdit';
 import UserInformation from '~/pages/Admin/User/UserInfomation';
 
+import ShowALLPhone from '~/pages/Products/Phone/phoneShowAll';
+
 const publicRoutes = [
     {
         path: '/',
@@ -34,6 +36,10 @@ const publicRoutes = [
     {
         path: '/dtdd',
         component: Phone,
+    },
+    {
+        path: '/dtdd-manufacturer',
+        component: ShowALLPhone,
     },
     {
         path: '/laptop',
