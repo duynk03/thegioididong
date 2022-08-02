@@ -1,11 +1,10 @@
 import { CartLayout } from '~/components/Layout';
 import Home from '~/pages/Home';
 import NotFound404 from '~/pages/NotFound404';
-import Phone from '~/pages/Phone';
 import Cart from '~/pages/Cart';
 import History from '~/pages/History/History';
 import UserInfo from '~/pages/History/UserInfo';
-import Login from '~/pages/History/Login';
+import LoginHistory from '~/pages/History/Login';
 import ProductDetail from '~/pages/ProductDetail';
 import Phone from '~/pages/Products/Phone';
 import Smartwatch from '~/pages/Products/Smartwatch';
@@ -67,7 +66,7 @@ const publicRoutes = [
     },
     {
         path: '/lich-su-mua-hang/dang-nhap',
-        component: Login,
+        component: LoginHistory,
     },
     {
         path: '/productdetail',
