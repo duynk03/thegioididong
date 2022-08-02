@@ -63,6 +63,7 @@ export default function MainPhone() {
     const [showData, setShowData] = useState('Giá từ thấp đến cao');
     const [render, setRender] = useState(false);
 
+
     useEffect(() => {
         if (render) {
             if (showData === 'Giá từ thấp đến cao') {
@@ -136,14 +137,14 @@ export default function MainPhone() {
                         </span>
                     </p>
                     <div className={displaySort} >
-                        <p onClick={() => setShowData('Giá từ cao đến thấp')} >
+                        <p onClick={() => setShowData('Giá từ thấp đến cao')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
                                 Giá từ thấp đến cao
                             </a>
                         </p>
-                        <p onClick={() => setShowData('Giá từ thấp đến cao')} >
+                        <p onClick={() => setShowData('Giá từ cao đến thấp')} >
                             {/* eslint-disable-next-line */}
                             <a className='' href='javascript:void(0)'>
                                 <i></i>
