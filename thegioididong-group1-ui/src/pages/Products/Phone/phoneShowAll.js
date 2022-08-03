@@ -52,21 +52,6 @@ export default function ShowALLPhone() {
         }
     ];
 
-    const pricePhone = [
-        'Dưới 2 triệu',
-        'Từ 2 - 4 triệu',
-        'Từ 4 - 7 triệu',
-        'Từ 7 - 13 triệu',
-        'Từ 13 - 20 triệu',
-        'Trên 20 triệu'
-    ];
-
-    // const typeOfPhone = [
-    //     'Android',
-    //     'iPhone(iOS)'
-    // ];
-
-
     const ramPhone = [
         '2 GB',
         '3 GB',
@@ -87,50 +72,60 @@ export default function ShowALLPhone() {
     ];
 
     const batteryPhone = [
-        'Pin khủng trên 5000 mAh',
         'Sạc pin nhanh',
-        'Sạc siêu nhanh (từ 33W)',
         'Sạc không dây'
     ];
+    const frequencyPhone = ['60Hz', '120HZ', '144Hz'];
 
-
-    const [displayPrice, setDisplayPrice] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
-    // const [displayType, setDisplayType] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
+    const [displayFrequency, setDisplayFrequency] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRam, setDisplayRam] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRom, setDisplayRom] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayBattery, setDisplayBattery] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     
     const [hidden, setHidden] = useState(false);
     
-    const [displayArrowPrice, setDisplayArrowPrice] = useState(clsx(null));
-    // const [displayArrowType, setDisplayArrowType] = useState(clsx(null));
+    const [displayArrowFrequency, setDisplayArrowFrequency] = useState(clsx(null));
     const [displayArrowRam, setDisplayArrowRam] = useState(clsx(null));
     const [displayArrowRom, setDisplayArrowRom] = useState(clsx(null));
     const [displayArrowBattery, setDisplayArrowBattery] = useState(clsx(null));
 
-    const [displayIconPrice, setDisplayIconPrice] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
-    // const [displayIconType, setDisplayIconType] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
+    const [displayIconFrequency, setDisplayIconFrequency] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
     const [displayIconRam, setDisplayIconRam] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
     const [displayIconRom, setDisplayIconRom] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
     const [displayIconBattery, setDisplayIconBattery] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
 
     const [data, setData] = useState([]);
     const [manu, setManu] = useState('iPhone');
+    const [condition, setCondition] = useState([]);
+    const [value, setValue] = useState(true);
 
-    useEffect(() => {
+    useEffect(() => {  
             try {
                 axios
                     .get(
                         'http://localhost:8084/api/v1/products/type?name=phone'
                     )
                     .then((res) => {
-                        setData(res.data);
+                        setData([...res.data].filter(item => item.manufacturer === `${manu}`));
+                        if(condition === 'phone-ram'){
+                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.ram === `${value}`));
+                        }
+                        if(condition === 'phone-rom'){
+                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.rom === `${value}`));
+                        }
+                        if(condition === 'phone-pin'){
+                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.pin === `${value}`));
+                        }
+                        if(condition === 'touch-Screen'){
+                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.touchScreen === `${value}`));
+                        }
                         console.log(res.data)
                     });
             } catch (error) {
                 console.log(error.message);
             }
-    }, []);
+
+    }, [manu, value, condition]);
 
 
     return(
@@ -159,26 +154,32 @@ export default function ShowALLPhone() {
                         style={{...styles, width: 'max-content', margin: 'auto'}}>
                     <div className={styles.filter__item__show} onClick={ () => {
                         setHidden(!hidden)
-                        if(displayPrice.includes('hidden')){
-                            setDisplayIconPrice(clsx(styles.iconUp, 'fas fa-sort-up'));
-                            setDisplayArrowPrice(clsx(styles.arrow__filter));
-                            setDisplayPrice(clsx(styles.filter__item__show__element, styles.filter__visible));
+                        if(displayFrequency.includes('hidden')){
+                            setDisplayIconFrequency(clsx(styles.iconUp, 'fas fa-sort-up'));
+                            setDisplayArrowFrequency(clsx(styles.arrow__filter));
+                            setDisplayFrequency(clsx(styles.filter__item__show__element, styles.filter__visible));
                         }else{
-                            setDisplayArrowPrice(clsx(null));
-                            setDisplayIconPrice(clsx(styles.iconDown, 'fas fa-sort-down'));
-                            setDisplayPrice(clsx(styles.filter__item__show__element, styles.filter__hidden));
+                            setDisplayArrowFrequency(clsx(null));
+                            setDisplayIconFrequency(clsx(styles.iconDown, 'fas fa-sort-down'));
+                            setDisplayFrequency(clsx(styles.filter__item__show__element, styles.filter__hidden));
                         }
                     }}>
                         <div className={styles.filter__item__title}>
-                            <div className={displayArrowPrice}></div>
-                            <span>Giá<i className={displayIconPrice}></i></span>
+                            <div className={displayArrowFrequency}></div>
+                            <span>Tần số quét màn hình<i className={displayIconFrequency}></i></span>
                         </div>
-                        <div className={displayPrice}>
+                        <div className={displayFrequency}>
                             <div className={styles.filter__list__element}>
-                                {pricePhone.map((item) => (
+                                {frequencyPhone.map((item) => (
                                     <>
                                         {/* eslint-disable-next-line */}
-                                        <a href='javascript:void(0)' className={styles.btn__box}>{item}</a>
+                                        <a href='javascript:void(0)' 
+                                            className={styles.btn__box}
+                                            onClick={() => {
+                                                setCondition('touch-Screen'); 
+                                                setValue(`${item}`);
+                                            }}
+                                        >{item}</a>
                                     </>
                                 ))}
                             </div>
@@ -206,7 +207,13 @@ export default function ShowALLPhone() {
                                 {ramPhone.map((item) => (
                                     <>
                                         {/* eslint-disable-next-line */}
-                                        <a href='javascript:void(0)' className={styles.btn__box}>{item}</a>
+                                        <a href='javascript:void(0)' 
+                                            className={styles.btn__box}
+                                            onClick={() => {
+                                                setCondition('phone-ram'); 
+                                                setValue(`${item}`);
+                                            }}
+                                            >{item}</a>
                                     </>
                                 ))}
                             </div>
@@ -234,7 +241,13 @@ export default function ShowALLPhone() {
                                 {romPhone.map((item) => (
                                     <>
                                         {/* eslint-disable-next-line */}
-                                        <a href='javascript:void(0)' className={styles.btn__box}>{item}</a>
+                                        <a href='javascript:void(0)'
+                                            className={styles.btn__box}
+                                            onClick={() => {
+                                                setCondition('phone-rom'); 
+                                                setValue(`${item}`);
+                                            }}
+                                            >{item}</a>
                                     </>
                                 ))}
                             </div>
@@ -262,7 +275,13 @@ export default function ShowALLPhone() {
                                 {batteryPhone.map((item) => (
                                     <>
                                         {/* eslint-disable-next-line */}
-                                        <a href='javascript:void(0)' className={styles.btn__box}>{item}</a>
+                                        <a href='javascript:void(0)' 
+                                            className={styles.btn__box}
+                                            onClick={() => {
+                                                setCondition('phone-pin'); 
+                                                setValue(`${item}`);
+                                            }}
+                                            >{item}</a>
                                     </>
                                 ))}
                             </div>
@@ -274,14 +293,11 @@ export default function ShowALLPhone() {
             {/* show */}
             <div className={styles.show__all__products}>
                 <ul className={styles.list__product}>
-                    {data.filter(item => item.manufacturer === `${manu}`).filter(item => item.price > 2000000).map((phone, i) => (
+                    {data.map((phone, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
                             <a className={styles.item__container} href='javascript:void(0)'>
-                                <div className={styles.item__label}>
-                                    <span className={styles.label__content}>Trả góp 0%</span>
-                                </div>
-                                <div className={styles.item__content}>
+                                <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}
                                             cloudName={cloudName}
@@ -291,14 +307,21 @@ export default function ShowALLPhone() {
                                 <strong style={{color: 'black'}}>{phone.name}</strong>
                                 <div className={styles.product__group}>
                                     <ul className={styles.product__memory}>
-                                        <li className={styles.memory__item}> - </li>
+                                        <li className={styles.memory__item}>{phone.phone.ram} - {phone.phone.rom}</li>
                                     </ul>
                                 </div>
+                                <h2>{phone.phone.screen}</h2>
+                                <h2>{phone.phone.touchScreen}</h2>
                                 <div className={styles.box__old__price}>
-                                    <p className={styles.old__price}>{phone.price}₫</p>
+                                    <p className={styles.old__price}>
+                                        {phone.price.toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                        </p>
                                     <span className={styles.discount__percent}>&nbsp;-{phone.saleOff}%</span>
                                 </div>
-                                <strong className={styles.new__price}>{`${phone.price - (phone.saleOff * phone.price)/100}`}₫</strong>
+                                <strong className={styles.new__price}>{(phone.price - (phone.saleOff * phone.price)/100).toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                </strong>
                             </a>
                         </li>
                     ))}
