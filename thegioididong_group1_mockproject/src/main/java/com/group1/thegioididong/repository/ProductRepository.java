@@ -13,4 +13,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     List<Product> findByTabletIsNotNull();
 
     List<Product> findBySmartwatchIsNotNull();
+
+    List<Product> findTop20ByOrderByCreatedAtDesc();
+
+    List<Product> findTop20BySaleOffGreaterThanEqualOrderByCreatedAtDesc(int saleOff);
+
+    List<Product> findTop10ByManufacturerEqualsOrderByCreatedAtDesc(String manufacturer);
 }

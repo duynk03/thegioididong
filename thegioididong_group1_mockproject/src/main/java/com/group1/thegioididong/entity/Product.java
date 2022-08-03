@@ -87,8 +87,8 @@ public class Product {
     private Smartwatch smartwatch;
     private String state;
     private int saleOff;
-    private Date created_at;
-    private Date modified_at;
+    private Date createdAt;
+    private Date modifiedAt;
 
     @Override
     public boolean equals(Object o) {

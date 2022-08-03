@@ -70,4 +70,19 @@ public class ProductService implements IProductService {
             default -> null;
         };
     }
+
+    @Override
+    public List<Product> findAllNewAsc() {
+        return productRepository.findTop20ByOrderByCreatedAtDesc();
+    }
+
+    @Override
+    public List<Product> findSaleOffByDate() {
+        return productRepository.findTop20BySaleOffGreaterThanEqualOrderByCreatedAtDesc(5);
+    }
+
+    @Override
+    public List<Product> findTop10ByManufacturer(String manufacturer) {
+        return productRepository.findTop10ByManufacturerEqualsOrderByCreatedAtDesc(manufacturer);
+    }
 }
