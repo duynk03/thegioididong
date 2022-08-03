@@ -1,52 +1,44 @@
 import { useState, useEffect,Fragment } from 'react';
-import styles from './Phone.module.scss';
+import styles from './Tablet.module.scss';
 import { Image } from 'cloudinary-react';
 import axios from 'axios';
 import clsx from 'clsx';
 
 
-export default function MainPhone() {
+export default function MainTablet() {
 
-    const logoPhone = [
+    const logoTablet = [
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/logo-iphone-220x48.png',
-            category: 'iphone'
+            logo: 'https://cdn.tgdd.vn/Brand/1/iPad-(Apple)522-b_4.jpg',
+            category: 'iPad'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-1.png',
-            category: 'samsung'
+            logo: 'https://cdn.tgdd.vn/Brand/1/samsungnew-220x48-3.png',
+            category: 'Samsung'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/OPPO42-b_5.jpg',
-            category: 'oppo'
+            logo: 'https://cdn.tgdd.vn/Brand/1/Tablet-xiaomi-220x48-1.png',
+            category: 'Xiaomi'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/logo-xiaomi-220x48-5.png',
-            category: 'xiaomi'
+            logo: 'https://cdn.tgdd.vn/Brand/1/Lenovo522-b_6.jpg',
+            category: 'Lenovo'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/vivo-logo-220-220x48-3.png',
-            category: 'vivo'
+            logo: 'https://cdn.tgdd.vn/Brand/1/Masstel522-b_7.png',
+            category: 'Masstel'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/Realme42-b_37.png',
-            category: 'realme'
+            logo: 'https://cdn.tgdd.vn/Brand/1/logonokia-220x48-1.jpg',
+            category: 'Nokia'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/Nokia42-b_21.jpg',
-            category: 'nokia'
+            logo: 'https://cdn.tgdd.vn/Brand/1/Huawei522-b_4.jpg',
+            category: 'Huawei'
         },
         {
-            logo: 'https://cdn.tgdd.vn/Brand/1/Mobell42-b_19.jpg',
-            category: 'mobell'
-        },
-        {
-            logo: 'https://cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg',
-            category: 'itel'
-        },
-        {
-            logo: 'https://cdn.tgdd.vn/Brand/1/Masstel42-b_0.png',
-            category: 'masstel'
+            logo: 'https://cdn.tgdd.vn/Brand/1/logoalcatel-220x48-1.png',
+            category: 'Alcatel'
         }
     ];
 
@@ -75,7 +67,7 @@ export default function MainPhone() {
             try {
                 axios
                     .get(
-                        'http://localhost:8084/api/v1/products/type?name=phone'
+                        'http://localhost:8084/api/v1/products/type?name=tablet'
                     )
                     .then((res) => {
                         const types = {
@@ -100,10 +92,10 @@ export default function MainPhone() {
             {/* filter */}
             <div className={styles.session__filter}>
                 <div className={styles.quick__filter}>
-                    {logoPhone.map((item) => (
-                        <div className={styles.logo__phone}>
+                    {logoTablet.map((item) => (
+                        <div className={styles.logo__tablet}>
                             {/* eslint-disable-next-line */}
-                            <a href='/dtdd-manufacturer' className={styles.logo__phone__manu}>
+                            <a href='/tablet-manufacturer' className={styles.logo__tablet__manu}>
                                 <img 
                                     src={item.logo}
                                     alt=''
@@ -158,7 +150,7 @@ export default function MainPhone() {
             {/* show */}
             <div className={styles.show__all__products}>
                 <ul className={styles.list__product}>
-                    {data.map((phone, index) => (
+                    {data.map((tablet, index) => (
                         <li key={index} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
                             <a className={styles.item__container} href='javascript:void(0)'>
@@ -166,25 +158,25 @@ export default function MainPhone() {
                                     <Image
                                             className={styles.item__element}
                                             cloudName={cloudName}
-                                            publicId={phone.images[0]?.source}
+                                            publicId={tablet.images[0]?.source}
                                     />
                                 </div>
-                                <strong style={{color: 'black'}}>{phone.name}</strong>
+                                <strong style={{color: 'black'}}>{tablet.name}</strong>
                                 <div className={styles.product__group}>
                                     <ul className={styles.product__memory}>
-                                        <li className={styles.memory__item}>{phone.phone.ram} - {phone.phone.rom}</li>
+                                        <li className={styles.memory__item}>{tablet.tablet.ram} - {tablet.tablet.rom}</li>
                                     </ul>
                                 </div>
-                                <h2>{phone.phone.screen}</h2>
-                                <h2>{phone.phone.touchScreen}</h2>
+                                <h2>{tablet.tablet.screenTechnology} - {tablet.tablet.wideScreen}</h2>
+                                <h2>{tablet.tablet.chip}</h2>
                                 <div className={styles.box__old__price}>
                                     <p className={styles.old__price}>
-                                        {phone.price.toString().split('').reverse().reduce((prev, next, index) => {
+                                        {tablet.price.toString().split('').reverse().reduce((prev, next, index) => {
                                             return (index % 3 ? next : next + '.') + prev;})}₫
                                         </p>
-                                    <span className={styles.discount__percent}>&nbsp;-{phone.saleOff}%</span>
+                                    <span className={styles.discount__percent}>&nbsp;-{tablet.saleOff}%</span>
                                 </div>
-                                <strong className={styles.new__price}>{(phone.price - (phone.saleOff * phone.price)/100).toString().split('').reverse().reduce((prev, next, index) => {
+                                <strong className={styles.new__price}>{(tablet.price - (tablet.saleOff * tablet.price)/100).toString().split('').reverse().reduce((prev, next, index) => {
                                             return (index % 3 ? next : next + '.') + prev;})}₫
                                 </strong>
                             </a>
