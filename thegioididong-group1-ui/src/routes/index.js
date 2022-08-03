@@ -1,6 +1,11 @@
 import { CartLayout } from '~/components/Layout';
 import Home from '~/pages/Home';
 import NotFound404 from '~/pages/NotFound404';
+import Cart from '~/pages/Cart';
+import History from '~/pages/History/History';
+import UserInfo from '~/pages/History/UserInfo';
+import LoginHistory from '~/pages/History/Login';
+import ProductDetail from '~/pages/ProductDetail';
 import Phone from '~/pages/Products/Phone';
 import Smartwatch from '~/pages/Products/Smartwatch';
 import Tablet from '~/pages/Products/Tablet';
@@ -65,8 +70,24 @@ const publicRoutes = [
     },
     {
         path: '/cart',
-        component: Phone,
+        component: Cart,
         layout: CartLayout,
+    },
+    {
+        path: '/lich-su-mua-hang',
+        component: History,
+    },
+    {
+        path: '/lich-su-mua-hang/thong-tin-ca-nhan',
+        component: UserInfo,
+    },
+    {
+        path: '/lich-su-mua-hang/dang-nhap',
+        component: LoginHistory,
+    },
+    {
+        path: '/productdetail',
+        component: ProductDetail,
     },
     {
         path: '/admin',

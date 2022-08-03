@@ -59,4 +59,17 @@ public class OrdersController {
         ordersService.update(updateOrder);
         return new ResponseEntity<>("Order is updated successfully", HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/phone", method = RequestMethod.GET)
+    public ResponseEntity<List<Orders>> getByPhone(@RequestParam(value = "number", defaultValue = "") String number) {
+        return new ResponseEntity<>(ordersService.findByPhone(number), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<Object> delete(@PathVariable("id") Long id) {
+        ordersService.deleteById(id);
+        return new ResponseEntity<>("Order is deleted successfully", HttpStatus.OK);
+    }
+
+
 }

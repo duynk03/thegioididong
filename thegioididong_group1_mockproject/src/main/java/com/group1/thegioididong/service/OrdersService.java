@@ -65,6 +65,11 @@ public class OrdersService implements IOrdersService {
     }
 
     @Override
+    public List<Orders> findByPhone(String number) {
+        return ordersRepository.findAllByPhone(number);
+    }
+
+    @Override
     public Orders findLastInsert() {
         return null;
     }

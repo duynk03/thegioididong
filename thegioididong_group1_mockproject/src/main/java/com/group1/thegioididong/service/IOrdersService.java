@@ -20,4 +20,7 @@ public interface IOrdersService {
     List<Orders> findAllDesc();
 
     Orders update(Orders order);
+
+    List<Orders> findByPhone(String number);
+
 }
