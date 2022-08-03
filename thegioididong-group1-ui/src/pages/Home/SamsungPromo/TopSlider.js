@@ -21,8 +21,8 @@ function TopSlider() {
     let item = [1, 2, 3, 4, 5, 6];
     return (
         <Slider {...settings}>
-            {item.map(() => (
-                <div className={styles.slide__item}>
+            {item.map((index) => (
+                <div className={styles.slide__item} key={index}>
                     <img
                         width="380"
                         height="200"

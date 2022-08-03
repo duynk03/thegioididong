@@ -16,9 +16,9 @@ function Samsung() {
             </div>
 
             {/* eslint-disable-next-line */}
-            <a className={styles.seeall} href="javascript:void(0)">
+            {/* <a className={styles.seeall} href="javascript:void(0)">
                 <span>Xem tất cả sản phẩm</span>
-            </a>
+            </a> */}
         </div>
     );
 }

@@ -155,7 +155,13 @@ function Products() {
                     displayData.push({
                         id: item.id,
                         name: item.name,
-                        price: item.price,
+                        price: item.price
+                            .toString()
+                            .split('')
+                            .reverse()
+                            .reduce((prev, next, index) => {
+                                return (index % 3 ? next : next + '.') + prev;
+                            }),
                         images: item.images,
                         description: item.description,
                         category: item.category,
