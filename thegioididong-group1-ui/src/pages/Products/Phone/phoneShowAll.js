@@ -72,7 +72,7 @@ export default function ShowALLPhone() {
     ];
 
     
-    const frequencyPhone = ['60Hz', '120Hz', '144Hz'];
+    const frequencyPhone = ['60Hz', '90Hz', '120Hz', '144Hz'];
 
     const [displayFrequency, setDisplayFrequency] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRam, setDisplayRam] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
