@@ -44,7 +44,7 @@ export default function ShowALLPhone() {
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg',
-            category: 'Itel'
+            category: 'itel'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/Masstel42-b_0.png',
