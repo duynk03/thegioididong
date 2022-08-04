@@ -55,8 +55,8 @@ const PhoneForm = () => {
                 smartwatch: null,
                 state: phone.state,
                 saleOff: phone.saleOff,
-                created_at: new Date(),
-                modified_at: null,
+                createdAt: new Date(),
+                modifiedAt: null,
                 description: phone.description,
                 images: images.reduce((a, value) => {
                     return [...a, { source: value }];

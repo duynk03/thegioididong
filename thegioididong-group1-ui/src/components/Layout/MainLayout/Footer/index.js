@@ -1,6 +1,7 @@
 import { faFacebook, faYoutubeSquare } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import styles from './Footer.module.css';
 function Footer() {
     const onDropItem = () => {
@@ -135,6 +136,11 @@ function Footer() {
                             <a rel="nofollow" href="/he-thong-sieu-thi-the-gioi-di-dong">
                                 Tìm siêu thị (3.165 shop)
                             </a>
+                        </li>
+                        <li>
+                            <Link rel="nofollow" to="/admin">
+                                Quản lí hệ thống
+                            </Link>
                         </li>
                     </ul>
                 </div>

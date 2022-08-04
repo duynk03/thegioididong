@@ -56,8 +56,8 @@ const SmartwatchForm = () => {
                 tablet: null,
                 stillInBusiness: product.stillInBusiness === 'true' ? true : false,
                 saleOff: product.saleOff,
-                created_at: new Date(),
-                modified_at: null,
+                createdAt: new Date(),
+                modifiedAt: null,
                 description: product.description,
                 quantity: product.quantity,
                 images: images.reduce((a, value) => {
