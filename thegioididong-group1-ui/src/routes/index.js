@@ -31,6 +31,8 @@ import ShowALLPhone from '~/pages/Products/Phone/phoneShowAll';
 import ShowALLTablet from '~/pages/Products/Tablet/laptopShowAll';
 import ShowALLLaptop from '~/pages/Products/Laptop/laptopShowAll';
 
+import Search from '~/pages/Search';
+
 const publicRoutes = [
     {
         path: '/',
@@ -67,6 +69,10 @@ const publicRoutes = [
     {
         path: '/smartwatch',
         component: Smartwatch,
+    },
+    {
+        path: '/search', //set tạm để test trước nha
+        component: Search,
     },
     {
         path: '/cart',
