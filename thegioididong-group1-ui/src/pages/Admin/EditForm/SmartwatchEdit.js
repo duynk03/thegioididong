@@ -114,8 +114,8 @@ const SmartwatchEdit = () => {
                     tablet: null,
                     stillInBusiness: product.stillInBusiness === 'true' ? true : false,
                     saleOff: product.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: product.description,
                     quantity: product.quantity,
                     images: images.reduce((a, value) => {
