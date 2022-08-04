@@ -113,8 +113,8 @@ const PhoneEdit = () => {
                     smartwatch: null,
                     state: phone.state,
                     saleOff: phone.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: phone.description,
                     images: images.reduce((a, value) => {
                         return [...a, { source: value }];

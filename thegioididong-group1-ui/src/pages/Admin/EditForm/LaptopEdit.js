@@ -113,8 +113,8 @@ const LaptopEdit = () => {
                     smartwatch: null,
                     state: product.state,
                     saleOff: product.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: product.description,
                     images: images.reduce((a, value) => {
                         return [...a, { source: value }];
