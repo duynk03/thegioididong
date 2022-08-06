@@ -14,9 +14,13 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     List<Product> findBySmartwatchIsNotNull();
 
-    List<Product> findTop20ByOrderByCreatedAtDesc();
+    List<Product> findTop20ByStateContainingIgnoreCaseOrderByCreatedAtDesc(String state);
 
-    List<Product> findTop20BySaleOffGreaterThanEqualOrderByCreatedAtDesc(int saleOff);
+    List<Product> findTop20BySaleOffGreaterThanEqualAndStateContainingIgnoreCaseOrderByCreatedAtDesc(int saleOff, String state);
 
-    List<Product> findTop10ByManufacturerEqualsOrderByCreatedAtDesc(String manufacturer);
+    List<Product> findTop10ByManufacturerEqualsAndStateContainingIgnoreCaseOrderByCreatedAtDesc(String manufacturer, String state);
+
+    List<Product> findByNameContainingIgnoreCaseOrderByCreatedAtDesc(String name);
+
+    List<Product> findAllByOrderByCreatedAtDesc();
 }

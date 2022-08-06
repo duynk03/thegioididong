@@ -3,7 +3,7 @@ import axios from 'axios';
 import { formItemLayout, tailFormItemLayout } from '../ProductForm/FormConstant';
 import { openErrorNotification, openSuccessNotification } from '../ProductForm/Notification';
 import '../Admin.scss';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const USERS_API = 'http://localhost:8084/api/v1/users';
 function UserInformation() {
@@ -11,16 +11,15 @@ function UserInformation() {
     const [formChangePassword] = Form.useForm();
     const [visible, setVisible] = useState(false);
     const username = localStorage.getItem('username');
-    const [uname, setUname] = useState('');
-    const [pwd, setPwd] = useState('');
+    // eslint-disable-next-line
+    const userInformation = useRef();
 
-    let userInformation;
     useEffect(() => {
         axios
             .get(USERS_API + '?username=' + username)
             .then((response) => {
-                userInformation = response.data;
-                userInformation.createdAt =
+                userInformation.current = response.data;
+                userInformation.current.createdAt =
                     response.data.createdAt !== null
                         ? new Date(response.data.createdAt).getDate() +
                           '/' +
@@ -30,9 +29,9 @@ function UserInformation() {
                         : '';
             })
             .then(() => {
-                form.setFieldsValue(userInformation);
+                form.setFieldsValue(userInformation.current);
             });
-    }, []);
+    }, [form, username]);
 
     const onFinish = (values) => {
         axios
@@ -60,7 +59,7 @@ function UserInformation() {
                 form={form}
                 name="register"
                 onFinish={onFinish}
-                initialValues={userInformation}
+                initialValues={userInformation.current}
                 scrollToFirstError
             >
                 <Form.Item {...tailFormItemLayout}>

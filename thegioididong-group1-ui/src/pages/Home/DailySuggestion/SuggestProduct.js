@@ -14,11 +14,11 @@ function SuggestProduct({ product, index }) {
         axios.get(API_REVIEWS + product.id).then((res) => {
             setReviews(res.data);
         });
-    }, []);
+    }, [product.id]);
 
     return (
         <li className={styles.suggest__product} key={index}>
-            <Link to="/dtdd/iphone-13-pro-max-256gb" className={styles.main__contain}>
+            <Link to="#" className={styles.main__contain}>
                 <div className={styles.item__label}></div>
                 <div className={styles.item__img}>
                     <Image
@@ -31,7 +31,7 @@ function SuggestProduct({ product, index }) {
                 <h3>{product.name}</h3>
                 <p className={styles.item__txtonline}>Online giá rẻ</p>
                 <strong className={styles.item__price}>
-                    {product.price
+                    {(product.price - (product.price * product.saleOff) / 100)
                         .toString()
                         .split('')
                         .reverse()
@@ -41,12 +41,18 @@ function SuggestProduct({ product, index }) {
                     ₫<small>-{product.saleOff}%</small>
                 </strong>
                 <p className={styles.item__votetxt}>
-                    <b>{reviews.reduce((partialSum, a) => partialSum.rate + a, 0)}</b>
+                    <b>
+                        {reviews.length > 0
+                            ? Number(
+                                  reviews.reduce((partialSum, a) => partialSum + a.rate, 0) / reviews.length,
+                              ).toFixed(1)
+                            : 0}
+                    </b>
                     <FontAwesomeIcon
                         icon={faStar}
                         style={{ width: '12px', height: '12px', margin: '0 10px 2px 5px', color: '#fb6e2e' }}
                     />
-                    (100)
+                    ({reviews.length})
                 </p>
             </Link>
         </li>

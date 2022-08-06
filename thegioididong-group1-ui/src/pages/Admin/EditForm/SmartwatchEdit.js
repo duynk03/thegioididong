@@ -54,7 +54,7 @@ const SmartwatchEdit = () => {
                         ? ''
                         : response.data.smartwatch.materialSurface,
                 feature: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.feature,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 smartwatchId: response.data.smartwatch.id,
             };
         })

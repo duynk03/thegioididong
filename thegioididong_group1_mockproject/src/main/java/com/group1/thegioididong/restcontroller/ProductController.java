@@ -82,6 +82,11 @@ public class ProductController {
 
     @RequestMapping(value = "/manufacturer", method = RequestMethod.GET)
     public ResponseEntity<List<Product>> getHotDeal(@RequestParam(value = "name", defaultValue = "") String name) {
-        return new ResponseEntity<>(productService.findTop10ByManufacturer(name), HttpStatus.OK);
+        return new ResponseEntity<>(productService.findTop10ByManufacturer(name, "Còn hàng"), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> searchByName(@RequestParam(value = "key", defaultValue = "") String key) {
+        return new ResponseEntity<>(productService.searchByName(key), HttpStatus.OK);
     }
 }

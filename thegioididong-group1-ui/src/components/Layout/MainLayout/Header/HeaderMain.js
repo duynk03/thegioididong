@@ -32,142 +32,180 @@ function HeaderMain() {
                         </Link>
                     </li>
                     <li className={styles.has__list}>
-                        <Link to={'/phu-kien'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i>
                                 <img src="https://cdn.tgdd.vn//content/icon-phu-kien-96x96-1.png" alt="phụ kiện" />
                             </i>
                             <span className={styles.has__child}>Phụ kiện</span>
-                        </Link>
+                        </a>
                         <div className={styles.navmwg}>
                             <div className={styles.item__child}>
                                 <strong>Phụ kiện di động</strong>
-                                <a href="/sac-dtdd">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Sạc dự phòng</h3>
                                 </a>
-                                <a href="/sac-cap">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Sạc, cáp</h3>
                                 </a>
-                                <a href="/op-lung-flipcover">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Ốp lưng điện thoại</h3>
                                 </a>
-                                <a href="/op-lung-may-tinh-bang">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Ốp lưng máy tính bảng</h3>
                                 </a>
-                                <a href="/mieng-dan-man-hinh">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Miếng dán màn hình</h3>
                                 </a>
-                                <a href="/gay-tu-suong">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Gậy chụp ảnh, Gimbal</h3>
                                 </a>
-                                <a href="/gia-do-dien-thoai">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Giá đỡ điện thoại</h3>
                                 </a>
-                                <a href="/de-moc-dien-thoai">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đế, móc điện thoại</h3>
                                 </a>
-                                <a href="/tui-chong-nuoc">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Túi chống nước</h3>
                                 </a>
-                                <a href="/tui-dung-airpods">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Túi đựng AirPods</h3>
                                 </a>
-                                <a href="/airtag">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>AirTag</h3>
                                 </a>
-                                <a href="/phu-kien-thong-minh">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Phụ kiện Tablet</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Phụ kiện laptop</strong>
-                                <a href="/chuot-ban-phim">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Chuột, bàn phím</h3>
                                 </a>
-                                <a href="/thiet-bi-mang">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Thiết bị mạng</h3>
                                 </a>
-                                <a href="/camera-giam-sat">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Camera, webcam</h3>
                                 </a>
-                                <a href="/tui-chong-soc">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Balo, túi chống sốc</h3>
                                 </a>
-                                <a href="/gia-do-dien-thoai?g=de-laptop-macbook">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Giá đỡ laptop</h3>
                                 </a>
-                                <a href="/phan-mem">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Phần mềm</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Thiết bị nhà thông minh</strong>
-                                <a href="/khoa-dien-tu">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Khóa điện tử</h3>
                                 </a>
-                                <a href="/android-tv-box">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>TV Box</h3>
                                 </a>
-                                <a href="/o-cam-thong-minh">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Ổ cắm, bóng đèn thông minh</h3>
                                 </a>
-                                <a href="/may-chieu">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Máy chiếu</h3>
                                 </a>
-                                <a href="/but-trinh-chieu">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Bút trình chiếu</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Thương hiệu hàng đầu</strong>
-                                <a href="/phu-kien/apple">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Apple</h3>
                                 </a>
-                                <a href="/phu-kien/samsung">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Samsung</h3>
                                 </a>
-                                <a href="/phu-kien/sony">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Sony</h3>
                                 </a>
-                                <a href="/phu-kien/jbl">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>JBL</h3>
                                 </a>
-                                <a href="/phu-kien/xiaomi">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Xiaomi</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Thiết bị âm thanh</strong>
-                                <a href="/tai-nghe">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Tai nghe</h3>
                                 </a>
-                                <a href="/loa-laptop">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Loa</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Thiết bị lưu trữ</strong>
-                                <a href="/o-cung-di-dong">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Ổ cứng di động</h3>
                                 </a>
-                                <a href="/the-nho-dien-thoai">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Thẻ nhớ</h3>
                                 </a>
-                                <a href="/usb">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>USB</h3>
                                 </a>
                             </div>
                             <div className={styles.item__child}>
                                 <strong>Phụ kiện khác</strong>
-                                <a href="/phu-kien-oto">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Phụ kiện ô tô</h3>
                                 </a>
-                                <a href="/may-tinh-cam-tay">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Máy tính cầm tay</h3>
                                 </a>
-                                <a href="/quat-mini">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Quạt mini</h3>
                                 </a>
-                                <a href="/pin">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Pin tiểu</h3>
                                 </a>
                             </div>
@@ -185,108 +223,127 @@ function HeaderMain() {
                         </Link>
                     </li>
                     <li>
-                        <Link to={'/dong-ho'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i>
                                 <img src="https://cdn.tgdd.vn//content/watch-icon-96x96.png" alt="Đồng hồ" />
                             </i>
                             <span>Đồng hồ</span>
-                        </Link>
+                        </a>
                     </li>
                     <li className={styles.has__list}>
-                        <Link to={'/pc-may-in'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i>
                                 <img src="https://cdn.tgdd.vn//content/icon-pc-96x96.png" alt="Máy in" />
                             </i>
                             <span className={styles.has__child}>Máy in</span>
-                        </Link>
+                        </a>
                         <div className={clsx(styles.navmwg, styles.limit__width)}>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/may-in">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Máy in</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/muc-in">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Mực in</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/man-hinh-may-tinh">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Màn hình máy tính</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/may-tinh-de-ban">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Máy tính để bàn</h3>
                                 </a>
                             </div>
                         </div>
                     </li>
                     <li>
-                        <Link to={'/may-doi-tra'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i></i>
                             <span>Máy cũ giá rẻ</span>
-                        </Link>
+                        </a>
                     </li>
                     <li>
-                        <Link to={'/sim-so-dep'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i></i>
                             <span>Sim, Thẻ cào</span>
-                        </Link>
+                        </a>
                     </li>
                     <li className={styles.has__list}>
-                        <Link to={'/sim-so-dep'}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#">
                             <i></i>
                             <span className={styles.has__child}>Sim, Thẻ cào</span>
-                        </Link>
+                        </a>
                         <div className={clsx(styles.navmwg, styles.limit__width)}>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-tra-gop">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền trả góp</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-tien-dien">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền điện</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-tien-nuoc">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền nước</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-internet-fpt">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền net FPT</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-internet-vnpt">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền net, cáp VNPT</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-bao-hiem">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền bảo hiểm</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-ve-tau-xe">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng tiền vé tàu, xe, máy bay</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/thanh-toan-vien-phi">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng viện phí ĐH Y Dược TP. HCM</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/nap-tien-dien-thoai-tra-sau">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Đóng cước điện thoại trả sau</h3>
                                 </a>
                             </div>
                             <div className={clsx(styles.item__child, styles.no__child__final)}>
-                                <a href="/tien-ich/bao-hiem-o-to-xe-may">
+                                {/* eslint-disable-next-line */}
+                                <a href="#">
                                     <h3>Mua bảo hiểm xe máy, ô tô</h3>
                                 </a>
                             </div>
