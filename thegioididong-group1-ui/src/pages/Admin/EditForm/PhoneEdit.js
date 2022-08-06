@@ -18,6 +18,7 @@ const PhoneEdit = () => {
     axios
         .get(API_URL + '/' + id)
         .then((response) => {
+            console.log(response.data.createdAt);
             defaultValues = {
                 name:
                     typeof response.data.name === 'undefined' || response.data.name === null ? '' : response.data.name,
@@ -55,7 +56,7 @@ const PhoneEdit = () => {
                 material: typeof response.data.phone.material === 'undefined' ? '' : response.data.phone.material,
                 size: typeof response.data.phone.size === 'undefined' ? '' : response.data.phone.size,
                 released: typeof response.data.phone.released === 'undefined' ? '' : response.data.phone.released,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 phoneId: response.data.phone.id,
             };
         })

@@ -23,10 +23,8 @@ function Footer() {
                 <div className={styles.footer__col}>
                     <ul className={styles.footer__list}>
                         <li>
-                            <a
-                                rel="nofollow"
-                                href="/tin-tuc/chuong-trinh-tich-diem-danh-cho-khach-hang-than-thiet-1434806"
-                            >
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Tích điểm Quà tặng VIP
                             </a>
                         </li>
@@ -36,17 +34,20 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="/daily">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Cộng tác bán hàng cùng TGDĐ
                             </a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="/tra-gop">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Tìm hiểu về mua trả góp
                             </a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="/bao-hanh">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Chính sách bảo hành
                             </a>
                         </li>
@@ -56,60 +57,68 @@ function Footer() {
                             </span>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/chinh-sach-bao-hanh-san-pham">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Chính sách đổi trả
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/giao-hang">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Giao hàng &amp; Thanh toán
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/huong-dan-mua-hang">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Hướng dẫn mua online
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/b2b">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Bán hàng doanh nghiệp
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/phieu-mua-hang">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Phiếu mua hàng
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="https://hddt.thegioididong.com">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 In hóa đơn điện tử
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/tos">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Quy chế hoạt động
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/noi-quy-cua-hang">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Nội quy cửa hàng
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/chat-luong-phuc-vu">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Chất lượng phục vụ
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a
-                                rel="nofollow"
-                                href="/tin-tuc/can-trong-voi-nhung-sieu-thi-thegioididong-khong-chinh-chu--683321"
-                            >
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Cảnh báo giả mạo
                             </a>
                         </li>
                         <li className={styles.hidden}>
-                            <a rel="nofollow" href="/chinh-sach-khui-hop-apple">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Chính sách khui hộp sản phẩm Apple
                             </a>
                         </li>
@@ -128,12 +137,14 @@ function Footer() {
                             </a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="/lien-he">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Gửi góp ý, khiếu nại
                             </a>
                         </li>
                         <li>
-                            <a rel="nofollow" href="/he-thong-sieu-thi-the-gioi-di-dong">
+                            {/* eslint-disable-next-line */}
+                            <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                                 Tìm siêu thị (3.165 shop)
                             </a>
                         </li>
@@ -189,7 +200,8 @@ function Footer() {
                                 alt="Da thong bao - bo cong thuong"
                             />
                         </a>
-                        <a href="/tos#giai-quyet-khieu-nai" target="_blank" className={styles.f__certify__link}>
+                        {/* eslint-disable-next-line */}
+                        <a href="#" target="_blank" className={styles.f__certify__link}>
                             <img
                                 className={styles.icon__khieunai}
                                 src="/images/khieunai.png"
@@ -344,7 +356,8 @@ function Footer() {
                         <br />
                         Địa chỉ: 128 Trần Quang Khải, P. Tân Định, Q.1, TP.Hồ Chí Minh. Điện thoại: 028 38125960. Email:
                         cskh@thegioididong.com. Chịu trách nhiệm nội dung: Huỳnh Văn Tốt.{' '}
-                        <a rel="nofollow" href="/thoa-thuan-su-dung-trang-mxh">
+                        {/* eslint-disable-next-line */}
+                        <a rel="nofollow" href="#" onClick={(e) => e.preventDefault()}>
                             Xem chính sách sử dụng
                         </a>
                     </p>

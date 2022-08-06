@@ -71,7 +71,7 @@ const publicRoutes = [
         component: Smartwatch,
     },
     {
-        path: '/search', //set tạm để test trước nha
+        path: '/tim-kiem', //set tạm để test trước nha
         component: Search,
     },
     {

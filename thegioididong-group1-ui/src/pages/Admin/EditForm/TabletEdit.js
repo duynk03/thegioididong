@@ -49,7 +49,7 @@ const TabletEdit = () => {
                 sim: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.sim,
                 pin: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.pin,
                 material: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.material,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 laptopId: response.data.tablet.id,
             };
         })

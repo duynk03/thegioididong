@@ -31,7 +31,7 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> findAll() {
-        return productRepository.findAll();
+        return productRepository.findAllByOrderByCreatedAtDesc();
     }
 
     @Override
@@ -73,16 +73,21 @@ public class ProductService implements IProductService {
 
     @Override
     public List<Product> findAllNewAsc() {
-        return productRepository.findTop20ByOrderByCreatedAtDesc();
+        return productRepository.findTop20ByStateContainingIgnoreCaseOrderByCreatedAtDesc("Còn hàng");
     }
 
     @Override
     public List<Product> findSaleOffByDate() {
-        return productRepository.findTop20BySaleOffGreaterThanEqualOrderByCreatedAtDesc(5);
+        return productRepository.findTop20BySaleOffGreaterThanEqualAndStateContainingIgnoreCaseOrderByCreatedAtDesc(5, "Còn hàng");
     }
 
     @Override
-    public List<Product> findTop10ByManufacturer(String manufacturer) {
-        return productRepository.findTop10ByManufacturerEqualsOrderByCreatedAtDesc(manufacturer);
+    public List<Product> findTop10ByManufacturer(String manufacturer, String state) {
+        return productRepository.findTop10ByManufacturerEqualsAndStateContainingIgnoreCaseOrderByCreatedAtDesc(manufacturer, state);
+    }
+
+    @Override
+    public List<Product> searchByName(String name) {
+        return productRepository.findByNameContainingIgnoreCaseOrderByCreatedAtDesc(name);
     }
 }
