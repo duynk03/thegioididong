@@ -32,7 +32,7 @@ export default function LaptopDeal() {
             </div>
             <div className={styles.show__deal}>
                 <ul className={styles.list__product}>
-                    {data.filter(item => item.saleOff > 20).map((laptop, i) => (
+                    {data.filter(item => item.saleOff < 30 && item.saleOff >= 20).map((laptop, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
                             <a className={styles.item__container} href='javascript:void(0)'>
