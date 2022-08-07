@@ -92,7 +92,7 @@ const publicRoutes = [
         component: LoginHistory,
     },
     {
-        path: '/productdetail',
+        path: '/productdetail/*',
         component: ProductDetail,
     },
     {

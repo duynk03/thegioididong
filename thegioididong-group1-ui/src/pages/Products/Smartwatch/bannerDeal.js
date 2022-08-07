@@ -32,10 +32,10 @@ export default function ShockDeal() {
             </div>
             <div className={styles.show__deal}>
                 <ul className={styles.list__product}>
-                    {data.filter(item => item.saleOff >= 10).map((swatch, i) => (
+                    {data.filter(item => item.saleOff >= 10 && item.saleOff < 50).map((swatch, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${swatch.category}/${swatch.manufacturer}/${swatch.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}

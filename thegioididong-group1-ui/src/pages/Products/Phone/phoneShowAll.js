@@ -252,7 +252,7 @@ export default function ShowALLPhone() {
                     {data.map((phone, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${phone.category}/${phone.manufacturer}/${phone.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}
