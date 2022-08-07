@@ -8,7 +8,13 @@ function HeaderTop() {
     const [key, setKey] = useState('');
     const [cartTotalItem, setCartTotalItem] = useState(0);
     useEffect(() => {
-        setCartTotalItem(JSON.parse(localStorage.getItem('cart')).length);
+        let item = localStorage.getItem('cart');
+        let cart = JSON.parse(item);
+        if (cart === null) {
+            localStorage.setItem('cart', JSON.stringify([]));
+            cart = JSON.parse(localStorage.getItem('cart'));
+        }
+        setCartTotalItem(cart.length);
     }, []);
     const navigate = useNavigate();
     return (

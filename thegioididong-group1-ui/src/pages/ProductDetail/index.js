@@ -147,7 +147,12 @@ function ProductDetail() {
                                             className="btn-buynow one red jsBuy"
                                             onClick={(e) => {
                                                 e.preventDefault();
-                                                let cart = JSON.parse(localStorage.getItem('cart'));
+                                                let item = localStorage.getItem('cart');
+                                                let cart = JSON.parse(item);
+                                                if (cart === null) {
+                                                    localStorage.setItem('cart', JSON.stringify([]));
+                                                    cart = JSON.parse(localStorage.getItem('cart'));
+                                                }
                                                 let isIncludes = false;
                                                 for (let i = 0; i < cart.length; i++) {
                                                     if (cart[i].product.id === phone.id) {
