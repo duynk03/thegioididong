@@ -18,7 +18,7 @@ function SuggestProduct({ product, index }) {
 
     return (
         <li className={styles.suggest__product} key={index}>
-            <Link to="#" className={styles.main__contain}>
+            <Link to={'/productdetail/' + product.id} className={styles.main__contain}>
                 <div className={styles.item__label}></div>
                 <div className={styles.item__img}>
                     <Image

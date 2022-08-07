@@ -41,7 +41,7 @@ function BottomSlider() {
                         {products.map((product, index) => (
                             <div className={styles.promo__item} key={index}>
                                 {/* eslint-disable-next-line */}
-                                <Link to={'#'}>
+                                <Link to={'/productdetail/' + product.id}>
                                     <Card
                                         hoverable
                                         style={{ width: '100%', margin: '0 5' }}

@@ -15,16 +15,9 @@ function Cart() {
 
     useEffect(() => {
         if (firstRender) {
-            // setCart(JSON.parse(localStorage.getItem('cart')));
-            axios.get(PRODUCTS_API_URL).then((response) => {
-                const arr = Array.from(response.data, (item) => {
-                    return { product: item, quantity: 2 };
-                });
-                localStorage.setItem('cart', JSON.stringify(arr));
-                setCart(JSON.parse(localStorage.getItem('cart')));
+            setCart(JSON.parse(localStorage.getItem('cart')));
+            calculateTotal(JSON.parse(localStorage.getItem('cart')));
 
-                calculateTotal(JSON.parse(localStorage.getItem('cart')));
-            });
             setFirstRender(false);
         } else {
             calculateTotal(cart);
