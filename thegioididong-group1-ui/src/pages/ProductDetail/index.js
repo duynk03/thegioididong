@@ -16,7 +16,7 @@ function ProductDetail() {
         slidesToScroll: 1
     };
     const cloudName = 'dlefvc2xe';
-    const { id } = useParams();
+    const id  = window.location.href.slice(-1);;
     let [data, setData] = useState([]);
     useEffect(() => {
         axios.get("http://localhost:8084/api/v1/products/" + id)
@@ -24,7 +24,7 @@ function ProductDetail() {
                 setData([response.data]);
             })
     }, [])
-    console.log(data)
+    console.log(id)
     return (
         <div>
             {data.map(phone => (
