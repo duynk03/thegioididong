@@ -153,7 +153,7 @@ export default function MainTablet() {
                     {data.map((tablet, index) => (
                         <li key={index} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${tablet.category}/${tablet.manufacturer}/${tablet.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}

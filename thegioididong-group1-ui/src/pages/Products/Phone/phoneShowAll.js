@@ -72,7 +72,7 @@ export default function ShowALLPhone() {
     ];
 
     
-    const frequencyPhone = ['60Hz', '90Hz', '120Hz', '144Hz'];
+    const frequencyPhone = ['60Hz', '90Hz', '120Hz'];
 
     const [displayFrequency, setDisplayFrequency] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRam, setDisplayRam] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
@@ -252,7 +252,7 @@ export default function ShowALLPhone() {
                     {data.map((phone, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${phone.category}/${phone.manufacturer}/${phone.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}

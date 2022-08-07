@@ -12,55 +12,68 @@ export default function ShowALLLaptop() {
     const logoLaptop = [
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-macbook-149x40.png',
-            category: 'MacBook'
+            category: 'Apple',
+            title: 'MacBook'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-asus-149x40.png',
-            category: 'Asus'
+            category: 'Asus',
+            title: 'Asus'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-hp-149x40-1.png',
-            category: 'Hp'
+            category: 'Hp',
+            title: 'Hp'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-lenovo-149x40.png',
-            category: 'Lenovo'
+            category: 'Lenovo',
+            title: 'Lenovo'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-acer-149x40.png',
-            category: 'Acer'
+            category: 'Acer',
+            title: 'Acer'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-dell-149x40.png',
-            category: 'Dell'
+            category: 'Dell',
+            title: 'Dell'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-msi-149x40.png',
-            category: 'Msi'
+            category: 'Msi',
+            title: 'Msi'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-surface-149x40-1.png',
-            category: 'Surface'
+            category: 'Surface',
+            title: 'Surface'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-lg-149x40.png',
-            category: 'LG'
+            category: 'LG',
+            title: 'LG'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-gigabyte-149x40.png',
-            category: 'Gigabyte'
+            category: 'GIGABYTE',
+            title: 'Gigabyte'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-intel-149x40.png',
-            category: 'Intel'
+            category: 'Intel',
+            title: 'Intel'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-chuwi-149x40.png',
-            category: 'Chuwi'
+            category: 'Chuwi',
+            title: 'Chuwi'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/logo-itel-149x40.png',
-            category: 'Itel'
+            category: 'Itel',
+            title: 'itel'
         }
     ];
 
@@ -93,7 +106,8 @@ export default function ShowALLLaptop() {
     const [displayIconRom, setDisplayIconRom] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
 
     const [data, setData] = useState([]);
-    const [manu, setManu] = useState('MacBook');
+    const [manu, setManu] = useState('Apple');
+    const [titleLaptop, setTitleLaptop] = useState('MacBook');
     const [condition, setCondition] = useState([]);
     const [value, setValue] = useState(true);
 
@@ -128,7 +142,10 @@ export default function ShowALLLaptop() {
             <div className={styles.manufacturer__container} style={{marginTop: 20, backgroundColor: '#333'}}>
                 <div className={styles.manufacturer__content}>
                     {logoLaptop.map((item) => (
-                        <div className={styles.logo__brand} onClick={() => {setManu(`${item.category}`)}}>
+                        <div className={styles.logo__brand} onClick={() => {
+                                setManu(`${item.category}`)
+                                setTitleLaptop(`${item.title}`)
+                            }}>
                             {/* eslint-disable-next-line */}
                             <a href='javascript:void(0)' className={styles.logo__item}>
                                 <img 
@@ -142,7 +159,7 @@ export default function ShowALLLaptop() {
             </div>
                 
             <div style={{...styles, width: 'max-content', margin: 'auto', paddingTop: 20}}>
-                <strong style={{...styles, fontSize: 50, textTransform: 'uppercase'}}>{manu}</strong>
+                <strong style={{...styles, fontSize: 50, textTransform: 'uppercase'}}>{titleLaptop}</strong>
             </div>
 
             <div className={styles.filter__total__container} 
@@ -223,7 +240,7 @@ export default function ShowALLLaptop() {
                     {data.map((laptop, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${laptop.category}/${laptop.manufacturer}/${laptop.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}
@@ -231,8 +248,8 @@ export default function ShowALLLaptop() {
                                             publicId={laptop.images[0]?.source}
                                     />
                                 </div>
-                                <strong style={{color: 'black'}}>{laptop.name}</strong>
-                                <div className={styles.product__group}>
+                                <strong style={{...styles, width: '95%', paddingTop: 10, color: 'black'}} >{laptop.name}</strong>
+                                <div className={styles.product__group} style={{...styles, paddingTop: 10}}>
                                     <ul className={styles.product__memory}>
                                         <li className={styles.memory__item}>{laptop.laptop.ram} - {laptop.laptop.rom}</li>
                                     </ul>

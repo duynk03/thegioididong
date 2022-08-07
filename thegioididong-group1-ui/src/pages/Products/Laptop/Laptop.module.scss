@@ -52,7 +52,7 @@
             .list__item{
                 border: 3px solid #ffa400;
                 background-color: #fff;
-                min-height: 500px;
+                min-height: 700px;
                 height: fit-content;
                 padding: 5px;
     
@@ -208,8 +208,9 @@
             grid-template-columns: repeat(5,minmax(0, 1fr));
     
             .list__item{
+                border: 3px solid #e0e0e0;
                 background-color: #fff;
-                min-height: 500px;
+                min-height: 700px;
                 height: fit-content;
                 padding: 5px;
     
