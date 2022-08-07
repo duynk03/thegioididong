@@ -217,7 +217,7 @@ function Orders() {
                         total: item.total,
                         time:
                             'Khoảng ' +
-                            (date.getHours() + 7) +
+                            date.getHours() +
                             ' giờ - ' +
                             date.getDate() +
                             '/' +

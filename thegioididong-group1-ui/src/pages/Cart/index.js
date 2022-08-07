@@ -61,7 +61,7 @@ function Cart() {
             err = true;
         }
 
-        if (!err) {
+        if (!err && message !== 'error') {
             axios
                 .post(api, {
                     phone: phone,
