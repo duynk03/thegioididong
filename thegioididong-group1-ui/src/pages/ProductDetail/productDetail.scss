@@ -54,7 +54,7 @@
 
     .left-Slider {
         width: 90%;
-        height: 100%;
+        height: max-content;
         margin: 15px 0 15px 5%;
 
 
@@ -69,15 +69,16 @@
         .slick-prev {
             border: 1px solid #d6d6d6 !important;
             // position: relative !important;
-            left: 7px !important;
+            left: 5px !important;
             z-index: 1000 !important;
-            width: 30px !important;
-            height: 65px !important;
+            width: 0px !important;
+            height: 0px !important;
             border-radius: 3px !important;
             background: #e2e2e2 !important; //#d7d7d7
-
+            opacity: 0.5;
             &:hover {
                 background: #fff !important;
+                opacity: 1;
             }
         }
 
@@ -90,14 +91,16 @@
 
         .slick-next {
             border: 1px solid #e2e2e2 !important;
-            right: 7px !important;
-            width: 30px !important;
-            height: 65px !important;
+            right: 50px !important;
+            width: 0px !important;
+            height: 0px !important;
             border-radius: 3px !important;
             background: #d6d6d6 !important;
+            opacity: 0.5;
 
             &:hover {
                 background: #fff !important;
+                opacity: 1;
             }
         }
 
@@ -128,23 +131,24 @@
 .content-t-wrap {
     max-width: 90%;
     margin: 15px 0 15px 5%;
-    padding: 20px 0;
 }
 
 .article__content {
     height: 450px;
     overflow: scroll;
     transition: .3s;
-
+    border: 1px solid blue;
     h3 {
         font-size: 20px;
         font-weight: bold;
         line-height: 28px;
         margin: 5px 0 15px 0;
+        padding: 10px 5px!important; 
     }
 
     p,
     div {
+        padding: 10px 5px !important;
         line-height: 1.5;
         margin-bottom: 10px;
         font-size: 16px !important;

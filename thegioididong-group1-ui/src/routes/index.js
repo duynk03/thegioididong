@@ -76,7 +76,7 @@ const publicRoutes = [
         component: LoginHistory,
     },
     {
-        path: '/productdetail',
+        path: '/dtdd/:id',
         component: ProductDetail,
     },
     {
