@@ -3,7 +3,7 @@ import { Image } from 'cloudinary-react';
 import axios from 'axios';
 import styles from './Search.module.scss';
 import clsx from 'clsx';
-import { useNavigate, useSearchParams } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 export default function SearchProduct() {
     const cloudName = 'dlefvc2xe';
@@ -143,7 +143,10 @@ export default function SearchProduct() {
                     {pages.map((product, index) => (
                         <li key={index} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href="#">
+                            <Link
+                                to={'/productdetail/' + product.category + '/' + product.id}
+                                className={styles.item__container}
+                            >
                                 <div className={styles.item__content} style={{ ...styles, paddingTop: 10 }}>
                                     <Image
                                         className={styles.item__element}
@@ -206,7 +209,7 @@ export default function SearchProduct() {
                                         })}
                                     ₫
                                 </strong>
-                            </a>
+                            </Link>
                         </li>
                     ))}
                 </ul>
