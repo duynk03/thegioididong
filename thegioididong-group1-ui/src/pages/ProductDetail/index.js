@@ -5,7 +5,7 @@ import React from 'react';
 import Slider from 'react-slick';
 import axios from 'axios';
 import { useState, useEffect, Fragment } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Image } from 'cloudinary-react';
 function ProductDetail() {
     let settings = {
@@ -27,6 +27,7 @@ function ProductDetail() {
         axios.get('http://localhost:8084/api/v1/products/' + id).then((response) => {
             setData([response.data]);
         });
+        // eslint-disable-next-line
     }, []);
     return (
         <div style={{ display: 'flex', justifyContent: 'center' }}>
@@ -50,6 +51,7 @@ function ProductDetail() {
                         </li>
                         <li>
                             <span>›</span>
+                            {/* eslint-disable-next-line */}
                             <a href="#">
                                 {phone.category} {phone.os} ({phone.manufacturer})
                             </a>
@@ -86,9 +88,12 @@ function ProductDetail() {
                         <div className="box_right">
                             <div className="box_saving">
                                 <div className="bs_title">
-                                    <img src="//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/TGDD/Mobile/title_onlinesaving.png" />
+                                    <img
+                                        src="//cdn.tgdd.vn/mwgcart/mwgcore/ContentMwg/images/TGDD/Mobile/title_onlinesaving.png"
+                                        alt=""
+                                    />
                                     <div>
-                                        {phone.saleOff == 0 ? (
+                                        {phone.saleOff === 0 ? (
                                             <strong>
                                                 {(phone.price - (phone.saleOff * phone.price) / 100)
                                                     .toString()
@@ -142,8 +147,9 @@ function ProductDetail() {
                                     </div>
 
                                     <div className="block-button saving">
+                                        {/* eslint-disable-next-line */}
                                         <a
-                                            href=""
+                                            href="#"
                                             className="btn-buynow one red jsBuy"
                                             onClick={(e) => {
                                                 e.preventDefault();
@@ -189,7 +195,7 @@ function ProductDetail() {
                                 Cấu hình {phone.category} {phone.name}
                             </p>
                             <div className="parameter">
-                                {phone.category == 'điện thoại' ? (
+                                {phone.category === 'điện thoại' ? (
                                     <ul className="parameter__list active">
                                         <li>
                                             <p className="lileft">Màn hình:</p>
@@ -246,7 +252,7 @@ function ProductDetail() {
                                             </div>
                                         </li>
                                     </ul>
-                                ) : phone.category == 'laptop' ? (
+                                ) : phone.category === 'laptop' ? (
                                     <ul className="parameter__list active">
                                         <li>
                                             <p className="lileft">CPU:</p>
@@ -303,7 +309,7 @@ function ProductDetail() {
                                             </div>
                                         </li>
                                     </ul>
-                                ) : phone.category == 'tablet' ? (
+                                ) : phone.category === 'tablet' ? (
                                     <ul className="parameter__list active">
                                         <li>
                                             <p className="lileft">Màn hình:</p>

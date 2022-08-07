@@ -5,7 +5,6 @@ import axios from 'axios';
 import Paypal from './Paypal';
 import { Image } from 'cloudinary-react';
 
-const PRODUCTS_API_URL = 'http://localhost:8084/api/v1/products/manufacturer?name=Samsung';
 const api = 'http://localhost:8084/api/v1/orders';
 
 function Cart() {

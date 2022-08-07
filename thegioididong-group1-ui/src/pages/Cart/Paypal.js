@@ -1,5 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
-import axios from 'axios';
+import { useEffect, useRef } from 'react';
 
 export default function Paypal({ setMessage, total }) {
     const paypal = useRef();
@@ -37,6 +36,7 @@ export default function Paypal({ setMessage, total }) {
                 },
             })
             .render(paypal.current);
+        // eslint-disable-next-line
     }, []);
 
     return (
