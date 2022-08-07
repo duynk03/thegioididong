@@ -14,6 +14,7 @@ function Orders() {
     const [updateData, setUpdateData] = useState(false);
     const [searchText, setSearchText] = useState('');
     const [searchedColumn, setSearchedColumn] = useState('');
+    const [loading, setLoading] = useState(false);
     const searchInput = useRef(null);
 
     const handleSearch = (selectedKeys, confirm, dataIndex) => {
@@ -213,7 +214,7 @@ function Orders() {
                         phone: item.phone,
                         address: item.address,
                         state: item.state,
-                        payments: item.payments,
+                        payments: item.payments === 'cod' ? 'Thanh toán khi nhận hàng' : 'Đã thanh toán online',
                         total: item.total,
                         time:
                             'Khoảng ' +
@@ -236,6 +237,57 @@ function Orders() {
             <h1 style={{ fontSize: '3em', paddingTop: 30, paddingLeft: '35%', fontWeight: 'bold' }}>
                 Danh sách đơn hàng
             </h1>
+            <div
+                style={{
+                    marginTop: 16,
+                    marginLeft: '10%',
+                }}
+            >
+                <Button
+                    type="primary"
+                    onClick={() => {
+                        setLoading(true);
+                        let dataList = [];
+                        axios
+                            .get(ORDERS_REST_API_URL)
+                            .then((res) => res.data)
+                            .then((data) => {
+                                dataList = data;
+                                let displayData = [];
+                                dataList.forEach((item, index) => {
+                                    let date = new Date(item.createdAt);
+                                    displayData.push({
+                                        key: item.id,
+                                        id: item.id,
+                                        name: item.name,
+                                        phone: item.phone,
+                                        address: item.address,
+                                        state: item.state,
+                                        payments: item.payments,
+                                        total: item.total,
+                                        time:
+                                            'Khoảng ' +
+                                            date.getHours() +
+                                            ' giờ - ' +
+                                            date.getDate() +
+                                            '/' +
+                                            (date.getMonth() + 1) +
+                                            '/' +
+                                            date.getFullYear(),
+                                    });
+                                    setList(displayData);
+                                });
+                            })
+                            .catch((error) => console.error(error));
+                        setTimeout(() => {
+                            setLoading(false);
+                        }, 1000);
+                    }}
+                    loading={loading}
+                >
+                    Reload
+                </Button>
+            </div>
             <Table columns={columns} dataSource={list} style={{ width: '80%', paddingTop: '1%', paddingLeft: '10%' }} />
         </>
     );

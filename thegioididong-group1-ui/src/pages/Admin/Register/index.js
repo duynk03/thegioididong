@@ -22,7 +22,9 @@ function Register() {
             })
             .catch((err) => {
                 if (axios.isAxiosError(err)) {
-                    openErrorNotification('error', 'Đăng ký không thành công!');
+                    if (err.response.status === 406) {
+                        openErrorNotification('error', 'Tên tài khoản đã tồn tại, vui lòng nhập tên tài khoản khác!');
+                    } else openErrorNotification('error', 'Đăng ký không thành công!');
                 }
             });
     };
