@@ -1,282 +1,471 @@
 import './cart.scss';
-import iphone13ProMaxGold from "../../assets/iphone-13-pro-max-gold-1-200x200.jpg"
-function Cart() {
-   let isempty = false;
-   if (isempty) {
-      return (
-         <div className="cartempty">
-            <i className="cartnew-empty"></i>
-            <span>
-               Không có sản phẩm nào trong giỏ hàng
-            </span>
-            <a href="/" className="backhome">
-               Về trang chủ
-            </a>
-            <p>
-               Khi cần trợ giúp vui lòng gọi <a style={{ color: '#288ad6' }} href="#">1800.1060</a>
-               hoặc <a style={{ color: '#288ad6' }} href="#">028.3622.1060</a>
-               (7h30 - 22h)
-            </p>
-         </div>
-      );
-   } else return (
-      <section>
-         <div className="yourCart top-content">
-            <a href="/" className="buymore">Mua thêm sản phẩm khác</a>
-            <span>Giỏ hàng của anh </span>
-         </div>
-         <div className="middleCart">
-            <ul className="listing-cart">
-               <li className="product-item">
-                  <div className="imgsp">
-                     <a href="#" target="_blank">
-                        <img  src={iphone13ProMaxGold}
-                              alt="" 
-                              loading="lazy" 
-                              className=" ls-is-cached lazyloaded"/>
-                     </a>
-                     <div>
-                        <button>
-                           <span></span>
-                           Xóa
-                        </button>
-                     </div>
-                  </div>
-                  <div data-tmp-price-original="36990000"
-                     data-tmp-price-discount="30890000"
-                     data-tmp-product-name="Điện thoại iPhone 13 Pro Max 256GB"
-                     data-tmp-product-type="2"
-                     data-tmp-quantity="1"
-                     data-tmp-max-quantity="1"
-                     className="infosp">
-                     <div className="name-price">
-                        <div className="name-container">
-                           <a href="/dtdd/iphone-13-pro-max-256gb" className="product-item__name"> Điện thoại iPhone 13 Pro Max 256GB </a>
-                        </div>
-                        <span>
-                           30.890.000₫
-                           <strike>36.990.000₫</strike>
-                        </span>
-                     </div>
-                     <hr style={{ width: '65%', visibility: 'hidden' }} />
-                     <div className="product-note">
-                        <span>Giá rẻ online</span>
-                        <span className="product-note__labelExpand active"> (Xem chi tiết)</span>
-                        <div className="product-note__list active">
-                           <label className="product-note__scenarioTitle">Chính sách Online giá rẻ</label>
-                           <ul>
-                              <li className="product-note__list__item">Chỉ áp dụng giao tận nơi.</li>
-                              <li className="product-note__list__item">Thời gian nhận hàng: 1 ngày sau khi đặt</li>
-                              <li className="product-note__list__item">Không áp dụng chung với khuyến mãi khác.</li>
-                              <li className="product-note__list__item">Mỗi khách hàng (1 SĐT) chỉ được mua 1 sản phẩm</li>
-                              <li className="product-note__list__item">Áp dụng góp Online qua thẻ tín dụng</li>
-                              <li className="product-note__list__item">Bắt buộc khui hộp và kích hoạt khi nhận máy</li>
-                              <li className="product-note__list__item">Không áp dụng góp nhà tài chính</li>
-                              <li className="product-note__list__item">Số lượng có hạn, áp dụng tùy tỉnh thành</li>
-                              <li className="product-note__list__item">Hư gì đổi nấy trong 15 ngày nếu lỗi do nhà sản xuất</li>
-                           </ul>
-                        </div>
-                     </div>
-                     <div className="promo"></div>
-                     <div fragment="83857017b6" className="choose-color">
-                        <div className="product-size-and-color-selection">
-                           <aside>
-                              <label className="">
-                                 <span className="color-label">Màu: </span>
-                                 <span className="color-text">Vàng đồng</span>
-                              </label>
-                              <div className="sg-color" style={{ display: 'none' }}>
-                                 <div className="select-color active">
-                                    <img data-src="" src="" loading="lazy" className="lazyload" /><small>Vàng đồng</small>
-                                 </div>
-                                 <div className="select-color">
-                                    <img data-src="" src="" loading="lazy" className="lazyload" /><small>Bạc</small>
-                                 </div>
-                                 <div className="select-color">
-                                    <img data-src="" src="" loading="lazy" className="lazyload" /><small>Xám</small>
-                                 </div>
-                                 <div className="select-color">
-                                    <img data-src="" src="" loading="lazy" className="lazyload" /><small>Xanh lá</small>
-                                 </div>
-                                 <div className="select-color">
-                                    <img data-src="" src="" loading="lazy" className="lazyload" /><small>Xanh Dương</small>
-                                 </div>
-                              </div>
-                           </aside>
-                        </div>
-                        <div className="choosenumber" fragment="422a272ec0">
-                           <div className="minus" style={{ pointerEvents: 'none' }}>
-                              <i style={{ backgroundColor: "rgb(204, 204, 204)" }}></i>
-                           </div>
-                           <input type="text" maxlength="3" className="number" style={{ border: 'none', pointerEvents: 'none' }} />
-                           <div className="plus" style={{pointerEvents: 'none'}}>
-                              <i style={{ backgroundColor: 'rgb(204, 204, 204)' }}></i>
-                              <i style={{backgroundColor: 'rgb(204, 204, 204)'}}></i>
-                           </div>
-                           <input type="hidden" />
-                        </div>
-                     </div>
-                  </div>
-                  <input fragment="1615d39a298" type="hidden" value="true" />
-               </li>
-            </ul>
-            <div className="total-provisional">
-               <span data-tmp-total-product-quantity="1" className="total-product-quantity">
-                  <span className="total-label">Tạm tính </span>
-                  (1 sản phẩm):
-               </span>
-               <span data-tmp-temp-total-money="30890000" className="temp-total-money">30.890.000₫</span>
-            </div>
-            <div className="infor-customer">
-               <h4>Thông tin khách hàng</h4>
-               <div className="infor">
-                  <span>Anh <b>Nguyễn Văn A</b> - 0123456789 </span>
-                  <span>Sửa</span>
-               </div>
-            </div>
-            <div className="choosegetgoods">
-               <h4>Chọn cách thức nhận hàng</h4>
-               <input type="hidden" value="2" />
-               <div className="click-choose">
-                  <div data-tab="tab-1" className="choose-link current">
-                     <i className="cartnew-choose"></i>
-                     <span>Giao tận nơi</span>
-                  </div>
-                  <div data-tab="tab-2" className="choose-link">
-                     <i className="cartnew-choose"></i>
-                     <span>Nhận tại siêu thị</span>
-                  </div>
-               </div>
-               <div id="tab-1" className="choose-content current">
-                  <div className="deli-address">
-                     <form className="active">
-                        <p> Chọn địa chỉ để biết thời gian nhận hàng và phí vận chuyển (nếu có) </p>
-                        <div className="cntry-district">
-                           <div className="btn-click country">
-                              <button type="button" className="">Hồ Chí Minh</button>
-                              <input fragment="134adb03b28" type="hidden" className="ddlist" value="3" />
-                              <div className="select" fragment="134adb03b28" style={{ display: 'none' }}>
-                                 <div className="boxsearch">
-                                    <input placeholder="Nhập tỉnh, thành để tìm nhanh" />
-                                    <a href="javascript:;"><i className="cartnew-search"></i></a>
-                                 </div>
-                                 <div className="listName" style={{position: 'relative'}}>
-                                    <aside></aside>
-                                    <aside></aside>
-                                    <div className="resize-triggers">
-                                       <div className="expand-trigger">
-                                          <div style={{ width: '1px', height: '1px' }}></div>
-                                       </div>
-                                       <div className="contract-trigger"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="btn-click district">
-                              <button type="button" className="">Chọn Quận / Huyện</button>
-                              <input fragment="e1682f0734" type="hidden" className="ddlist" value="0" />
-                              <div className="select" fragment="e1682f0734" style={{ display: 'none' }}>
-                                 <div className="boxsearch">
-                                    <input placeholder="Nhập quận, huyện để tìm nhanh" />
-                                    <a href="javascript:;"><i className="cartnew-search"></i></a>
-                                 </div>
-                                 <div className="listName" style={{position: 'relative'}}>
-                                    <aside></aside>
-                                    <aside></aside>
-                                    <div className="resize-triggers">
-                                       <div className="expand-trigger">
-                                          <div style={{ width: '1px', height: '1px' }}></div>
-                                       </div>
-                                       <div className="contract-trigger"></div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="wards disable">
-                              <button type="button" disabled="disabled" className="">Chọn Phường / Xã</button>
+import { Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+import Paypal from './Paypal';
+import { Image } from 'cloudinary-react';
 
-                              <input fragment="fbd98aa5bf" type="hidden" className="ddlist" value="0" />
-                              <div className="select" fragment="fbd98aa5bf" style={{ display: 'none' }}>
-                                 <div className="boxsearch">
-                                    <input placeholder="Nhập phường, xã để tìm nhanh" />
-                                    <a href="javascript:;"><i className="cartnew-search"></i></a>
-                                 </div>
-                                 <div className="listName" style={{ position: 'relative' }}>
-                                    <aside>
-                                       <span className="active">Chọn Phường / Xã</span>
-                                    </aside>
-                                    <aside></aside>
-                                    <div className="resize-triggers">
-                                       <div className="expand-trigger">
-                                          <div style={{ width: '1px', height: '1px' }}></div>
-                                       </div>
-                                       <div className="contract-trigger"></div>
+const PRODUCTS_API_URL = 'http://localhost:8084/api/v1/products/manufacturer?name=Samsung';
+const api = 'http://localhost:8084/api/v1/orders';
+
+function Cart() {
+    const [cart, setCart] = useState([]);
+    const [calculate, setCalculate] = useState(false);
+    const [firstRender, setFirstRender] = useState(true);
+
+    useEffect(() => {
+        if (firstRender) {
+            // setCart(JSON.parse(localStorage.getItem('cart')));
+            axios.get(PRODUCTS_API_URL).then((response) => {
+                const arr = Array.from(response.data, (item) => {
+                    return { product: item, quantity: 2 };
+                });
+                localStorage.setItem('cart', JSON.stringify(arr));
+                setCart(JSON.parse(localStorage.getItem('cart')));
+
+                calculateTotal(JSON.parse(localStorage.getItem('cart')));
+            });
+            setFirstRender(false);
+        } else {
+            calculateTotal(cart);
+        }
+        // eslint-disable-next-line
+    }, [calculate]);
+
+    const [total, setTotal] = useState(0);
+    const [name, setName] = useState('');
+    const [gender, setGender] = useState('Anh');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [payments, setPayments] = useState('cod');
+
+    const [errName, setErrName] = useState('');
+    const [errPhone, setErrPhone] = useState('');
+    const [errRegexPhone, setErrRegexPhone] = useState('');
+    const [errAddress, setErrAddress] = useState('');
+
+    const [message, setMessage] = useState('');
+
+    const handleSubmitOrder = () => {
+        let err;
+        if (name === '') {
+            setErrName('error');
+            err = true;
+        }
+        if (phone === '') {
+            setErrPhone('error');
+            err = true;
+        }
+        if (address === '') {
+            setErrAddress('error');
+            err = true;
+        }
+
+        if (!err) {
+            axios
+                .post(api, {
+                    phone: phone,
+                    name: name,
+                    gender: gender,
+                    address: address,
+                    total: total,
+                    state: 'Chờ xác nhận',
+                    payments: payments,
+                    createdAt: new Date(),
+                    modifiedAt: null,
+                    orderDetails: cart.reduce((a, value) => {
+                        return [
+                            ...a,
+                            {
+                                quantity: value.quantity,
+                                product: {
+                                    id: value.product.id,
+                                },
+                            },
+                        ];
+                    }, []),
+                })
+                .then((response) => {
+                    localStorage.setItem('cart', JSON.stringify([]));
+                    setCart(JSON.parse(localStorage.getItem('cart')));
+                    setMessage('done');
+                })
+                .catch((err) => {
+                    if (axios.isAxiosError(err)) {
+                        console.log(err);
+                    }
+                });
+        }
+    };
+
+    const setMessageCallBack = (message) => {
+        setMessage(message);
+    };
+
+    const calculateTotal = (cart) => {
+        let sum = 0;
+        for (let i = 0; i < cart.length; i++) {
+            sum += cart[i].product.price * ((100 - cart[i].product.saleOff) / 100) * cart[i].quantity;
+        }
+        setTotal(sum);
+    };
+
+    if (cart.length === 0) {
+        return (
+            <div className="cartempty">
+                {message !== 'error' && message !== 'success' && message !== '' ? (
+                    <span style={{ fontSize: 18, color: 'red', backgroundColor: '#f3f5e8' }}>
+                        Đơn hàng của bạn đã được đặt
+                    </span>
+                ) : (
+                    <></>
+                )}
+                <i className="cartnew-empty"></i>
+                <span>Không có sản phẩm nào trong giỏ hàng</span>
+                <Link to={'/'} className="backhome">
+                    Về trang chủ
+                </Link>
+                <p>
+                    Khi cần trợ giúp vui lòng gọi {/* eslint-disable-next-line  */}
+                    <Link style={{ color: '#288ad6' }} to={'#'}>
+                        1800.1060
+                    </Link>{' '}
+                    hoặc {/* eslint-disable-next-line  */}
+                    <Link style={{ color: '#288ad6' }} to={'#'}>
+                        028.3622.1060
+                    </Link>{' '}
+                    (7h30 - 22h)
+                </p>
+            </div>
+        );
+    } else
+        return (
+            <section>
+                <div className="yourCart top-content">
+                    <Link to={'/'} className="buymore">
+                        Mua thêm sản phẩm khác
+                    </Link>
+                    <span>Giỏ hàng của {gender} </span>
+                </div>
+                <div className="middleCart">
+                    <ul className="listing-cart">
+                        {cart.map((item, index) => (
+                            <li className="product-item" key={index}>
+                                <div className="imgsp">
+                                    {/* eslint-disable-next-line  */}
+                                    <Link to={'#'} target="_blank">
+                                        <Image cloudName="dlefvc2xe" publicId={item.product.images[0]?.source} />
+                                    </Link>
+                                    <div
+                                        onClick={() => {
+                                            cart.splice(index, 1);
+                                            localStorage.setItem('cart', JSON.stringify(cart));
+                                            setCart(JSON.parse(localStorage.getItem('cart')));
+                                            setCalculate(!calculate);
+                                        }}
+                                    >
+                                        <button>
+                                            <span></span>
+                                            Xóa
+                                        </button>
                                     </div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div className="filladdress">
-                              <input placeholder="" maxlength="255" id="cusAddr" name="cusAddr" required="required" className="untouched pristine required" />
-                              <label for="cusAddr" className="form-label">Số nhà, tên đường</label>
-                           </div>
-                        </div>
-                     </form>
-                  </div>
-               </div>
-               <div id="tab-2" className="choose-content">
-                  <div className="notsupport">
-                     <input fragment="101e7a4d408" type="hidden" className="untouched pristine required" value="true" />
-                     <span>Giỏ hàng đang có sản phẩm không hỗ trợ nhận hàng tại siêu thị</span>
-                     <small>Điện thoại iPhone 13 Pro Max 256GB</small>
-                     <span>Vui lòng chọn <b>giao tận nơi</b> để đặt hàng</span>
-                  </div>
-               </div>
-            </div>
-            <div className="choosegetgoods" style={{ display: 'none' }}>
-               <div id="tab-3" className="choose-content current">
-                  <aside>
-                     <div className="latch-order">
-                        <div className="box-order error-order">
-                           <ul>
-                              <li>
-                                 <strong><b>Sản phẩm tạm ngưng nhận tại siêu thị khu vực anh chọn</b></strong>
-                                 <a href="/dtdd/iphone-13-pro-max-256gb" className="img-order">
-                                    <img data-src="" src="" width="40px" height="auto" loading="lazy" className="lazyload" />
-                                 </a>
-                                 <a href="/dtdd/iphone-13-pro-max-256gb" className="text-order">
-                                    <a href="/dtdd/iphone-13-pro-max-256gb" target="_blank" className="text-order__product-name">Điện thoại iPhone 13 Pro Max 256GB</a>
-                                    <div className="amount-color">
-                                       <small>Màu: Vàng đồng</small>
-                                       <small>Số lượng: 1</small>
+                                </div>
+                                <div className="infosp">
+                                    <div className="name-price">
+                                        <div className="name-container">
+                                            {/* eslint-disable-next-line  */}
+
+                                            <Link to={'#'} className="product-item__name">
+                                                {item.product.name}
+                                            </Link>
+                                        </div>
+                                        <span>
+                                            {item.product.price !== 0 ? (
+                                                <>
+                                                    {(item.product.price * ((100 - item.product.saleOff) / 100))
+                                                        .toString()
+                                                        .split('')
+                                                        .reverse()
+                                                        .reduce((prev, next, index) => {
+                                                            return (index % 3 ? next : next + '.') + prev;
+                                                        })}
+                                                    ₫
+                                                    <strike>
+                                                        {item.product.price
+                                                            .toString()
+                                                            .split('')
+                                                            .reverse()
+                                                            .reduce((prev, next, index) => {
+                                                                return (index % 3 ? next : next + '.') + prev;
+                                                            })}
+                                                        ₫
+                                                    </strike>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    {item.product.price
+                                                        .toString()
+                                                        .split('')
+                                                        .reverse()
+                                                        .reduce((prev, next, index) => {
+                                                            return (index % 3 ? next : next + '.') + prev;
+                                                        })}
+                                                    ₫
+                                                </>
+                                            )}
+                                        </span>
                                     </div>
-                                 </a>
-                              </li>
-                           </ul>
+                                    <hr style={{ width: '65%', visibility: 'hidden' }} />
+                                    <div className="promo"></div>
+                                    <div fragment="83857017b6" className="choose-color">
+                                        <div className="product-size-and-color-selection"></div>
+                                        <div className="choosenumber" fragment="422a272ec0">
+                                            <div
+                                                className="minus"
+                                                onClick={() => {
+                                                    console.log('minus');
+                                                    if (cart[index].quantity > 1) {
+                                                        cart[index].quantity = item.quantity - 1;
+                                                        localStorage.setItem('cart', JSON.stringify(cart));
+                                                        setCalculate(!calculate);
+                                                    }
+                                                }}
+                                            >
+                                                {cart[index].quantity > 1 ? (
+                                                    <i style={{ backgroundColor: 'rgb(40, 138, 214)' }}></i>
+                                                ) : (
+                                                    <i style={{ backgroundColor: 'rgb(204, 204, 204)' }}></i>
+                                                )}
+                                            </div>
+                                            <span className="number" style={{ border: 'none', pointerEvents: 'none' }}>
+                                                {item.quantity}
+                                            </span>
+                                            <div
+                                                className="plus"
+                                                onClick={() => {
+                                                    cart[index].quantity = item.quantity + 1;
+                                                    localStorage.setItem('cart', JSON.stringify(cart));
+                                                    setCalculate(!calculate);
+                                                }}
+                                            >
+                                                {cart[index].quantity < 10 ? (
+                                                    <>
+                                                        <i style={{ backgroundColor: 'rgb(40, 138, 214)' }}></i>
+                                                        <i style={{ backgroundColor: 'rgb(40, 138, 214)' }}></i>
+                                                    </>
+                                                ) : (
+                                                    <>
+                                                        <i style={{ backgroundColor: 'rgb(204, 204, 204)' }}></i>
+                                                        <i style={{ backgroundColor: 'rgb(204, 204, 204)' }}></i>
+                                                    </>
+                                                )}
+                                            </div>
+                                            <input type="hidden" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <input fragment="1615d39a298" type="hidden" value="true" />
+                            </li>
+                        ))}
+                    </ul>
+                    <div className="total-provisional">
+                        <span className="total-product-quantity">
+                            <span className="total-label">Tạm tính </span>({cart.length} sản phẩm):
+                        </span>
+                        <span className="temp-total-money">
+                            {total
+                                .toString()
+                                .split('')
+                                .reverse()
+                                .reduce((prev, next, index) => {
+                                    return (index % 3 ? next : next + '.') + prev;
+                                })}
+                            ₫
+                        </span>
+                    </div>
+                    <div className="infor-customer">
+                        <h4>Thông tin khách hàng</h4>
+                        <form className="form-customer">
+                            <div className="sex-customer">
+                                <input fragment="9e7b071194" type="hidden" value="-1" />
+                                <span
+                                    fragment="9e7b071194"
+                                    className={gender === 'Anh' ? 'active' : ''}
+                                    onClick={() => setGender('Anh')}
+                                >
+                                    <i className="cartnew-choose"></i> Anh{' '}
+                                </span>
+                                <span
+                                    fragment="9e7b071194"
+                                    className={gender === 'Chị' ? 'active' : ''}
+                                    onClick={() => setGender('Chị')}
+                                >
+                                    <i className="cartnew-choose"></i> Chị{' '}
+                                </span>
+                            </div>
+                            <div className="fillinform">
+                                <div className="fillname">
+                                    <input
+                                        placeholder=""
+                                        maxLength="50"
+                                        id="cusName"
+                                        name="cusName"
+                                        required="required"
+                                        className="capitalize untouched pristine required"
+                                        value={name}
+                                        onChange={(e) => {
+                                            setName(e.target.value);
+                                            if (name !== '') {
+                                                setErrName('');
+                                            }
+                                        }}
+                                    />
+                                    <label htmlFor="cusName" className="form-label">
+                                        Họ và Tên
+                                    </label>
+                                    {errName === 'error' ? <span>Vui lòng nhập họ và tên</span> : <></>}
+                                </div>
+                                <div className="fillname phoneNumber">
+                                    <input
+                                        placeholder=""
+                                        type="tel"
+                                        maxLength="10"
+                                        id="cusPhone"
+                                        name="cusPhone"
+                                        required="required"
+                                        value={phone}
+                                        className="untouched pristine required phoneNumber__input"
+                                        onChange={(e) => {
+                                            setPhone(e.target.value);
+                                            if (phone !== '') {
+                                                setErrPhone('');
+                                            }
+                                            if (/((09|03|07|08|05)+([0-9]{8})\b)/g.test(e.target.value) === false) {
+                                                setErrRegexPhone('error');
+                                            } else {
+                                                setErrRegexPhone('');
+                                            }
+                                        }}
+                                    />
+                                    <label htmlFor="cusPhone" className="form-label">
+                                        Số điện thoại
+                                    </label>
+                                    {errPhone === 'error' ? <span>Vui lòng nhập số điện thoại</span> : <></>}
+                                    {errRegexPhone === 'error' ? <span>Số điện thoại không hợp lệ</span> : <></>}
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div className="choosegetgoods">
+                        <h4>Cách thức nhận hàng</h4>
+                        <input type="hidden" value="2" />
+                        <div className="click-choose">
+                            <div data-tab="tab-1" className="choose-link current">
+                                <i className="cartnew-choose"></i>
+                                <span>Giao tận nơi</span>
+                            </div>
                         </div>
-                     </div>
-                  </aside>
-               </div>
-            </div>
-            <div className="anotheroption">
-               <div className="customer-note">
-                  <input placeholder="" id="cusNote" name="cusNote" required="required" />
-                  <label for="cusNote" className="form-label">Yêu cầu khác (không bắt buộc)</label>
-               </div>
-            </div>
-            <div className="cate-printing-ink-note" style={{ display: 'none' }}>
-               <div className="cate-printing-ink-note__message"></div>
-            </div>
-            <div className="finaltotal">
-               <div className="area-total">
-                  <div></div>
-                  <div data-tmp-total-money-in-all="30890000" className="total-price">
-                     <strong>Tổng tiền:</strong><strong>30.890.000₫</strong>
-                  </div>
-               </div><button type="button" className="submitorder"><b style={{textTransform:'uppercase'}}>Đặt hàng</b></button>
-               <small> Anh có thể chọn hình thức thanh toán sau khi đặt hàng </small></div>
-         </div>
-      </section >
-   )
+                        <div id="tab-1" className="choose-content current">
+                            <div className="deli-address">
+                                <form className="active">
+                                    <p> Nhập địa chỉ nhận hàng </p>
+                                    <div className="cntry-district">
+                                        <div className="filladdress">
+                                            <input
+                                                placeholder=""
+                                                maxLength="255"
+                                                id="cusAddr"
+                                                name="cusAddr"
+                                                required="required"
+                                                className="untouched pristine required"
+                                                value={address}
+                                                onChange={(e) => {
+                                                    setAddress(e.target.value);
+                                                    if (address !== '') {
+                                                        setErrAddress('');
+                                                    }
+                                                }}
+                                            />
+                                            <label htmlFor="cusAddr" className="form-label">
+                                                Số nhà, xã (phường), quận/huyện, tỉnh
+                                            </label>
+                                            {errAddress === 'error' ? (
+                                                <small class="filladdress__error error">Vui lòng nhập địa chỉ</small>
+                                            ) : (
+                                                <></>
+                                            )}
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="cate-printing-ink-note" style={{ display: 'none' }}>
+                        <div className="cate-printing-ink-note__message"></div>
+                    </div>
+                    <div className="choosegetgoods">
+                        <h4>Chọn phương thức thanh toán</h4>
+                        <input type="hidden" value="2" />
+                        <div className="click-choose">
+                            <div
+                                data-tab="tab-1"
+                                className={payments === 'cod' ? 'choose-link current' : 'choose-link'}
+                                onClick={() => {
+                                    if (message !== 'success') {
+                                        setPayments('cod');
+                                    }
+                                }}
+                            >
+                                <i className="cartnew-choose"></i>
+                                <span>Thanh toán khi nhận hàng</span>
+                            </div>
+                        </div>
+                        <div className="click-choose">
+                            <div
+                                data-tab="tab-1"
+                                className={payments === 'cad' ? 'choose-link current' : 'choose-link'}
+                                onClick={() => setPayments('cad')}
+                            >
+                                <i className="cartnew-choose"></i>
+                                <span>Thanh toán qua thẻ tín dụng (Paypal)</span>
+                            </div>
+                        </div>
+                        {payments === 'cad' && (message === '' || message === 'error') ? (
+                            <Paypal setMessage={setMessageCallBack} total={total} />
+                        ) : (
+                            <></>
+                        )}
+                        <span style={{ color: 'red', backgroundColor: '#f3f5e8' }}>
+                            {message === 'error' ? 'Thanh toán chưa thành công vui lòng thanh toán lại' : ''}
+                            {message === 'success'
+                                ? 'Đã thanh toán thành công, vui lòng nhấn đặt hàng để hoàn thành giao dịch'
+                                : ''}
+                        </span>
+                    </div>
+                    <div className="finaltotal">
+                        <div className="area-total">
+                            <div></div>
+                            <div data-tmp-total-money-in-all="30890000" className="total-price">
+                                <strong>Tổng tiền:</strong>
+                                <strong>
+                                    {total
+                                        .toString()
+                                        .split('')
+                                        .reverse()
+                                        .reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;
+                                        })}
+                                    ₫
+                                </strong>
+                            </div>
+                        </div>
+                        <button type="button" className="submitorder" onClick={handleSubmitOrder}>
+                            <b style={{ textTransform: 'uppercase' }}>Đặt hàng</b>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        );
 }
 
 export default Cart;

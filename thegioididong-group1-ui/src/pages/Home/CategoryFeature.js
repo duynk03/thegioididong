@@ -24,15 +24,15 @@ function CategoryFeature() {
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'tablet'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Tablet" src="https://cdn.tgdd.vn//content/Tablet-128x129.png" />
                             </div>
                             <span>Tablet</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
-                        <Link to={'dong-ho-thong-minh'}>
+                        <Link to={'smartwatch'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Đồng hồ thông minh"
@@ -43,7 +43,7 @@ function CategoryFeature() {
                         </Link>
                     </h3>
                     <h3>
-                        <Link to={'dong-ho'}>
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Đồng hồ thời trang"
@@ -55,108 +55,108 @@ function CategoryFeature() {
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Thiết bị mạng" src="https://cdn.tgdd.vn//content/Thietbimang-128x129.png" />
                             </div>
                             <span>Thiết bị mạng</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Ốp lưng" src="https://cdn.tgdd.vn//content/Oplung-128x128.png" />
                             </div>
                             <span>Ốp lưng</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Chuột máy tính" src="https://cdn.tgdd.vn//content/chuot-128x129.png" />
                             </div>
                             <span>Chuột máy tính</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Bàn phím" src="https://cdn.tgdd.vn//content/ban-phim-128x129.png" />
                             </div>
                             <span>Bàn phím</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Sim, thẻ cào" src="https://cdn.tgdd.vn//content/Simthecao-129x129.png" />
                             </div>
                             <span>Sim, thẻ cào</span>
-                        </a>
+                        </Link>
                     </h3>
                 </aside>
                 <aside>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Loa" src="https://cdn.tgdd.vn//content/Loa-128x128.png" />
                             </div>
                             <span>Loa</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Tai nghe" src="https://cdn.tgdd.vn//content/Tainghe-128x129.png" />
                             </div>
                             <span>Tai nghe</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Sạc dự phòng" src="https://cdn.tgdd.vn//content/Sacduphong-128x129.png" />
                             </div>
                             <span>Sạc dự phòng</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Cáp sạc" src="https://cdn.tgdd.vn//content/Capsac-129x129.png" />
                             </div>
                             <span>Cáp sạc</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Máy tính bộ" src="https://cdn.tgdd.vn//content/Maytinhbo-128x129.png" />
                             </div>
                             <span>Máy tính bộ</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img alt="Máy in" src="https://cdn.tgdd.vn//content/Mayin-128x129.png" />
                             </div>
                             <span>Máy in</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Màn hình máy tính"
@@ -164,11 +164,11 @@ function CategoryFeature() {
                                 />
                             </div>
                             <span>Màn hình máy tính</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Phụ kiện gaming"
@@ -176,11 +176,11 @@ function CategoryFeature() {
                                 />
                             </div>
                             <span>Phụ kiện gaming</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Camera, webcam"
@@ -188,11 +188,11 @@ function CategoryFeature() {
                                 />
                             </div>
                             <span>Camera, webcam</span>
-                        </a>
+                        </Link>
                     </h3>
                     <h3>
                         {/* eslint-disable-next-line */}
-                        <a href="javascript:void(0)">
+                        <Link to={'#'}>
                             <div className={styles.img__boxcate}>
                                 <img
                                     alt="Thiết bị nhà thông minh"
@@ -200,7 +200,7 @@ function CategoryFeature() {
                                 />
                             </div>
                             <span>Thiết bị nhà thông minh</span>
-                        </a>
+                        </Link>
                     </h3>
                 </aside>
             </div>

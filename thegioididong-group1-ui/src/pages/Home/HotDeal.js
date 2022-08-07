@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import clsx from 'clsx';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import styles from './Home.module.scss';
 const cloudName = 'dlefvc2xe';
@@ -34,7 +35,7 @@ function HotDeal() {
             <div className={styles.promo__banner}>
                 <div className={clsx(styles.promo__top, styles.clearfix)}>
                     {/* eslint-disable-next-line */}
-                    <a href="javascript:void(0)">
+                    <Link to={'#'}>
                         <img
                             style={{ cursor: 'pointer' }}
                             src="https://cdn.tgdd.vn/2022/05/banner/TGDD-Sansale-desk-1200x120-3.png"
@@ -42,14 +43,14 @@ function HotDeal() {
                             width="1200"
                             height="120"
                         />
-                    </a>
+                    </Link>
                 </div>
                 <div className={styles.promo__slider}>
                     <Slider {...settings}>
                         {products.map((product, index) => (
                             <div className={styles.promo__item} key={index}>
                                 {/* eslint-disable-next-line */}
-                                <a href="javascript:void(0)">
+                                <Link to={'#'}>
                                     <Card
                                         hoverable
                                         style={{ width: '100%', margin: '0 5' }}
@@ -76,7 +77,7 @@ function HotDeal() {
                                         </strong>
                                         <p className={styles.item__gift}></p>
                                     </Card>
-                                </a>
+                                </Link>
                             </div>
                         ))}
                     </Slider>

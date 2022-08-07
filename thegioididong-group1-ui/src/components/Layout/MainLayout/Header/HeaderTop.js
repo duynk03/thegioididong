@@ -2,10 +2,14 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Header.module.css';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function HeaderTop() {
     const [key, setKey] = useState('');
+    const [cartTotalItem, setCartTotalItem] = useState(0);
+    useEffect(() => {
+        setCartTotalItem(JSON.parse(localStorage.getItem('cart')).length);
+    }, []);
     const navigate = useNavigate();
     return (
         <div className={styles.header__top}>
@@ -48,7 +52,7 @@ function HeaderTop() {
                 <Link to="/cart" className={styles.header__cart}>
                     <div className={styles.box__cart}>
                         <img src="/images/iconcart.png" alt="cart icon" className={styles.iconnewglobal__cart} />
-                        <span className={styles.cart__number}></span>
+                        <span className={styles.cart__number}>{cartTotalItem > 0 ? cartTotalItem : ''}</span>
                     </div>
                     <span>Giỏ hàng</span>
                 </Link>

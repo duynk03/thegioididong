@@ -4,7 +4,7 @@ function BigBanner() {
     return (
         <div className={styles.big__banner}>
             {/* eslint-disable-next-line */}
-            <span aria-label="slide" href="javascript:void(0)" className={styles.span__img}>
+            <span aria-label="slide" className={styles.span__img}>
                 <img
                     className={styles.banner__image}
                     width="1920"

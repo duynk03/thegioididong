@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Home.module.scss';
 
 function ShoppingTrend() {
@@ -7,7 +8,7 @@ function ShoppingTrend() {
             <ul className={styles.trend__list}>
                 <li className={styles.trend__item}>
                     {/* eslint-disable-next-line */}
-                    <a aria-label="slide" href="javascript:void(0)">
+                    <Link aria-label="slide" to={'#'}>
                         <img
                             width="280"
                             height="236"
@@ -16,11 +17,11 @@ function ShoppingTrend() {
                         />
                         <span>Điện thoại</span>
                         <strong>Galaxy M Series</strong>
-                    </a>
+                    </Link>
                 </li>
                 <li className={styles.trend__item}>
                     {/* eslint-disable-next-line */}
-                    <a aria-label="slide" href="javascript:void(0)">
+                    <Link aria-label="slide" to={'#'}>
                         <img
                             width="280"
                             height="236"
@@ -29,11 +30,11 @@ function ShoppingTrend() {
                         />
                         <span>Laptop Gaming</span>
                         <strong>Giảm đến 20%</strong>
-                    </a>
+                    </Link>
                 </li>
                 <li className={styles.trend__item}>
                     {/* eslint-disable-next-line */}
-                    <a aria-label="slide" href="javascript:void(0)">
+                    <Link aria-label="slide" to={'#'}>
                         <img
                             width="280"
                             height="236"
@@ -42,11 +43,11 @@ function ShoppingTrend() {
                         />
                         <span>Tai nghe không dây</span>
                         <strong>Giảm đến 50%</strong>
-                    </a>
+                    </Link>
                 </li>
                 <li className={styles.trend__item}>
                     {/* eslint-disable-next-line */}
-                    <a aria-label="slide" href="javascript:void(0)">
+                    <Link aria-label="slide" to={'#'}>
                         <img
                             width="280"
                             height="236"
@@ -55,7 +56,7 @@ function ShoppingTrend() {
                         />
                         <span>Smartwatch</span>
                         <strong>Giảm đến 50%++</strong>
-                    </a>
+                    </Link>
                 </li>
             </ul>
         </div>

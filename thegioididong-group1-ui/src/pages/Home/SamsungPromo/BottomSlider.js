@@ -2,6 +2,7 @@ import { Card } from 'antd';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import Slider from 'react-slick';
 import styles from '../Home.module.scss';
 const PRODUCTS_TOP20_SAMSUNG_URL = 'http://localhost:8084/api/v1/products/manufacturer?name=Samsung';
@@ -40,7 +41,7 @@ function BottomSlider() {
                         {products.map((product, index) => (
                             <div className={styles.promo__item} key={index}>
                                 {/* eslint-disable-next-line */}
-                                <a href="javascript:void(0)">
+                                <Link to={'#'}>
                                     <Card
                                         hoverable
                                         style={{ width: '100%', margin: '0 5' }}
@@ -67,7 +68,7 @@ function BottomSlider() {
                                         </strong>
                                         <p className={styles.item__gift}></p>
                                     </Card>
-                                </a>
+                                </Link>
                             </div>
                         ))}
                     </Slider>
