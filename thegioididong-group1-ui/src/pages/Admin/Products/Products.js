@@ -157,36 +157,36 @@ function Products() {
             key: '2',
             width: 100,
         },
-        {
-            title: 'Nhà sản xuất',
-            dataIndex: 'manufacturer',
-            key: '3',
-            width: 100,
-        },
-        {
-            title: 'Hệ điều hành',
-            dataIndex: 'os',
-            key: '4',
-            width: 150,
-        },
-        {
-            title: 'Màu sắc',
-            dataIndex: 'color',
-            key: '5',
-            width: 150,
-        },
-        {
-            title: 'Trạng thái',
-            dataIndex: 'state',
-            width: 100,
-            key: '7',
-        },
-        {
-            title: 'Sale off',
-            dataIndex: 'saleOff',
-            width: 100,
-            key: '8',
-        },
+        // {
+        //     title: 'Nhà sản xuất',
+        //     dataIndex: 'manufacturer',
+        //     key: '3',
+        //     width: 100,
+        // },
+        // {
+        //     title: 'Hệ điều hành',
+        //     dataIndex: 'os',
+        //     key: '4',
+        //     width: 150,
+        // },
+        // {
+        //     title: 'Màu sắc',
+        //     dataIndex: 'color',
+        //     key: '5',
+        //     width: 150,
+        // },
+        // {
+        //     title: 'Trạng thái',
+        //     dataIndex: 'state',
+        //     width: 100,
+        //     key: '7',
+        // },
+        // {
+        //     title: 'Sale off',
+        //     dataIndex: 'saleOff',
+        //     width: 100,
+        //     key: '8',
+        // },
         {
             title: 'Action',
             key: 'action',
@@ -285,11 +285,11 @@ function Products() {
                     dataSource={list}
                     bordered
                     rowKey="id"
-                    scroll={{
-                        x: 1600,
-                        y: 700,
-                        scrollToFirstRowOnChange: true,
-                    }}
+                    // scroll={{
+                    //     x: 1600,
+                    //     y: 700,
+                    //     scrollToFirstRowOnChange: true,
+                    // }}
                 />
             </div>
         </div>

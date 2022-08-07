@@ -24,7 +24,7 @@ const Left = () => (
 const Right = () => (
     <div className="right">
         <div className="user" data-customer="">
-            Chào anh
+            Chào anh&nbsp;
             <b>Nguyễn Văn A</b> - <b>0123456789</b>
             <a href="/lich-su-mua-hang/dang-xuat" className="logout-h">Thoát tài khoản</a>
         </div>

@@ -3,7 +3,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import React from 'react';
 import { Table } from 'antd';
-import iphone13ProMaxGold from "../../../assets/iphone-13-pro-max-gold-1-200x200.jpg"
 var today = new Date();
 var date = ("0" + today.getDate()).slice(-2) + '/' + ("0" + (today.getMonth() + 1)).slice(-2) + '/' + today.getFullYear();
 var last_year = ("0" + today.getDate()).slice(-2) + '/' + ("0" + (today.getMonth() + 1)).slice(-2) + '/' + (today.getFullYear() - 1);
@@ -91,7 +90,7 @@ function History() {
             <div className="right">
                 {list.map((item)=>
                 <div className="user">
-                    Chào {item.gender=="male"?"anh ":"chị "} - <b>{item.phone}</b>
+                    Chào {item.gender==="male"?"anh ":"chị "} - <b>{item.phone}</b>
                     <a href="/lich-su-mua-hang/dang-xuat" className="logout-h">Thoát tài khoản</a>
                 </div>)
                 
