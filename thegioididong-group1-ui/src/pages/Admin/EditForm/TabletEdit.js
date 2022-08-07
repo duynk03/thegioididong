@@ -49,7 +49,7 @@ const TabletEdit = () => {
                 sim: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.sim,
                 pin: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.pin,
                 material: typeof response.data.tablet.released === 'undefined' ? '' : response.data.tablet.material,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 laptopId: response.data.tablet.id,
             };
         })
@@ -109,8 +109,8 @@ const TabletEdit = () => {
                     smartwatch: null,
                     state: product.state,
                     saleOff: product.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: product.description,
                     quantity: product.quantity,
                     images: images.reduce((a, value) => {

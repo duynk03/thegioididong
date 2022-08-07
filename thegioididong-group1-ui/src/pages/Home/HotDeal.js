@@ -1,8 +1,12 @@
 import { Card } from 'antd';
+import axios from 'axios';
+import { Image } from 'cloudinary-react';
 import clsx from 'clsx';
+import { useEffect, useState } from 'react';
 import Slider from 'react-slick';
 import styles from './Home.module.scss';
-
+const cloudName = 'dlefvc2xe';
+const PRODUCTS_TOP20_HOTDEAL_URL = 'http://localhost:8084/api/v1/products/hotDeal';
 function HotDeal() {
     let settings = {
         dots: false,
@@ -17,7 +21,14 @@ function HotDeal() {
         className: 'slider',
     };
 
-    const itemsize = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        axios.get(PRODUCTS_TOP20_HOTDEAL_URL).then((res) => {
+            setProducts(res.data);
+        });
+    }, []);
+
     return (
         <div className={styles.hotdeal}>
             <div className={styles.promo__banner}>
@@ -35,27 +46,35 @@ function HotDeal() {
                 </div>
                 <div className={styles.promo__slider}>
                     <Slider {...settings}>
-                        {itemsize.map(() => (
-                            <div className={styles.promo__item}>
+                        {products.map((product, index) => (
+                            <div className={styles.promo__item} key={index}>
                                 {/* eslint-disable-next-line */}
                                 <a href="javascript:void(0)">
                                     <Card
                                         hoverable
                                         style={{ width: '100%', margin: '0 5' }}
                                         cover={
-                                            <img
-                                                alt="example"
-                                                src="https://cdn.tgdd.vn/Products/Images/42/283114/samsung-galaxy-s22-ultra-5g-256gb-dac-biet-170622-061920-600x600.jpg"
+                                            <Image
+                                                alt={product.name}
+                                                cloudName={cloudName}
+                                                publicId={product.images[0]?.source}
                                                 style={{ width: 206 }}
                                             />
                                         }
                                     >
-                                        <h3>Samsung Galaxy S22 Ultra 5G 256GB phiên bản giới hạn</h3>
-                                        <p className={styles.item__txt}>Hàng sắp về</p>
-                                        <strong className={styles.price}>33.990.000₫</strong>
-                                        <p className={styles.item__gift}>
-                                            Tặng Đồng hồ Galaxy Watch4, Sạc đôi không dây, Giảm ngay 3 triệu
-                                        </p>
+                                        <h3>{product.name}</h3>
+                                        <p className={styles.item__txt}>{product.state}</p>
+                                        <strong className={styles.price}>
+                                            {product.price
+                                                .toString()
+                                                .split('')
+                                                .reverse()
+                                                .reduce((prev, next, index) => {
+                                                    return (index % 3 ? next : next + '.') + prev;
+                                                })}
+                                            ₫
+                                        </strong>
+                                        <p className={styles.item__gift}></p>
                                     </Card>
                                 </a>
                             </div>

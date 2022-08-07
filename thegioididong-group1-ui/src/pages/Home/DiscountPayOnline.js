@@ -34,8 +34,8 @@ function DiscountPayOnline() {
             <strong className={styles.name__box}>GIẢM THÊM KHI THANH TOÁN ONLINE</strong>
 
             <Slider {...settings}>
-                {items.map((item) => (
-                    <div className={styles.slide__item}>
+                {items.map((item, index) => (
+                    <div className={styles.slide__item} key={index}>
                         <img width="380" height="200" src={item} alt="banner giam gia, khuyen mai"></img>
                     </div>
                 ))}

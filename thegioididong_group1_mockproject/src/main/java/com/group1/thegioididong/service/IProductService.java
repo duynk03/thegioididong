@@ -21,4 +21,11 @@ public interface IProductService {
 
     List<Product> findByType(String type);
 
+    List<Product> findAllNewAsc();
+
+    List<Product> findSaleOffByDate();
+
+    List<Product> findTop10ByManufacturer(String manufacturer, String state);
+
+    List<Product> searchByName(String name);
 }

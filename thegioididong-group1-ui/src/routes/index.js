@@ -28,6 +28,10 @@ import SmartwatchEdit from '~/pages/Admin/EditForm/SmartwatchEdit';
 import UserInformation from '~/pages/Admin/User/UserInfomation';
 
 import ShowALLPhone from '~/pages/Products/Phone/phoneShowAll';
+import ShowALLTablet from '~/pages/Products/Tablet/laptopShowAll';
+import ShowALLLaptop from '~/pages/Products/Laptop/laptopShowAll';
+
+import Search from '~/pages/Search';
 
 const publicRoutes = [
     {
@@ -51,12 +55,24 @@ const publicRoutes = [
         component: Laptop,
     },
     {
+        path: '/laptop-manufacturer',
+        component: ShowALLLaptop,
+    },
+    {
         path: '/tablet',
         component: Tablet,
     },
     {
+        path: '/tablet-manufacturer',
+        component: ShowALLTablet,
+    },
+    {
         path: '/smartwatch',
         component: Smartwatch,
+    },
+    {
+        path: '/tim-kiem', //set tạm để test trước nha
+        component: Search,
     },
     {
         path: '/cart',
@@ -76,7 +92,7 @@ const publicRoutes = [
         component: LoginHistory,
     },
     {
-        path: '/dtdd/:id',
+        path: '/productdetail/*',
         component: ProductDetail,
     },
     {

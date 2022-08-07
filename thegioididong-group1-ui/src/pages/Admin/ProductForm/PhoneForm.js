@@ -55,8 +55,8 @@ const PhoneForm = () => {
                 smartwatch: null,
                 state: phone.state,
                 saleOff: phone.saleOff,
-                created_at: new Date(),
-                modified_at: null,
+                createdAt: new Date(),
+                modifiedAt: null,
                 description: phone.description,
                 images: images.reduce((a, value) => {
                     return [...a, { source: value }];
@@ -203,6 +203,8 @@ const PhoneForm = () => {
                         <Select.Option value="Vàng đồng">Vàng đồng</Select.Option>
                         <Select.Option value="Trắng">Trắng</Select.Option>
                         <Select.Option value="Đỏ">Đỏ</Select.Option>
+                        <Select.Option value="Nâu">Nâu</Select.Option>
+                        <Select.Option value="Cam">Cam</Select.Option>
                         <Select.Option value="Bạc">Bạc</Select.Option>
                         <Select.Option value="Xám">Xám</Select.Option>
                         <Select.Option value="Hồng">Hồng</Select.Option>

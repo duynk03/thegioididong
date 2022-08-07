@@ -1,34 +1,58 @@
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import axios from 'axios';
+import { Image } from 'cloudinary-react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from '../Home.module.scss';
+const API_REVIEWS = 'http://localhost:8084/api/v1/reviews/product?id=';
+const cloudName = 'dlefvc2xe';
+function SuggestProduct({ product, index }) {
+    const [reviews, setReviews] = useState([]);
 
-function SuggestProduct() {
+    useEffect(() => {
+        axios.get(API_REVIEWS + product.id).then((res) => {
+            setReviews(res.data);
+        });
+    }, [product.id]);
+
     return (
-        <li className={styles.suggest__product}>
-            <Link to="/dtdd/iphone-13-pro-max-256gb" className={styles.main__contain}>
+        <li className={styles.suggest__product} key={index}>
+            <Link to="#" className={styles.main__contain}>
                 <div className={styles.item__label}></div>
                 <div className={styles.item__img}>
-                    <img
-                        alt="iPhone 13 Pro Max 256GB"
-                        width="207"
-                        height="207"
-                        src="https://cdn.tgdd.vn/Products/Images/42/250261/TimerThumb/230529.jpg"
+                    <Image
+                        alt={product.name}
+                        cloudName={cloudName}
+                        publicId={product.images[0]?.source}
+                        style={{ width: 207, height: 207 }}
                     />
                 </div>
-                <h3>iPhone 13 Pro Max 256GB</h3>
+                <h3>{product.name}</h3>
                 <p className={styles.item__txtonline}>Online giá rẻ</p>
                 <strong className={styles.item__price}>
-                    30.890.000₫
-                    <small>-16%</small>
+                    {(product.price - (product.price * product.saleOff) / 100)
+                        .toString()
+                        .split('')
+                        .reverse()
+                        .reduce((prev, next, index) => {
+                            return (index % 3 ? next : next + '.') + prev;
+                        })}
+                    ₫<small>-{product.saleOff}%</small>
                 </strong>
                 <p className={styles.item__votetxt}>
-                    <b>4.5</b>
+                    <b>
+                        {reviews.length > 0
+                            ? Number(
+                                  reviews.reduce((partialSum, a) => partialSum + a.rate, 0) / reviews.length,
+                              ).toFixed(1)
+                            : 0}
+                    </b>
                     <FontAwesomeIcon
                         icon={faStar}
                         style={{ width: '12px', height: '12px', margin: '0 10px 2px 5px', color: '#fb6e2e' }}
                     />
-                    (100)
+                    ({reviews.length})
                 </p>
             </Link>
         </li>

@@ -1,10 +1,11 @@
 import './Product.scss';
 import '../Admin.scss';
-import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import { DeleteOutlined, EditOutlined, SearchOutlined } from '@ant-design/icons';
+import Highlighter from 'react-highlight-words';
 import axios from 'axios';
 import { Image } from 'cloudinary-react';
-import { Table, Button, Popconfirm } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { Table, Button, Popconfirm, Input, Space } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
 import { openSuccessNotification, openErrorNotification } from '~/pages/Admin/ProductForm/Notification';
 import { useNavigate } from 'react-router-dom';
 
@@ -13,18 +14,115 @@ const cloudName = 'dlefvc2xe';
 
 function Products() {
     const [list, setList] = useState([]);
-
     const [updateData, setUpdateData] = useState(false);
-
+    const [searchText, setSearchText] = useState('');
+    const [searchedColumn, setSearchedColumn] = useState('');
+    const searchInput = useRef(null);
     const navigate = useNavigate();
+
+    const handleSearch = (selectedKeys, confirm, dataIndex) => {
+        confirm();
+        setSearchText(selectedKeys[0]);
+        setSearchedColumn(dataIndex);
+    };
+
+    const handleReset = (clearFilters) => {
+        clearFilters();
+        setSearchText('');
+    };
+
+    const getColumnSearchProps = (dataIndex) => ({
+        filterDropdown: ({ setSelectedKeys, selectedKeys, confirm, clearFilters }) => (
+            <div
+                style={{
+                    padding: 8,
+                }}
+            >
+                <Input
+                    ref={searchInput}
+                    placeholder={`Search ${dataIndex}`}
+                    value={selectedKeys[0]}
+                    onChange={(e) => setSelectedKeys(e.target.value ? [e.target.value] : [])}
+                    onPressEnter={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                    style={{
+                        marginBottom: 8,
+                        display: 'block',
+                    }}
+                />
+                <Space>
+                    <Button
+                        type="primary"
+                        onClick={() => handleSearch(selectedKeys, confirm, dataIndex)}
+                        icon={<SearchOutlined />}
+                        size="small"
+                        style={{
+                            width: 90,
+                        }}
+                    >
+                        Search
+                    </Button>
+                    <Button
+                        onClick={() => clearFilters && handleReset(clearFilters)}
+                        size="small"
+                        style={{
+                            width: 90,
+                        }}
+                    >
+                        Reset
+                    </Button>
+                    <Button
+                        type="link"
+                        size="small"
+                        onClick={() => {
+                            confirm({
+                                closeDropdown: false,
+                            });
+                            setSearchText(selectedKeys[0]);
+                            setSearchedColumn(dataIndex);
+                        }}
+                    >
+                        Filter
+                    </Button>
+                </Space>
+            </div>
+        ),
+        filterIcon: (filtered) => (
+            <SearchOutlined
+                style={{
+                    color: filtered ? '#1890ff' : undefined,
+                }}
+            />
+        ),
+        onFilter: (value, record) => record[dataIndex].toString().toLowerCase().includes(value.toLowerCase()),
+        onFilterDropdownVisibleChange: (visible) => {
+            if (visible) {
+                setTimeout(() => searchInput.current?.select(), 100);
+            }
+        },
+        render: (text) =>
+            searchedColumn === dataIndex ? (
+                <Highlighter
+                    highlightStyle={{
+                        backgroundColor: '#ffc069',
+                        padding: 0,
+                    }}
+                    searchWords={[searchText]}
+                    autoEscape
+                    textToHighlight={text ? text.toString() : ''}
+                />
+            ) : (
+                text
+            ),
+    });
 
     const columns = [
         {
             title: 'Tên sản phẩm',
             width: 150,
             dataIndex: 'name',
-            key: '100',
+            key: 'name',
             fixed: 'left',
+            ...getColumnSearchProps('name'),
         },
         {
             title: 'Giá',
@@ -155,7 +253,13 @@ function Products() {
                     displayData.push({
                         id: item.id,
                         name: item.name,
-                        price: item.price,
+                        price: item.price
+                            .toString()
+                            .split('')
+                            .reverse()
+                            .reduce((prev, next, index) => {
+                                return (index % 3 ? next : next + '.') + prev;
+                            }),
                         images: item.images,
                         description: item.description,
                         category: item.category,

@@ -1,15 +1,28 @@
-import styles from './Laptop.module.scss';
-import clsx from 'clsx';
+import { Image } from 'cloudinary-react';
+import styles from './Laptop.module.scss'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function BannerEnginneer() {
-
-    const bannerEngineerLogo = 'https://cdn.tgdd.vn/2021/08/banner/dohoa-1200x200.jpg'
-
-    const bannerSize = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
     
-    const bannerEngineerImg = 'https://cdn.tgdd.vn/Products/Images/44/231253/macbook-pro-m1-2020-gray-600x600.jpg'
-
-    const brandEngineerImg = 'https://cdn.tgdd.vn/2022/07/content/50x50-50x50-5.png'
+    const cloudName = 'dlefvc2xe';
+    const [data, setData] = useState([]);
+    
+    const bannerEngineerLogo = 'https://cdn.tgdd.vn/2021/08/banner/dohoa-1200x200.jpg'
+    
+    useEffect(() => {
+        try{
+            axios
+                .get(
+                    'http://localhost:8084/api/v1/products/type?name=laptop'
+                ).then((res) => {
+                    setData(res.data);
+                    console.log(res.data)
+                })
+        }catch (error) {
+            console.log(error.message);
+        }
+    }, [])
 
     return(
         <div className={styles.banner__engineer} id='ltengineer'>
@@ -20,69 +33,41 @@ export default function BannerEnginneer() {
                 </a>
             </div>
             <div className={styles.list__item__block}>
-                <ul className={styles.list__show}>
-                    {bannerSize.map(() => (
-                        <li className={styles.show__item}>
+                <ul className={styles.list__product}>
+                    {data.filter(item => item.laptop.design === 'engineer').map((laptop, i) => (
+                        <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.show__container} href='javascript:void(0)'>
-                                <div className={styles.show__content}>
-                                    <img className={styles.show__element} src={bannerEngineerImg} alt=''/>
-                                </div>
-                                <p className={styles.brand__discount}>
-                                    <img className={styles.brand__deal} 
-                                            src={brandEngineerImg}
-                                            alt=''
+                            <a className={styles.item__container} href={`/productdetail/${laptop.category}/${laptop.manufacturer}/${laptop.id}`}>
+                                <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
+                                    <Image
+                                            className={styles.item__element}
+                                            cloudName={cloudName}
+                                            publicId={laptop.images[0]?.source}
                                     />
-                                    <span className={styles.brand__title}>Sinh nhật giảm sốc</span>
-                                </p>
-                                {/* eslint-disable-next-line */}
-                                <a href='javascript:void(0)'>
-                                    <h3 className={styles.show__name}>MacBook Pro M1 2020</h3>
-                                </a>
-                                <div className={styles.show__group}>
-                                    <ul className={styles.show__memory}>
-                                        <li className={styles.memory__deal}>RAM 16 GB</li>
-                                        <li className={styles.memory__deal}>SSD 512 GB</li>
+                                </div>
+                                <strong style={{color: 'black'}}>{laptop.name}</strong>
+                                <div className={styles.product__group}>
+                                    <ul className={styles.product__memory}>
+                                        <li className={styles.memory__item}>{laptop.laptop.ram} - {laptop.laptop.rom}</li>
                                     </ul>
                                 </div>
-                                <p className={styles.deal__status}>Xả kho giá sốc</p>
-                                <div className={styles.deal__old__price}>
-                                    <p className={styles.deal__price}>44.990.000₫</p>
-                                    <span className={styles.discount__deal}>&nbsp;-10%</span>
+                                <h2>{laptop.os}  Màu:&nbsp;{laptop.color}</h2>
+                                {/* <h2>{laptop.laptop.touchScreen}</h2> */}
+                                <div className={styles.box__old__price}>
+                                    <p className={styles.old__price}>
+                                        {laptop.price.toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                        </p>
+                                    <span className={styles.discount__percent}>&nbsp;-{laptop.saleOff}%</span>
                                 </div>
-                                <strong className={styles.new__deal__price}>40.490.000₫</strong>
-                                <p className={styles.deal__bonus}>Quà <b>100.000₫</b></p>
-                                <div className={styles.deal__rating}>
-                                    <div className={styles.deal__star__rating}>
-                                        <i className={clsx('fa fa-star', styles.star__deal)}></i>
-                                        <i className={clsx('fa fa-star', styles.star__deal)}></i>
-                                        <i className={clsx('fa fa-star', styles.star__deal)}></i>
-                                        <i className={clsx('fa fa-star', styles.star__deal)}></i>
-                                        <i className={clsx('fa fa-star', styles.star__deal)}></i>
-                                    </div>
-                                    <div className={styles.total__rating}><span>&nbsp;26</span></div>
-                                </div>
-                                <div className={styles.utility}>
-                                    <p className={styles.utility__item}>
-                                        <span>M.Hình</span>
-                                        <span>13.3", Retina</span>
-                                    </p>
-                                    <p className={styles.utility__item}>
-                                        <span>CPU</span>
-                                        <span>Apple M1</span>
-                                    </p>
-                                    <p className={styles.utility__item}>
-                                        <span>Card</span>
-                                        <span>8 nhân GPU</span>
-                                    </p>
-                                    <p className={styles.utility__item}>
-                                        <span>Pin</span>
-                                        <span>Khoảng 10 tiếng</span>
-                                    </p>
-                                    <p className={styles.utility__item}>
-                                        <span>Nhẹ</span>
-                                        <span>1.4 kg</span>
-                                    </p>
+                                <strong className={styles.new__price}>{(laptop.price - (laptop.saleOff * laptop.price)/100).toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                </strong>
+                                <div>
+                                    <div style={{...styles, display: 'flex'}}><h2 style={{...styles, minWidth: 60}}>M.HÌNH</h2><p style={{color: 'black'}}>{laptop.laptop.screen}</p></div>
+                                    <div style={{...styles, display: 'flex'}}><h2 style={{...styles, minWidth: 60}}>ROM</h2> <p style={{color: 'black'}}>{laptop.laptop.rom}</p></div>
+                                    <div style={{...styles, display: 'flex'}}><h2 style={{...styles, minWidth: 60}}>CPU</h2> <p style={{color: 'black'}}>{laptop.laptop.cpu}</p></div>
+                                    <div style={{...styles, display: 'flex'}}><h2 style={{...styles, minWidth: 60}}>COLOR</h2> <p style={{color: 'black'}}>{laptop.color}</p></div>
                                 </div>
                             </a>
                         </li>

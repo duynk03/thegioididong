@@ -1,16 +1,12 @@
-import React from "react";
-import TabletSlider from "./tabletSlider";
-import FilterTablet from "./tabletFilter";
-import TabletSort from "./tabletSort";
-import TabletShowAll from "./tabletShow";
+import React, {Fragment} from "react";
+import TabletSlider from "~/pages/Products/Tablet/tabletSlider";
+import MainTablet from "~/pages/Products/Tablet/mainTablet";
 
 export default function Tablet(){
     return(
-        <>
+        <Fragment>
             <TabletSlider />
-            <FilterTablet />
-            <TabletSort />
-            <TabletShowAll />
-        </>
+            <MainTablet />
+        </Fragment>
     );
 }

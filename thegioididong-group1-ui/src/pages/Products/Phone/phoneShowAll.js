@@ -44,7 +44,7 @@ export default function ShowALLPhone() {
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/Itel42-b_54.jpg',
-            category: 'Itel'
+            category: 'itel'
         },
         {
             logo: 'https://cdn.tgdd.vn/Brand/1/Masstel42-b_0.png',
@@ -71,28 +71,22 @@ export default function ShowALLPhone() {
         '512 GB'
     ];
 
-    const batteryPhone = [
-        'Sạc pin nhanh',
-        'Sạc không dây'
-    ];
-    const frequencyPhone = ['60Hz', '120HZ', '144Hz'];
+    
+    const frequencyPhone = ['60Hz', '90Hz', '120Hz'];
 
     const [displayFrequency, setDisplayFrequency] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRam, setDisplayRam] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     const [displayRom, setDisplayRom] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
-    const [displayBattery, setDisplayBattery] = useState(clsx(styles.filter__item__show__element, styles.filter__hidden));
     
     const [hidden, setHidden] = useState(false);
     
     const [displayArrowFrequency, setDisplayArrowFrequency] = useState(clsx(null));
     const [displayArrowRam, setDisplayArrowRam] = useState(clsx(null));
     const [displayArrowRom, setDisplayArrowRom] = useState(clsx(null));
-    const [displayArrowBattery, setDisplayArrowBattery] = useState(clsx(null));
 
     const [displayIconFrequency, setDisplayIconFrequency] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
     const [displayIconRam, setDisplayIconRam] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
     const [displayIconRom, setDisplayIconRom] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
-    const [displayIconBattery, setDisplayIconBattery] = useState(clsx(styles.iconDown, 'fas fa-sort-down'));
 
     const [data, setData] = useState([]);
     const [manu, setManu] = useState('iPhone');
@@ -100,31 +94,27 @@ export default function ShowALLPhone() {
     const [value, setValue] = useState(true);
 
     useEffect(() => {  
-            try {
-                axios
-                    .get(
-                        'http://localhost:8084/api/v1/products/type?name=phone'
-                    )
-                    .then((res) => {
-                        setData([...res.data].filter(item => item.manufacturer === `${manu}`));
-                        if(condition === 'phone-ram'){
-                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.ram === `${value}`));
-                        }
-                        if(condition === 'phone-rom'){
-                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.rom === `${value}`));
-                        }
-                        if(condition === 'phone-pin'){
-                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.pin === `${value}`));
-                        }
-                        if(condition === 'touch-Screen'){
-                            setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.touchScreen === `${value}`));
-                        }
-                        console.log(res.data)
-                    });
-            } catch (error) {
-                console.log(error.message);
-            }
-
+        try {
+            axios
+                .get(
+                    'http://localhost:8084/api/v1/products/type?name=phone'
+                )
+                .then((res) => {
+                    setData([...res.data].filter(item => item.manufacturer === `${manu}`));
+                    if(condition === 'phone-ram'){
+                        setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.ram === `${value}`));
+                    }
+                    if(condition === 'phone-rom'){
+                        setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.rom === `${value}`));
+                    }
+                    if(condition === 'touch-Screen'){
+                        setData([...res.data].filter(item => item.manufacturer === `${manu}`).filter(item => item.phone.touchScreen === `${value}`));
+                    }
+                    console.log(res.data)
+                });
+        } catch (error) {
+            console.log(error.message);
+        }
     }, [manu, value, condition]);
 
 
@@ -200,7 +190,7 @@ export default function ShowALLPhone() {
                     }}>
                         <div className={styles.filter__item__title}>
                             <div className={displayArrowRam}></div>
-                            <span>RAM<i className={displayIconRam}></i></span>
+                            <span>Ram<i className={displayIconRam}></i></span>
                         </div>
                         <div className={displayRam}>
                             <div className={styles.filter__list__element}>
@@ -234,7 +224,7 @@ export default function ShowALLPhone() {
                     }}>
                         <div className={styles.filter__item__title}>
                             <div className={displayArrowRom}></div>
-                            <span>Bộ nhớ trong<i className={displayIconRom}></i></span>
+                            <span>Rom<i className={displayIconRom}></i></span>
                         </div>
                         <div className={displayRom}>
                             <div className={styles.filter__list__element}>
@@ -253,40 +243,6 @@ export default function ShowALLPhone() {
                             </div>
                         </div>
                     </div>
-
-                    <div className={styles.filter__item__show} onClick={ () => {
-                        setHidden(!hidden)
-                        if(displayBattery.includes('hidden')){
-                            setDisplayIconBattery(clsx(styles.iconUp, 'fas fa-sort-up'));
-                            setDisplayArrowBattery(clsx(styles.arrow__filter));
-                            setDisplayBattery(clsx(styles.filter__item__show__element, styles.filter__visible));
-                        }else{
-                            setDisplayIconBattery(clsx(styles.iconDown, 'fas fa-sort-down'));
-                            setDisplayArrowBattery(clsx(null));
-                            setDisplayBattery(clsx(styles.filter__item__show__element, styles.filter__hidden));
-                        }
-                    }}>
-                        <div className={styles.filter__item__title}>
-                            <div className={displayArrowBattery}></div>
-                            <span>Pin & Sạc<i className={displayIconBattery}></i></span>
-                        </div>
-                        <div className={displayBattery}>
-                            <div className={styles.filter__list__element}>
-                                {batteryPhone.map((item) => (
-                                    <>
-                                        {/* eslint-disable-next-line */}
-                                        <a href='javascript:void(0)' 
-                                            className={styles.btn__box}
-                                            onClick={() => {
-                                                setCondition('phone-pin'); 
-                                                setValue(`${item}`);
-                                            }}
-                                            >{item}</a>
-                                    </>
-                                ))}
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
 
@@ -296,7 +252,7 @@ export default function ShowALLPhone() {
                     {data.map((phone, i) => (
                         <li key={i} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
+                            <a className={styles.item__container} href={`/productdetail/${phone.category}/${phone.manufacturer}/${phone.id}`}>
                                 <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
                                             className={styles.item__element}

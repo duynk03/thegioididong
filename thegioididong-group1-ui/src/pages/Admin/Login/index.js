@@ -101,6 +101,16 @@ function Login() {
                         Đăng nhập
                     </Button>
                 </Form.Item>
+                <Form.Item
+                    wrapperCol={{
+                        offset: 8,
+                        span: 8,
+                    }}
+                >
+                    <Button type="primary" onClick={() => navigate('/')}>
+                        Về trang chủ
+                    </Button>
+                </Form.Item>
             </Form>
         </>
     );

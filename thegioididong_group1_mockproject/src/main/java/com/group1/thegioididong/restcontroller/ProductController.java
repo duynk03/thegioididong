@@ -32,7 +32,7 @@ public class ProductController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ResponseEntity<Object> save(@RequestBody Product product) {
-        product.setCreated_at(new Date());
+        product.setCreatedAt(new Date());
         Product pro = productService.save(product);
         return new ResponseEntity<>("Product is created successfully" + pro, HttpStatus.CREATED);
     }
@@ -53,7 +53,7 @@ public class ProductController {
 
         if (productService.findById(id) != null) {
             product.setId(id);
-            product.setModified_at(new Date());
+            product.setModifiedAt(new Date());
         }
         productService.save(product);
         return new ResponseEntity<>("Product is updated successfully", HttpStatus.OK);
@@ -68,5 +68,25 @@ public class ProductController {
     @RequestMapping(value = "/type", method = RequestMethod.GET)
     public ResponseEntity<List<Product>> getByType(@RequestParam(value = "name", defaultValue = "") String name) {
         return new ResponseEntity<>(productService.findByType(name), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/new", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> getNew() {
+        return new ResponseEntity<>(productService.findAllNewAsc(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/hotDeal", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> getHotDeal() {
+        return new ResponseEntity<>(productService.findSaleOffByDate(), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/manufacturer", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> getHotDeal(@RequestParam(value = "name", defaultValue = "") String name) {
+        return new ResponseEntity<>(productService.findTop10ByManufacturer(name, "Còn hàng"), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/search", method = RequestMethod.GET)
+    public ResponseEntity<List<Product>> searchByName(@RequestParam(value = "key", defaultValue = "") String key) {
+        return new ResponseEntity<>(productService.searchByName(key), HttpStatus.OK);
     }
 }

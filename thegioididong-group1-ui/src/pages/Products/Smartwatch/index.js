@@ -1,6 +1,5 @@
 import React from "react";
 import BannerTop from "./bannerTop";
-import QuickAccess from "./quickAccess";
 import MenuBar from "./menuBar";
 import ShockDeal from "./bannerDeal";
 import DealSilde from "./bannerDealSlide";
@@ -14,7 +13,6 @@ export default function Smartwatch(){
     return(
         <>
             <BannerTop />
-            <QuickAccess />
             <MenuBar />
             <ShockDeal />
             <DealSilde />

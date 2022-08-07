@@ -161,23 +161,32 @@ export default function MainPhone() {
                     {data.map((phone, index) => (
                         <li key={index} className={styles.list__item}>
                             {/* eslint-disable-next-line */}
-                            <a className={styles.item__container} href='javascript:void(0)'>
-                                <div className={styles.item__label}>
-                                    <span className={styles.label__content}>Trả góp 0%</span>
-                                </div>
-                                <div className={styles.item__content}>
+                            <a className={styles.item__container} href={`/productdetail/${phone.category}/${phone.manufacturer}/${phone.id}`}>
+                                <div className={styles.item__content} style={{...styles, paddingTop: 10}}>
                                     <Image
-                                        className={styles.item__element}
-                                        cloudName={cloudName}
-                                        publicId={phone.images[0]?.source}
+                                            className={styles.item__element}
+                                            cloudName={cloudName}
+                                            publicId={phone.images[0]?.source}
                                     />
                                 </div>
                                 <strong style={{color: 'black'}}>{phone.name}</strong>
+                                <div className={styles.product__group}>
+                                    <ul className={styles.product__memory}>
+                                        <li className={styles.memory__item}>{phone.phone.ram} - {phone.phone.rom}</li>
+                                    </ul>
+                                </div>
+                                <h2>{phone.phone.screen}</h2>
+                                <h2>{phone.phone.touchScreen}</h2>
                                 <div className={styles.box__old__price}>
-                                    <p className={styles.old__price}>{phone.price}₫</p>
+                                    <p className={styles.old__price}>
+                                        {phone.price.toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                        </p>
                                     <span className={styles.discount__percent}>&nbsp;-{phone.saleOff}%</span>
                                 </div>
-                                <strong className={styles.new__price}>{`${phone.price - (phone.saleOff * phone.price)/100}`}₫</strong>
+                                <strong className={styles.new__price}>{(phone.price - (phone.saleOff * phone.price)/100).toString().split('').reverse().reduce((prev, next, index) => {
+                                            return (index % 3 ? next : next + '.') + prev;})}₫
+                                </strong>
                             </a>
                         </li>
                     ))}

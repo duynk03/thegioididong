@@ -82,7 +82,8 @@
 
         .list__item{
             background-color: #fff;
-            height: 450px;
+            min-height: 450px;
+            height: fit-content;
             border-bottom: 10px solid #e0e0e0 !important; //#f3f3f3
             border-right: 10px solid #e0e0e0 !important;
             padding: 5px;

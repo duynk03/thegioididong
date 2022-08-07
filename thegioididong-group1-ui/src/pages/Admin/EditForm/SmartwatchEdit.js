@@ -54,7 +54,7 @@ const SmartwatchEdit = () => {
                         ? ''
                         : response.data.smartwatch.materialSurface,
                 feature: typeof response.data.smartwatch.size === 'undefined' ? '' : response.data.smartwatch.feature,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 smartwatchId: response.data.smartwatch.id,
             };
         })
@@ -114,8 +114,8 @@ const SmartwatchEdit = () => {
                     tablet: null,
                     stillInBusiness: product.stillInBusiness === 'true' ? true : false,
                     saleOff: product.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: product.description,
                     quantity: product.quantity,
                     images: images.reduce((a, value) => {

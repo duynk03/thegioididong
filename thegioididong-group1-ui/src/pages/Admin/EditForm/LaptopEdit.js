@@ -51,7 +51,7 @@ const LaptopEdit = () => {
                 connector: typeof response.data.laptop.connector === 'undefined' ? '' : response.data.laptop.connector,
                 especially:
                     typeof response.data.laptop.especially === 'undefined' ? '' : response.data.laptop.especially,
-                createdAt: response.data.created_at,
+                createdAt: response.data.createdAt,
                 laptopId: response.data.laptop.id,
             };
             console.log(defaultValues);
@@ -113,8 +113,8 @@ const LaptopEdit = () => {
                     smartwatch: null,
                     state: product.state,
                     saleOff: product.saleOff,
-                    created_at: defaultValues.createdAt,
-                    modified_at: new Date(),
+                    createdAt: defaultValues.createdAt,
+                    modifiedAt: new Date(),
                     description: product.description,
                     images: images.reduce((a, value) => {
                         return [...a, { source: value }];
